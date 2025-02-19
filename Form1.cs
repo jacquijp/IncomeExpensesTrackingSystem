@@ -75,11 +75,36 @@ namespace IncomeExpensesTrackingSystem
 
         private void login_button_Click(object sender, EventArgs e)
         {
-           using (SqlConnection connect = new SqlConnection(stringConnection))
+            using (SqlConnection connect = new SqlConnection(stringConnection))
             {
                 connect.Open();
 
-                string selectData = "SELECT ' FROM users WHERE username = @usern AND password = @pass";
+                string selectData = "SELECT * FROM users WHERE username = @usern AND password = @pass";
+
+                using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                {
+                    cmd.Parameters.AddWithValue("@usern", signin_username.Text.Trim());
+                    cmd.Parameters.AddWithValue("@pass", login_password.Text.Trim());
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable table = new DataTable();
+
+                    adapter.Fill(table);
+
+                    if (table.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Login succesfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MainForm mForm = new MainForm();
+                        mForm.Show();
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("incorrect username/password.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }
