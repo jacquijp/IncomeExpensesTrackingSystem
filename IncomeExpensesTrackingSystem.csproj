@@ -100,6 +100,7 @@
     <Content Include="Assets\icon4-nobg350.png" />
     <Content Include="Assets\icon4-nobg500.png" />
     <Content Include="Assets\Income.png" />
+    <Content Include="Assets\list.png" />
     <Content Include="Assets\logout.png" />
     <Content Include="Assets\mainLogo_dark_grey.png" />
     <Content Include="Assets\mainLogo_light_grey.png" />
@@ -107,12 +108,15 @@
     <Content Include="Assets\mainLogo_soft_sky_blue.png" />
     <Content Include="Assets\mainLogo_vivid_blue.png" />
     <Content Include="Assets\moon.png" />
+    <Content Include="Assets\notifications_dark_grey.png" />
+    <Content Include="Assets\reports.png" />
     <Content Include="Assets\settings %281%29.png" />
     <Content Include="Assets\SolarHandMoneyLinear %281%29.png" />
     <Content Include="Assets\StashDashboard.png" />
     <Content Include="Assets\TablerPigMoney.png" />
     <Content Include="Assets\Untitled design %281%29.png" />
     <Content Include="Assets\Untitled design.png" />
+    <Content Include="Assets\user_dark_grey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
