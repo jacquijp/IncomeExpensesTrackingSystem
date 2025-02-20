@@ -40,12 +40,12 @@
             this.registerHere_Button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.register_confirm_password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.register_show_password = new System.Windows.Forms.CheckBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // register_button
@@ -129,10 +129,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.registerHere_Button);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -152,20 +152,20 @@
             this.registerHere_Button.Name = "registerHere_Button";
             this.registerHere_Button.Size = new System.Drawing.Size(527, 76);
             this.registerHere_Button.TabIndex = 9;
-            this.registerHere_Button.Text = "HERE";
+            this.registerHere_Button.Text = "LOGIN HERE";
             this.registerHere_Button.UseVisualStyleBackColor = false;
             this.registerHere_Button.Click += new System.EventHandler(this.login_signupButton_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Lucida Sans", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.label6.Location = new System.Drawing.Point(240, 766);
+            this.label6.Location = new System.Drawing.Point(202, 771);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 33);
+            this.label6.Size = new System.Drawing.Size(210, 27);
             this.label6.TabIndex = 9;
-            this.label6.Text = "SIGN IN";
+            this.label6.Text = "Already an user?";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
@@ -178,18 +178,6 @@
             this.label2.Size = new System.Drawing.Size(480, 39);
             this.label2.TabIndex = 1;
             this.label2.Text = "Income and Expenses Tracker";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(186, 194);
-            this.pictureBox1.MaximumSize = new System.Drawing.Size(266, 254);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(266, 254);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(266, 254);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // register_confirm_password
             // 
@@ -222,6 +210,20 @@
             this.register_show_password.UseVisualStyleBackColor = true;
             this.register_show_password.CheckedChanged += new System.EventHandler(this.register_show_password_CheckedChanged);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(189, 194);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.MaximumSize = new System.Drawing.Size(266, 254);
+            this.pictureBox2.MinimumSize = new System.Drawing.Size(266, 254);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(266, 254);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -245,7 +247,7 @@
             this.Text = "RegisterForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,9 +265,9 @@
         private System.Windows.Forms.Button registerHere_Button;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox register_confirm_password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox register_show_password;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

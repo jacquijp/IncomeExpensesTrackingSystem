@@ -123,5 +123,10 @@ namespace IncomeExpensesTrackingSystem
             register_password.PasswordChar = register_show_password.Checked ? '\0' : '*';
             register_confirm_password.PasswordChar = register_show_password.Checked ? '\0' : '*';
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
