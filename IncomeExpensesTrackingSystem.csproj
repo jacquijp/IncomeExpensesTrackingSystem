@@ -69,6 +69,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -92,11 +95,19 @@
   <ItemGroup>
     <Content Include="Assets\addCategory.png" />
     <Content Include="Assets\Expenses.png" />
+    <Content Include="Assets\help.png" />
     <Content Include="Assets\icon4-nobg.png" />
     <Content Include="Assets\icon4-nobg350.png" />
     <Content Include="Assets\icon4-nobg500.png" />
     <Content Include="Assets\Income.png" />
     <Content Include="Assets\logout.png" />
+    <Content Include="Assets\mainLogo_dark_grey.png" />
+    <Content Include="Assets\mainLogo_light_grey.png" />
+    <Content Include="Assets\mainLogo_navy_blue.png" />
+    <Content Include="Assets\mainLogo_soft_sky_blue.png" />
+    <Content Include="Assets\mainLogo_vivid_blue.png" />
+    <Content Include="Assets\moon.png" />
+    <Content Include="Assets\settings %281%29.png" />
     <Content Include="Assets\SolarHandMoneyLinear %281%29.png" />
     <Content Include="Assets\StashDashboard.png" />
     <Content Include="Assets\TablerPigMoney.png" />
