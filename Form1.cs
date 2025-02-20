@@ -18,6 +18,9 @@ namespace IncomeExpensesTrackingSystem
         public Form1()
         {
             InitializeComponent();
+
+            this.AutoScaleMode = AutoScaleMode.None;
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -106,6 +109,11 @@ namespace IncomeExpensesTrackingSystem
                     }
                 }
             }
+        }
+
+        private void signin_username_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

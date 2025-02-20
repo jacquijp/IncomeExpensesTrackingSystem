@@ -68,7 +68,7 @@
             this.login_signupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(165)))), ((int)(((byte)(250)))));
             this.login_signupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(165)))), ((int)(((byte)(250)))));
             this.login_signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_signupButton.Font = new System.Drawing.Font("Lucida Sans", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_signupButton.Font = new System.Drawing.Font("Montserrat", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_signupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.login_signupButton.Location = new System.Drawing.Point(45, 904);
             this.login_signupButton.Name = "login_signupButton";
@@ -81,11 +81,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Lucida Sans", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Montserrat", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.label6.Location = new System.Drawing.Point(236, 841);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 33);
+            this.label6.Size = new System.Drawing.Size(332, 90);
             this.label6.TabIndex = 9;
             this.label6.Text = "REGISTER";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -93,11 +93,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(92, 480);
+            this.label2.Location = new System.Drawing.Point(52, 481);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(480, 39);
+            this.label2.Size = new System.Drawing.Size(538, 49);
             this.label2.TabIndex = 1;
             this.label2.Text = "Income and Expenses Tracker";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -132,11 +132,11 @@
             // signin_label
             // 
             this.signin_label.AutoSize = true;
-            this.signin_label.Font = new System.Drawing.Font("Lucida Sans", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signin_label.Font = new System.Drawing.Font("Montserrat SemiBold", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signin_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.signin_label.Location = new System.Drawing.Point(675, 217);
+            this.signin_label.Location = new System.Drawing.Point(648, 224);
             this.signin_label.Name = "signin_label";
-            this.signin_label.Size = new System.Drawing.Size(181, 48);
+            this.signin_label.Size = new System.Drawing.Size(398, 134);
             this.signin_label.TabIndex = 2;
             this.signin_label.Text = "SIGN IN";
             this.signin_label.Click += new System.EventHandler(this.label3_Click);
@@ -144,11 +144,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.label4.Location = new System.Drawing.Point(653, 379);
+            this.label4.Location = new System.Drawing.Point(661, 380);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 37);
+            this.label4.Size = new System.Drawing.Size(189, 49);
             this.label4.TabIndex = 3;
             this.label4.Text = "Username";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -160,6 +160,7 @@
             this.signin_username.Name = "signin_username";
             this.signin_username.Size = new System.Drawing.Size(576, 39);
             this.signin_username.TabIndex = 4;
+            this.signin_username.TextChanged += new System.EventHandler(this.signin_username_TextChanged);
             // 
             // login_password
             // 
@@ -172,11 +173,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.label5.Location = new System.Drawing.Point(663, 510);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 37);
+            this.label5.Size = new System.Drawing.Size(358, 98);
             this.label5.TabIndex = 5;
             this.label5.Text = "Password";
             // 
@@ -187,7 +188,7 @@
             this.login_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(165)))), ((int)(((byte)(250)))));
             this.login_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(165)))), ((int)(((byte)(250)))));
             this.login_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_button.Font = new System.Drawing.Font("Lucida Sans", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_button.Font = new System.Drawing.Font("Montserrat", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.login_button.Location = new System.Drawing.Point(670, 694);
             this.login_button.Name = "login_button";
@@ -200,11 +201,11 @@
             // login_showPassword
             // 
             this.login_showPassword.AutoSize = true;
-            this.login_showPassword.Font = new System.Drawing.Font("Lucida Sans", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_showPassword.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_showPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.login_showPassword.Location = new System.Drawing.Point(1052, 624);
+            this.login_showPassword.Location = new System.Drawing.Point(1025, 620);
             this.login_showPassword.Name = "login_showPassword";
-            this.login_showPassword.Size = new System.Drawing.Size(194, 28);
+            this.login_showPassword.Size = new System.Drawing.Size(211, 37);
             this.login_showPassword.TabIndex = 8;
             this.login_showPassword.Text = "Show Password";
             this.login_showPassword.UseVisualStyleBackColor = true;
