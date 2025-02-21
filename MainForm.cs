@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using IncomeExpensesTrackingSystem;
-
 
 namespace IncomeExpensesTrackingSystem
 {
@@ -30,39 +21,44 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            DashboardForm dashboard = new DashboardForm();
-            dashboard.Show();
-            this.Hide();
+            // Asegúrate de que DashboardForm existe en tu proyecto
+            if (Application.OpenForms["DashboardForm"] == null)
+            {
+                DashboardForm dashboard = new DashboardForm(username);
+                dashboard.Show();
+                this.Hide();
+            }
         }
 
         private void btnIncomeManagement_Click(object sender, EventArgs e)
         {
-            IncomeManagementForm incomeForm = new IncomeManagementForm();
-            incomeForm.Show();
+            // Si IncomeManagementForm no está creado, mantén esto comentado
+            // IncomeManagementForm incomeForm = new IncomeManagementForm();
+            // incomeForm.Show();
         }
 
         private void btnExpensesManagement_Click(object sender, EventArgs e)
         {
-            ExpensesManagementForm expensesForm = new ExpensesManagementForm();
-            expensesForm.Show();
+            // ExpensesManagementForm expensesForm = new ExpensesManagementForm();
+            // expensesForm.Show();
         }
 
         private void btnSavings_Click(object sender, EventArgs e)
         {
-            SavingsForm savingsForm = new SavingsForm();
-            savingsForm.Show();
+            // SavingsForm savingsForm = new SavingsForm();
+            // savingsForm.Show();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            ReportsForm reportsForm = new ReportsForm();
-            reportsForm.Show();
+            // ReportsForm reportsForm = new ReportsForm();
+            // reportsForm.Show();
         }
 
         private void btnCategoryList_Click(object sender, EventArgs e)
         {
-            CategoryListForm categoryForm = new CategoryListForm();
-            categoryForm.Show();
+            // CategoryListForm categoryForm = new CategoryListForm();
+            // categoryForm.Show();
         }
 
         private void picSettings_Click(object sender, EventArgs e)
@@ -77,7 +73,10 @@ namespace IncomeExpensesTrackingSystem
 
         private void picDarkMode_Click(object sender, EventArgs e)
         {
-            this.BackColor = this.BackColor == System.Drawing.Color.FromArgb(243, 244, 246) ? System.Drawing.Color.Black : System.Drawing.Color.FromArgb(243, 244, 246);
+            // Alternar entre modo claro y oscuro
+            this.BackColor = this.BackColor == System.Drawing.Color.FromArgb(243, 244, 246)
+                ? System.Drawing.Color.Black
+                : System.Drawing.Color.FromArgb(243, 244, 246);
         }
 
         private void notificationsIcon_Click(object sender, EventArgs e)
@@ -97,4 +96,3 @@ namespace IncomeExpensesTrackingSystem
         }
     }
 }
-

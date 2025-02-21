@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
+using IncomeExpensesTrackingSystem;
 
 namespace IncomeExpensesTrackingSystem
 {
@@ -96,16 +96,19 @@ namespace IncomeExpensesTrackingSystem
 
                     if (table.Rows.Count > 0)
                     {
-                        MessageBox.Show("Login succesfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string username = signin_username.Text.Trim(); // Obtener el nombre de usuario
+                        MessageBox.Show("Login successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        MainForm mForm = new MainForm();
-                        mForm.Show();
+                        this.Hide(); // Ocultar Form1
 
-                        this.Hide();
+                        MainForm mForm = new MainForm(signin_username.Text); // deliver user
+                        mForm.Show(); // show main window
+
+                        this.Hide(); 
                     }
                     else
                     {
-                        MessageBox.Show("incorrect username/password.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Incorrect username/password.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
