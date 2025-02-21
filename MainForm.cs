@@ -19,20 +19,8 @@ namespace IncomeExpensesTrackingSystem
             labelDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            // Asegúrate de que DashboardForm existe en tu proyecto
-            if (Application.OpenForms["DashboardForm"] == null)
-            {
-                DashboardForm dashboard = new DashboardForm(username);
-                dashboard.Show();
-                this.Hide();
-            }
-        }
-
         private void btnIncomeManagement_Click(object sender, EventArgs e)
         {
-            // Si IncomeManagementForm no está creado, mantén esto comentado
             // IncomeManagementForm incomeForm = new IncomeManagementForm();
             // incomeForm.Show();
         }
@@ -73,7 +61,7 @@ namespace IncomeExpensesTrackingSystem
 
         private void picDarkMode_Click(object sender, EventArgs e)
         {
-            // Alternar entre modo claro y oscuro
+            // Switch dark and light theme
             this.BackColor = this.BackColor == System.Drawing.Color.FromArgb(243, 244, 246)
                 ? System.Drawing.Color.Black
                 : System.Drawing.Color.FromArgb(243, 244, 246);
@@ -94,5 +82,27 @@ namespace IncomeExpensesTrackingSystem
                 this.Close();
             }
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            OpenDashboard();
+        }
+
+        private void buttonDashboard_Click(object sender, EventArgs e)
+        {
+            OpenDashboard();
+        }
+
+        private void OpenDashboard()
+        {
+            // Check if the DashboardForm is already open
+            if (Application.OpenForms["DashboardForm"] == null)
+            {
+                DashboardForm dashboard = new DashboardForm(username);
+                dashboard.Show();
+                this.Hide();
+            }
+        }
+
     }
 }

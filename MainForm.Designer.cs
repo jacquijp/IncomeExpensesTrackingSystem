@@ -32,7 +32,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.iconSavings = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.iconExpenses = new System.Windows.Forms.PictureBox();
+            this.iconIncome = new System.Windows.Forms.PictureBox();
+            this.iconDashboard = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
+            this.picSettings = new System.Windows.Forms.PictureBox();
+            this.picHelp = new System.Windows.Forms.PictureBox();
+            this.picDarkMode = new System.Windows.Forms.PictureBox();
             this.btnCategoryList = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnSavings = new System.Windows.Forms.Button();
@@ -47,31 +57,21 @@
             this.close_Click = new System.Windows.Forms.Label();
             this.profilePicRightCorner = new System.Windows.Forms.PictureBox();
             this.notificationsIcon = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.iconExpenses = new System.Windows.Forms.PictureBox();
-            this.iconIncome = new System.Windows.Forms.PictureBox();
-            this.iconDashboard = new System.Windows.Forms.PictureBox();
-            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
-            this.picSettings = new System.Windows.Forms.PictureBox();
-            this.picHelp = new System.Windows.Forms.PictureBox();
-            this.picDarkMode = new System.Windows.Forms.PictureBox();
             this.iconSavings.SuspendLayout();
-            this.topPanel.SuspendLayout();
-            this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicRightCorner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.notificationsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconIncome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconDashboard)).BeginInit();
+            this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDarkMode)).BeginInit();
+            this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicRightCorner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notificationsIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // iconSavings
@@ -97,7 +97,72 @@
             this.iconSavings.Name = "iconSavings";
             this.iconSavings.Size = new System.Drawing.Size(404, 8792);
             this.iconSavings.TabIndex = 0;
-           // this.iconSavings.Paint += new System.Windows.Forms.PaintEventHandler(this.iconSavings_Paint);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(12, 536);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.pictureBox5.Size = new System.Drawing.Size(48, 43);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 14;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(12, 460);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.pictureBox4.Size = new System.Drawing.Size(48, 43);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(12, 387);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.pictureBox3.Size = new System.Drawing.Size(48, 43);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // iconExpenses
+            // 
+            this.iconExpenses.Image = ((System.Drawing.Image)(resources.GetObject("iconExpenses.Image")));
+            this.iconExpenses.Location = new System.Drawing.Point(12, 316);
+            this.iconExpenses.Name = "iconExpenses";
+            this.iconExpenses.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.iconExpenses.Size = new System.Drawing.Size(48, 43);
+            this.iconExpenses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconExpenses.TabIndex = 11;
+            this.iconExpenses.TabStop = false;
+            // 
+            // iconIncome
+            // 
+            this.iconIncome.Image = ((System.Drawing.Image)(resources.GetObject("iconIncome.Image")));
+            this.iconIncome.Location = new System.Drawing.Point(12, 243);
+            this.iconIncome.Name = "iconIncome";
+            this.iconIncome.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.iconIncome.Size = new System.Drawing.Size(48, 43);
+            this.iconIncome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconIncome.TabIndex = 10;
+            this.iconIncome.TabStop = false;
+            // 
+            // iconDashboard
+            // 
+            this.iconDashboard.Image = ((System.Drawing.Image)(resources.GetObject("iconDashboard.Image")));
+            this.iconDashboard.Location = new System.Drawing.Point(12, 167);
+            this.iconDashboard.Name = "iconDashboard";
+            this.iconDashboard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.iconDashboard.Size = new System.Drawing.Size(48, 43);
+            this.iconDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconDashboard.TabIndex = 9;
+            this.iconDashboard.TabStop = false;
             // 
             // topPanel
             // 
@@ -107,6 +172,54 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1504, 115);
             this.topPanel.TabIndex = 1;
+            // 
+            // leftCornerLogo
+            // 
+            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
+            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
+            this.leftCornerLogo.Location = new System.Drawing.Point(6, 9);
+            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.leftCornerLogo.Name = "leftCornerLogo";
+            this.leftCornerLogo.Size = new System.Drawing.Size(119, 92);
+            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.leftCornerLogo.TabIndex = 0;
+            this.leftCornerLogo.TabStop = false;
+            // 
+            // picSettings
+            // 
+            this.picSettings.BackColor = System.Drawing.Color.Transparent;
+            this.picSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picSettings.Image = ((System.Drawing.Image)(resources.GetObject("picSettings.Image")));
+            this.picSettings.Location = new System.Drawing.Point(307, 1027);
+            this.picSettings.Name = "picSettings";
+            this.picSettings.Size = new System.Drawing.Size(65, 46);
+            this.picSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSettings.TabIndex = 8;
+            this.picSettings.TabStop = false;
+            // 
+            // picHelp
+            // 
+            this.picHelp.BackColor = System.Drawing.Color.Transparent;
+            this.picHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picHelp.Image = ((System.Drawing.Image)(resources.GetObject("picHelp.Image")));
+            this.picHelp.Location = new System.Drawing.Point(253, 1025);
+            this.picHelp.Name = "picHelp";
+            this.picHelp.Size = new System.Drawing.Size(48, 52);
+            this.picHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelp.TabIndex = 7;
+            this.picHelp.TabStop = false;
+            // 
+            // picDarkMode
+            // 
+            this.picDarkMode.BackColor = System.Drawing.Color.Transparent;
+            this.picDarkMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picDarkMode.Image = ((System.Drawing.Image)(resources.GetObject("picDarkMode.Image")));
+            this.picDarkMode.Location = new System.Drawing.Point(21, 1027);
+            this.picDarkMode.Name = "picDarkMode";
+            this.picDarkMode.Size = new System.Drawing.Size(47, 50);
+            this.picDarkMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picDarkMode.TabIndex = 6;
+            this.picDarkMode.TabStop = false;
             // 
             // btnCategoryList
             // 
@@ -209,7 +322,8 @@
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
-            //this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click_1);
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+
             // 
             // mainFormTitle
             // 
@@ -244,6 +358,7 @@
             this.buttonDashboard.TabIndex = 2;
             this.buttonDashboard.Text = "Go to Dashboard";
             this.buttonDashboard.UseVisualStyleBackColor = false;
+            this.buttonDashboard.Click += new System.EventHandler(this.buttonDashboard_Click);
             // 
             // labelDate
             // 
@@ -266,7 +381,6 @@
             this.labelWelcome.Size = new System.Drawing.Size(226, 42);
             this.labelWelcome.TabIndex = 0;
             this.labelWelcome.Text = "Welcome, ____ !";
-            //this.labelWelcome.Click += new System.EventHandler(this.labelWelcome_Click);
             // 
             // close_Click
             // 
@@ -280,6 +394,7 @@
             // 
             // profilePicRightCorner
             // 
+            this.profilePicRightCorner.Cursor = System.Windows.Forms.Cursors.Hand;
             this.profilePicRightCorner.Image = ((System.Drawing.Image)(resources.GetObject("profilePicRightCorner.Image")));
             this.profilePicRightCorner.Location = new System.Drawing.Point(1379, 12);
             this.profilePicRightCorner.Margin = new System.Windows.Forms.Padding(0);
@@ -300,117 +415,6 @@
             this.notificationsIcon.TabIndex = 2;
             this.notificationsIcon.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, 536);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.pictureBox5.Size = new System.Drawing.Size(48, 43);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(12, 460);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.pictureBox4.Size = new System.Drawing.Size(48, 43);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 387);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.pictureBox3.Size = new System.Drawing.Size(48, 43);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            // 
-            // iconExpenses
-            // 
-            this.iconExpenses.Image = ((System.Drawing.Image)(resources.GetObject("iconExpenses.Image")));
-            this.iconExpenses.Location = new System.Drawing.Point(12, 316);
-            this.iconExpenses.Name = "iconExpenses";
-            this.iconExpenses.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconExpenses.Size = new System.Drawing.Size(48, 43);
-            this.iconExpenses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconExpenses.TabIndex = 11;
-            this.iconExpenses.TabStop = false;
-            // 
-            // iconIncome
-            // 
-            this.iconIncome.Image = ((System.Drawing.Image)(resources.GetObject("iconIncome.Image")));
-            this.iconIncome.Location = new System.Drawing.Point(12, 243);
-            this.iconIncome.Name = "iconIncome";
-            this.iconIncome.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconIncome.Size = new System.Drawing.Size(48, 43);
-            this.iconIncome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconIncome.TabIndex = 10;
-            this.iconIncome.TabStop = false;
-            // 
-            // iconDashboard
-            // 
-            this.iconDashboard.Image = ((System.Drawing.Image)(resources.GetObject("iconDashboard.Image")));
-            this.iconDashboard.Location = new System.Drawing.Point(12, 167);
-            this.iconDashboard.Name = "iconDashboard";
-            this.iconDashboard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconDashboard.Size = new System.Drawing.Size(48, 43);
-            this.iconDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconDashboard.TabIndex = 9;
-            this.iconDashboard.TabStop = false;
-            // 
-            // leftCornerLogo
-            // 
-            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
-            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
-            this.leftCornerLogo.Location = new System.Drawing.Point(6, 9);
-            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.leftCornerLogo.Name = "leftCornerLogo";
-            this.leftCornerLogo.Size = new System.Drawing.Size(119, 92);
-            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.leftCornerLogo.TabIndex = 0;
-            this.leftCornerLogo.TabStop = false;
-            // 
-            // picSettings
-            // 
-            this.picSettings.BackColor = System.Drawing.Color.Transparent;
-            this.picSettings.Image = ((System.Drawing.Image)(resources.GetObject("picSettings.Image")));
-            this.picSettings.Location = new System.Drawing.Point(307, 1027);
-            this.picSettings.Name = "picSettings";
-            this.picSettings.Size = new System.Drawing.Size(65, 46);
-            this.picSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSettings.TabIndex = 8;
-            this.picSettings.TabStop = false;
-            // 
-            // picHelp
-            // 
-            this.picHelp.BackColor = System.Drawing.Color.Transparent;
-            this.picHelp.Image = ((System.Drawing.Image)(resources.GetObject("picHelp.Image")));
-            this.picHelp.Location = new System.Drawing.Point(253, 1025);
-            this.picHelp.Name = "picHelp";
-            this.picHelp.Size = new System.Drawing.Size(48, 52);
-            this.picHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelp.TabIndex = 7;
-            this.picHelp.TabStop = false;
-            // 
-            // picDarkMode
-            // 
-            this.picDarkMode.BackColor = System.Drawing.Color.Transparent;
-            this.picDarkMode.Image = ((System.Drawing.Image)(resources.GetObject("picDarkMode.Image")));
-            this.picDarkMode.Location = new System.Drawing.Point(21, 1027);
-            this.picDarkMode.Name = "picDarkMode";
-            this.picDarkMode.Size = new System.Drawing.Size(47, 50);
-            this.picDarkMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picDarkMode.TabIndex = 6;
-            this.picDarkMode.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -428,23 +432,22 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Income and Expenses Tracker System";
             this.Load += new System.EventHandler(this.MainForm_Load);
-
             this.iconSavings.ResumeLayout(false);
-            this.topPanel.ResumeLayout(false);
-            this.panelMain.ResumeLayout(false);
-            this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicRightCorner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.notificationsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconExpenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconIncome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconDashboard)).EndInit();
+            this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDarkMode)).EndInit();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicRightCorner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notificationsIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

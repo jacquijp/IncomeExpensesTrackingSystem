@@ -37,5 +37,10 @@ namespace IncomeExpensesTrackingSystem
             mainForm.Show();
             this.Close();
         }
+
+        private void topPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
