@@ -305,6 +305,7 @@
             this.btnIncomeManagement.Text = "Income Management";
             this.btnIncomeManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIncomeManagement.UseVisualStyleBackColor = true;
+            this.btnIncomeManagement.Click += new System.EventHandler(this.btnIncomeManagement_Click);
             // 
             // btnDashboard
             // 
@@ -323,7 +324,6 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-
             // 
             // mainFormTitle
             // 
@@ -345,6 +345,7 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(752, 640);
             this.panelMain.TabIndex = 4;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // buttonDashboard
             // 

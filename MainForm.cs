@@ -21,8 +21,12 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnIncomeManagement_Click(object sender, EventArgs e)
         {
-            // IncomeManagementForm incomeForm = new IncomeManagementForm();
-            // incomeForm.Show();
+            if (Application.OpenForms["IncomeManagementForm"] == null)
+            {
+                IncomeManagementForm incomeForm = new IncomeManagementForm();
+                incomeForm.Show();
+                this.Hide();
+            }
         }
 
         private void btnExpensesManagement_Click(object sender, EventArgs e)
@@ -104,5 +108,9 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
