@@ -72,6 +72,7 @@
             this.label2.Size = new System.Drawing.Size(34, 38);
             this.label2.TabIndex = 12;
             this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.close_Click_Click);
             // 
             // label_editSavings
             // 
@@ -196,6 +197,7 @@
             this.btnCancelEditSaving.TabIndex = 10;
             this.btnCancelEditSaving.Text = "Cancel";
             this.btnCancelEditSaving.UseVisualStyleBackColor = false;
+            this.btnCancelEditSaving.Click += new System.EventHandler(this.btnCancelEditSaving_Click);
             // 
             // btnSaveEditSaving
             // 
@@ -210,6 +212,7 @@
             this.btnSaveEditSaving.TabIndex = 9;
             this.btnSaveEditSaving.Text = "Save";
             this.btnSaveEditSaving.UseVisualStyleBackColor = false;
+            this.btnSaveEditSaving.Click += new System.EventHandler(this.btnSaveEditSaving_Click);
             // 
             // EditSavingsGoalForm
             // 
@@ -224,6 +227,7 @@
             this.Name = "EditSavingsGoalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditSavingsGoalForm";
+            this.Load += new System.EventHandler(this.EditSavingsGoalForm_Load);
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();

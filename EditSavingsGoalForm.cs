@@ -21,5 +21,25 @@ namespace IncomeExpensesTrackingSystem
         {
 
         }
+
+        private void close_Click_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditSavingsGoalForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveEditSaving_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelEditSaving_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

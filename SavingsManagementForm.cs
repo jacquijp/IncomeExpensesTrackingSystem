@@ -17,7 +17,37 @@ namespace IncomeExpensesTrackingSystem
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAddNewSaving_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditSavings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteSavings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExportSavings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void close_Click_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridSavings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridSavings_SelectionChanged(object sender, EventArgs e)
         {
 
         }

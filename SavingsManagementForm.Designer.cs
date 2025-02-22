@@ -93,6 +93,7 @@
             this.label2.Size = new System.Drawing.Size(34, 38);
             this.label2.TabIndex = 11;
             this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.close_Click_Click);
             // 
             // close_Click
             // 
@@ -136,6 +137,8 @@
             this.dataGridSavings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSavings.Size = new System.Drawing.Size(1287, 538);
             this.dataGridSavings.TabIndex = 0;
+            this.dataGridSavings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSavings_CellContentClick);
+            this.dataGridSavings.SelectionChanged += new System.EventHandler(this.dataGridSavings_SelectionChanged);
             // 
             // colSelect
             // 
@@ -214,6 +217,7 @@
             this.btnExportSavings.TabIndex = 9;
             this.btnExportSavings.Text = "Export to Excel";
             this.btnExportSavings.UseVisualStyleBackColor = false;
+            this.btnExportSavings.Click += new System.EventHandler(this.btnExportSavings_Click);
             // 
             // btnDeleteSavings
             // 
@@ -227,6 +231,7 @@
             this.btnDeleteSavings.TabIndex = 8;
             this.btnDeleteSavings.Text = "Delete";
             this.btnDeleteSavings.UseVisualStyleBackColor = false;
+            this.btnDeleteSavings.Click += new System.EventHandler(this.btnDeleteSavings_Click);
             // 
             // btnEditSavings
             // 
@@ -240,6 +245,7 @@
             this.btnEditSavings.TabIndex = 7;
             this.btnEditSavings.Text = "Edit ";
             this.btnEditSavings.UseVisualStyleBackColor = false;
+            this.btnEditSavings.Click += new System.EventHandler(this.btnEditSavings_Click);
             // 
             // btnAddNewSaving
             // 
@@ -253,7 +259,7 @@
             this.btnAddNewSaving.TabIndex = 11;
             this.btnAddNewSaving.Text = "+ Add New Saving";
             this.btnAddNewSaving.UseVisualStyleBackColor = false;
-            this.btnAddNewSaving.Click += new System.EventHandler(this.button2_Click);
+            this.btnAddNewSaving.Click += new System.EventHandler(this.btnAddNewSaving_Click);
             // 
             // panel4
             // 

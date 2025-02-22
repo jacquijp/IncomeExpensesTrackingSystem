@@ -16,5 +16,10 @@ namespace IncomeExpensesTrackingSystem
         {
             InitializeComponent();
         }
+
+        private void AddNewSavingsGoalForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
