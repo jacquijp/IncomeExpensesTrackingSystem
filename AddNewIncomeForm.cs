@@ -12,15 +12,12 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class AddNewIncomeForm : Form
     {
-        private string incomeId; // Para editar un ingreso existente
-
-        // New income
+        private string incomeId;
         public AddNewIncomeForm()
         {
             InitializeComponent();
         }
 
-        // edit existing income
         public AddNewIncomeForm(string id)
         {
             InitializeComponent();
@@ -40,7 +37,7 @@ namespace IncomeExpensesTrackingSystem
             MessageBox.Show($"Loading income data for ID: {id}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSaveIncome_Click(object sender, EventArgs e)
         {
             if (ValidateFields())
             {
@@ -52,28 +49,35 @@ namespace IncomeExpensesTrackingSystem
                 {
                     MessageBox.Show($"Income ID {incomeId} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                this.Close(); 
+                this.Close();
             }
         }
 
         private bool ValidateFields()
         {
+            if (string.IsNullOrWhiteSpace(textBox_AmountNewIncome.Text))
+            {
+                MessageBox.Show("Amount is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (comboBoxCategory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a category.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             return true;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancelIncome_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void labelClose_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void header_newIncome_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Close();
         }
     }
 }
