@@ -65,9 +65,9 @@
             this.label_savingsManagement.Location = new System.Drawing.Point(92, 27);
             this.label_savingsManagement.Name = "label_savingsManagement";
             this.label_savingsManagement.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label_savingsManagement.Size = new System.Drawing.Size(341, 45);
+            this.label_savingsManagement.Size = new System.Drawing.Size(718, 90);
             this.label_savingsManagement.TabIndex = 2;
-            this.label_savingsManagement.Text = "Savings Managment";
+            this.label_savingsManagement.Text = "Savings Management";
             // 
             // panel1
             // 

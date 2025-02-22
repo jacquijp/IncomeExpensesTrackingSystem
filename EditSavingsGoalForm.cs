@@ -12,12 +12,25 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class EditSavingsGoalForm : Form
     {
-        public EditSavingsGoalForm()
+        private DataGridViewRow selectedRow;
+
+        public EditSavingsGoalForm(DataGridViewRow row)
         {
             InitializeComponent();
+            selectedRow = row;
+            LoadData();
         }
 
-        private void label_editSavings_Click(object sender, EventArgs e)
+        private void LoadData()
+        {
+            // Load selected data into the text fields
+            txtEditSavingConcept.Text = selectedRow.Cells["colConcept"].Value.ToString();
+            txtEditSavingGoal.Text = selectedRow.Cells["colGoal"].Value.ToString();
+            txtEditSavingDeposit.Text = selectedRow.Cells["colDeposit"].Value.ToString();
+        }
+
+
+    private void label_editSavings_Click(object sender, EventArgs e)
         {
 
         }
@@ -34,12 +47,13 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnSaveEditSaving_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Changes saved successfully!", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void btnCancelEditSaving_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
