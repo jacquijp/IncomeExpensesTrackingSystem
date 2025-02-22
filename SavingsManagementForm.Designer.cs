@@ -1,0 +1,342 @@
+﻿namespace IncomeExpensesTrackingSystem
+{
+    partial class SavingsManagementForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SavingsManagementForm));
+            this.label_savingsManagement = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.close_Click = new System.Windows.Forms.Label();
+            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridSavings = new System.Windows.Forms.DataGridView();
+            this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colConcept = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGoal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.exportIncome = new System.Windows.Forms.Button();
+            this.deleteIncome = new System.Windows.Forms.Button();
+            this.editIncome = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSavings)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // label_savingsManagement
+            // 
+            this.label_savingsManagement.AutoSize = true;
+            this.label_savingsManagement.Font = new System.Drawing.Font("Montserrat", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_savingsManagement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.label_savingsManagement.Location = new System.Drawing.Point(92, 27);
+            this.label_savingsManagement.Name = "label_savingsManagement";
+            this.label_savingsManagement.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label_savingsManagement.Size = new System.Drawing.Size(682, 90);
+            this.label_savingsManagement.TabIndex = 2;
+            this.label_savingsManagement.Text = "Savings Managment";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.close_Click);
+            this.panel1.Controls.Add(this.label_savingsManagement);
+            this.panel1.Controls.Add(this.leftCornerLogo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1437, 100);
+            this.panel1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.label2.Location = new System.Drawing.Point(1391, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 38);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "X";
+            // 
+            // close_Click
+            // 
+            this.close_Click.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close_Click.AutoSize = true;
+            this.close_Click.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.close_Click.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_Click.Location = new System.Drawing.Point(2859, 9);
+            this.close_Click.Name = "close_Click";
+            this.close_Click.Size = new System.Drawing.Size(34, 38);
+            this.close_Click.TabIndex = 10;
+            this.close_Click.Text = "X";
+            // 
+            // leftCornerLogo
+            // 
+            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
+            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
+            this.leftCornerLogo.Location = new System.Drawing.Point(22, 18);
+            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.leftCornerLogo.Name = "leftCornerLogo";
+            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
+            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.leftCornerLogo.TabIndex = 1;
+            this.leftCornerLogo.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridSavings);
+            this.panel2.Location = new System.Drawing.Point(64, 297);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1287, 538);
+            this.panel2.TabIndex = 2;
+            // 
+            // dataGridSavings
+            // 
+            this.dataGridSavings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
+            this.dataGridSavings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridSavings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSavings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSelect,
+            this.colConcept,
+            this.colStartDate,
+            this.colGoal,
+            this.colDeposit,
+            this.colCurrency,
+            this.colProgress});
+            this.dataGridSavings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridSavings.Location = new System.Drawing.Point(0, 0);
+            this.dataGridSavings.Name = "dataGridSavings";
+            this.dataGridSavings.RowHeadersVisible = false;
+            this.dataGridSavings.RowHeadersWidth = 82;
+            this.dataGridSavings.RowTemplate.Height = 33;
+            this.dataGridSavings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridSavings.Size = new System.Drawing.Size(1287, 538);
+            this.dataGridSavings.TabIndex = 0;
+            // 
+            // colSelect
+            // 
+            this.colSelect.HeaderText = "Select";
+            this.colSelect.MinimumWidth = 10;
+            this.colSelect.Name = "colSelect";
+            this.colSelect.Width = 200;
+            // 
+            // colConcept
+            // 
+            this.colConcept.HeaderText = "Saving Concept ";
+            this.colConcept.MinimumWidth = 10;
+            this.colConcept.Name = "colConcept";
+            this.colConcept.ReadOnly = true;
+            this.colConcept.Width = 200;
+            // 
+            // colStartDate
+            // 
+            this.colStartDate.HeaderText = "Starting Date";
+            this.colStartDate.MinimumWidth = 10;
+            this.colStartDate.Name = "colStartDate";
+            this.colStartDate.ReadOnly = true;
+            this.colStartDate.Width = 200;
+            // 
+            // colGoal
+            // 
+            this.colGoal.HeaderText = "Saving Goa";
+            this.colGoal.MinimumWidth = 10;
+            this.colGoal.Name = "colGoal";
+            this.colGoal.ReadOnly = true;
+            this.colGoal.Width = 200;
+            // 
+            // colDeposit
+            // 
+            this.colDeposit.HeaderText = "Deposit";
+            this.colDeposit.MinimumWidth = 10;
+            this.colDeposit.Name = "colDeposit";
+            this.colDeposit.ReadOnly = true;
+            this.colDeposit.Width = 200;
+            // 
+            // colCurrency
+            // 
+            this.colCurrency.HeaderText = "Currency";
+            this.colCurrency.MinimumWidth = 10;
+            this.colCurrency.Name = "colCurrency";
+            this.colCurrency.ReadOnly = true;
+            this.colCurrency.Width = 200;
+            // 
+            // colProgress
+            // 
+            this.colProgress.HeaderText = "Progress";
+            this.colProgress.MinimumWidth = 10;
+            this.colProgress.Name = "colProgress";
+            this.colProgress.ReadOnly = true;
+            this.colProgress.Width = 200;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.exportIncome);
+            this.panel3.Controls.Add(this.deleteIncome);
+            this.panel3.Controls.Add(this.editIncome);
+            this.panel3.Location = new System.Drawing.Point(0, 861);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1437, 189);
+            this.panel3.TabIndex = 3;
+            // 
+            // exportIncome
+            // 
+            this.exportIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.exportIncome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.exportIncome.Location = new System.Drawing.Point(1114, 31);
+            this.exportIncome.Name = "exportIncome";
+            this.exportIncome.Size = new System.Drawing.Size(269, 68);
+            this.exportIncome.TabIndex = 9;
+            this.exportIncome.Text = "Export to Excel";
+            this.exportIncome.UseVisualStyleBackColor = false;
+            // 
+            // deleteIncome
+            // 
+            this.deleteIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.deleteIncome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.deleteIncome.Location = new System.Drawing.Point(247, 48);
+            this.deleteIncome.Name = "deleteIncome";
+            this.deleteIncome.Size = new System.Drawing.Size(142, 68);
+            this.deleteIncome.TabIndex = 8;
+            this.deleteIncome.Text = "Delete";
+            this.deleteIncome.UseVisualStyleBackColor = false;
+            // 
+            // editIncome
+            // 
+            this.editIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.editIncome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.editIncome.Location = new System.Drawing.Point(77, 48);
+            this.editIncome.Name = "editIncome";
+            this.editIncome.Size = new System.Drawing.Size(142, 68);
+            this.editIncome.TabIndex = 7;
+            this.editIncome.Text = "Edit ";
+            this.editIncome.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.button1.Location = new System.Drawing.Point(430, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 68);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.button2.Location = new System.Drawing.Point(1113, 33);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(269, 68);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "+ Add New Saving";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Location = new System.Drawing.Point(1, 120);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1436, 144);
+            this.panel4.TabIndex = 4;
+            // 
+            // SavingsManagementForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.ClientSize = new System.Drawing.Size(1437, 1046);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "SavingsManagementForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SavingsManagementForm";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSavings)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label_savingsManagement;
+        private System.Windows.Forms.PictureBox leftCornerLogo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label close_Click;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridSavings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colConcept;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGoal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDeposit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCurrency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProgress;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exportIncome;
+        private System.Windows.Forms.Button deleteIncome;
+        private System.Windows.Forms.Button editIncome;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel4;
+    }
+}
