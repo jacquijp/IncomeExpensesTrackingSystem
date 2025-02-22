@@ -16,5 +16,10 @@ namespace IncomeExpensesTrackingSystem
         {
             InitializeComponent();
         }
+
+        private void label_editSavings_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

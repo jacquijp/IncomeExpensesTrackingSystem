@@ -32,23 +32,23 @@
             this.header_newIncome = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label_newSavings = new System.Windows.Forms.Label();
-            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtInitialDeposit = new System.Windows.Forms.TextBox();
-            this.txtSavingGoal = new System.Windows.Forms.TextBox();
-            this.dateSavingStart = new System.Windows.Forms.DateTimePicker();
+            this.txtNewSavingGoal = new System.Windows.Forms.TextBox();
+            this.dateNewSaving = new System.Windows.Forms.DateTimePicker();
             this.labelInitialDeposit = new System.Windows.Forms.Label();
             this.labelGoal = new System.Windows.Forms.Label();
             this.labelConcept = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
-            this.txtSavingConcept = new System.Windows.Forms.TextBox();
-            this.btnCancelSaving = new System.Windows.Forms.Button();
-            this.btnSaveSaving = new System.Windows.Forms.Button();
+            this.txtNewSavingConcept = new System.Windows.Forms.TextBox();
+            this.btnCancelNewSaving = new System.Windows.Forms.Button();
+            this.btnSaveNewSaving = new System.Windows.Forms.Button();
+            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.header_newIncome.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // header_newIncome
@@ -83,28 +83,16 @@
             this.label_newSavings.Location = new System.Drawing.Point(76, 9);
             this.label_newSavings.Name = "label_newSavings";
             this.label_newSavings.Padding = new System.Windows.Forms.Padding(10);
-            this.label_newSavings.Size = new System.Drawing.Size(558, 124);
+            this.label_newSavings.Size = new System.Drawing.Size(279, 62);
             this.label_newSavings.TabIndex = 1;
             this.label_newSavings.Text = "New Savings Goal";
             // 
-            // leftCornerLogo
-            // 
-            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
-            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
-            this.leftCornerLogo.Location = new System.Drawing.Point(9, 9);
-            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.leftCornerLogo.Name = "leftCornerLogo";
-            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
-            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.leftCornerLogo.TabIndex = 2;
-            this.leftCornerLogo.TabStop = false;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtSavingConcept);
+            this.panel1.Controls.Add(this.txtNewSavingConcept);
             this.panel1.Controls.Add(this.txtInitialDeposit);
-            this.panel1.Controls.Add(this.txtSavingGoal);
-            this.panel1.Controls.Add(this.dateSavingStart);
+            this.panel1.Controls.Add(this.txtNewSavingGoal);
+            this.panel1.Controls.Add(this.dateNewSaving);
             this.panel1.Controls.Add(this.labelInitialDeposit);
             this.panel1.Controls.Add(this.labelGoal);
             this.panel1.Controls.Add(this.labelConcept);
@@ -116,8 +104,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnCancelSaving);
-            this.panel2.Controls.Add(this.btnSaveSaving);
+            this.panel2.Controls.Add(this.btnCancelNewSaving);
+            this.panel2.Controls.Add(this.btnSaveNewSaving);
             this.panel2.Location = new System.Drawing.Point(0, 502);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1033, 136);
@@ -131,22 +119,22 @@
             this.txtInitialDeposit.Size = new System.Drawing.Size(270, 33);
             this.txtInitialDeposit.TabIndex = 28;
             // 
-            // txtSavingGoal
+            // txtNewSavingGoal
             // 
-            this.txtSavingGoal.Location = new System.Drawing.Point(230, 179);
-            this.txtSavingGoal.MaxLength = 10;
-            this.txtSavingGoal.Name = "txtSavingGoal";
-            this.txtSavingGoal.Size = new System.Drawing.Size(270, 31);
-            this.txtSavingGoal.TabIndex = 27;
+            this.txtNewSavingGoal.Location = new System.Drawing.Point(230, 179);
+            this.txtNewSavingGoal.MaxLength = 10;
+            this.txtNewSavingGoal.Name = "txtNewSavingGoal";
+            this.txtNewSavingGoal.Size = new System.Drawing.Size(270, 31);
+            this.txtNewSavingGoal.TabIndex = 27;
             // 
-            // dateSavingStart
+            // dateNewSaving
             // 
-            this.dateSavingStart.CalendarFont = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateSavingStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSavingStart.Location = new System.Drawing.Point(230, 23);
-            this.dateSavingStart.Name = "dateSavingStart";
-            this.dateSavingStart.Size = new System.Drawing.Size(196, 31);
-            this.dateSavingStart.TabIndex = 25;
+            this.dateNewSaving.CalendarFont = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNewSaving.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNewSaving.Location = new System.Drawing.Point(230, 23);
+            this.dateNewSaving.Name = "dateNewSaving";
+            this.dateNewSaving.Size = new System.Drawing.Size(196, 31);
+            this.dateNewSaving.TabIndex = 25;
             // 
             // labelInitialDeposit
             // 
@@ -157,7 +145,7 @@
             this.labelInitialDeposit.Location = new System.Drawing.Point(24, 258);
             this.labelInitialDeposit.Name = "labelInitialDeposit";
             this.labelInitialDeposit.Padding = new System.Windows.Forms.Padding(10);
-            this.labelInitialDeposit.Size = new System.Drawing.Size(402, 116);
+            this.labelInitialDeposit.Size = new System.Drawing.Size(201, 58);
             this.labelInitialDeposit.TabIndex = 24;
             this.labelInitialDeposit.Text = "Initial Deposit";
             // 
@@ -170,7 +158,7 @@
             this.labelGoal.Location = new System.Drawing.Point(36, 175);
             this.labelGoal.Name = "labelGoal";
             this.labelGoal.Padding = new System.Windows.Forms.Padding(10);
-            this.labelGoal.Size = new System.Drawing.Size(182, 116);
+            this.labelGoal.Size = new System.Drawing.Size(91, 58);
             this.labelGoal.TabIndex = 23;
             this.labelGoal.Text = "Goal";
             // 
@@ -183,7 +171,7 @@
             this.labelConcept.Location = new System.Drawing.Point(36, 90);
             this.labelConcept.Name = "labelConcept";
             this.labelConcept.Padding = new System.Windows.Forms.Padding(10);
-            this.labelConcept.Size = new System.Drawing.Size(276, 116);
+            this.labelConcept.Size = new System.Drawing.Size(138, 58);
             this.labelConcept.TabIndex = 22;
             this.labelConcept.Text = "Concept";
             // 
@@ -200,41 +188,53 @@
             this.labelDate.TabIndex = 21;
             this.labelDate.Text = "Date";
             // 
-            // txtSavingConcept
+            // txtNewSavingConcept
             // 
-            this.txtSavingConcept.Location = new System.Drawing.Point(230, 104);
-            this.txtSavingConcept.MaxLength = 10;
-            this.txtSavingConcept.Name = "txtSavingConcept";
-            this.txtSavingConcept.Size = new System.Drawing.Size(377, 31);
-            this.txtSavingConcept.TabIndex = 29;
+            this.txtNewSavingConcept.Location = new System.Drawing.Point(230, 104);
+            this.txtNewSavingConcept.MaxLength = 10;
+            this.txtNewSavingConcept.Name = "txtNewSavingConcept";
+            this.txtNewSavingConcept.Size = new System.Drawing.Size(377, 31);
+            this.txtNewSavingConcept.TabIndex = 29;
             // 
-            // btnCancelSaving
+            // btnCancelNewSaving
             // 
-            this.btnCancelSaving.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.btnCancelSaving.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnCancelSaving.Location = new System.Drawing.Point(601, 24);
-            this.btnCancelSaving.Margin = new System.Windows.Forms.Padding(10);
-            this.btnCancelSaving.Name = "btnCancelSaving";
-            this.btnCancelSaving.Size = new System.Drawing.Size(178, 68);
-            this.btnCancelSaving.TabIndex = 10;
-            this.btnCancelSaving.Text = "Cancel";
-            this.btnCancelSaving.UseVisualStyleBackColor = false;
+            this.btnCancelNewSaving.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.btnCancelNewSaving.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelNewSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelNewSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnCancelNewSaving.Location = new System.Drawing.Point(601, 24);
+            this.btnCancelNewSaving.Margin = new System.Windows.Forms.Padding(10);
+            this.btnCancelNewSaving.Name = "btnCancelNewSaving";
+            this.btnCancelNewSaving.Size = new System.Drawing.Size(178, 68);
+            this.btnCancelNewSaving.TabIndex = 10;
+            this.btnCancelNewSaving.Text = "Cancel";
+            this.btnCancelNewSaving.UseVisualStyleBackColor = false;
             // 
-            // btnSaveSaving
+            // btnSaveNewSaving
             // 
-            this.btnSaveSaving.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.btnSaveSaving.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnSaveSaving.Location = new System.Drawing.Point(836, 24);
-            this.btnSaveSaving.Margin = new System.Windows.Forms.Padding(10);
-            this.btnSaveSaving.Name = "btnSaveSaving";
-            this.btnSaveSaving.Size = new System.Drawing.Size(178, 68);
-            this.btnSaveSaving.TabIndex = 9;
-            this.btnSaveSaving.Text = "Save";
-            this.btnSaveSaving.UseVisualStyleBackColor = false;
+            this.btnSaveNewSaving.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnSaveNewSaving.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveNewSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveNewSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnSaveNewSaving.Location = new System.Drawing.Point(836, 24);
+            this.btnSaveNewSaving.Margin = new System.Windows.Forms.Padding(10);
+            this.btnSaveNewSaving.Name = "btnSaveNewSaving";
+            this.btnSaveNewSaving.Size = new System.Drawing.Size(178, 68);
+            this.btnSaveNewSaving.TabIndex = 9;
+            this.btnSaveNewSaving.Text = "Save";
+            this.btnSaveNewSaving.UseVisualStyleBackColor = false;
+            // 
+            // leftCornerLogo
+            // 
+            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
+            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
+            this.leftCornerLogo.Location = new System.Drawing.Point(9, 9);
+            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.leftCornerLogo.Name = "leftCornerLogo";
+            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
+            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.leftCornerLogo.TabIndex = 2;
+            this.leftCornerLogo.TabStop = false;
             // 
             // AddNewSavingsGoalForm
             // 
@@ -251,10 +251,10 @@
             this.Text = "AddNewSavingsGoalForm";
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,14 +268,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtInitialDeposit;
-        private System.Windows.Forms.TextBox txtSavingGoal;
-        private System.Windows.Forms.DateTimePicker dateSavingStart;
+        private System.Windows.Forms.TextBox txtNewSavingGoal;
+        private System.Windows.Forms.DateTimePicker dateNewSaving;
         private System.Windows.Forms.Label labelInitialDeposit;
         private System.Windows.Forms.Label labelGoal;
         private System.Windows.Forms.Label labelConcept;
         private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.TextBox txtSavingConcept;
-        private System.Windows.Forms.Button btnCancelSaving;
-        private System.Windows.Forms.Button btnSaveSaving;
+        private System.Windows.Forms.TextBox txtNewSavingConcept;
+        private System.Windows.Forms.Button btnCancelNewSaving;
+        private System.Windows.Forms.Button btnSaveNewSaving;
     }
 }

@@ -84,6 +84,7 @@
             this.label_editSavings.Size = new System.Drawing.Size(540, 124);
             this.label_editSavings.TabIndex = 1;
             this.label_editSavings.Text = "Edit Savings Goal";
+            this.label_editSavings.Click += new System.EventHandler(this.label_editSavings_Click);
             // 
             // leftCornerLogo
             // 

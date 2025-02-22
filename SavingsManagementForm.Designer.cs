@@ -33,7 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.close_Click = new System.Windows.Forms.Label();
-            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridSavings = new System.Windows.Forms.DataGridView();
             this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,18 +43,18 @@
             this.colCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.exportIncome = new System.Windows.Forms.Button();
-            this.deleteIncome = new System.Windows.Forms.Button();
-            this.editIncome = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExportSavings = new System.Windows.Forms.Button();
+            this.btnDeleteSavings = new System.Windows.Forms.Button();
+            this.btnEditSavings = new System.Windows.Forms.Button();
+            this.btnAddNewSaving = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSavings)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label_savingsManagement
@@ -66,7 +65,7 @@
             this.label_savingsManagement.Location = new System.Drawing.Point(92, 27);
             this.label_savingsManagement.Name = "label_savingsManagement";
             this.label_savingsManagement.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label_savingsManagement.Size = new System.Drawing.Size(682, 90);
+            this.label_savingsManagement.Size = new System.Drawing.Size(341, 45);
             this.label_savingsManagement.TabIndex = 2;
             this.label_savingsManagement.Text = "Savings Managment";
             // 
@@ -106,18 +105,6 @@
             this.close_Click.Size = new System.Drawing.Size(34, 38);
             this.close_Click.TabIndex = 10;
             this.close_Click.Text = "X";
-            // 
-            // leftCornerLogo
-            // 
-            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
-            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
-            this.leftCornerLogo.Location = new System.Drawing.Point(22, 18);
-            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.leftCornerLogo.Name = "leftCornerLogo";
-            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
-            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.leftCornerLogo.TabIndex = 1;
-            this.leftCornerLogo.TabStop = false;
             // 
             // panel2
             // 
@@ -207,88 +194,86 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.exportIncome);
-            this.panel3.Controls.Add(this.deleteIncome);
-            this.panel3.Controls.Add(this.editIncome);
+            this.panel3.Controls.Add(this.btnExportSavings);
+            this.panel3.Controls.Add(this.btnDeleteSavings);
+            this.panel3.Controls.Add(this.btnEditSavings);
             this.panel3.Location = new System.Drawing.Point(0, 861);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1437, 189);
             this.panel3.TabIndex = 3;
             // 
-            // exportIncome
+            // btnExportSavings
             // 
-            this.exportIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.exportIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exportIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.exportIncome.Location = new System.Drawing.Point(1114, 31);
-            this.exportIncome.Name = "exportIncome";
-            this.exportIncome.Size = new System.Drawing.Size(269, 68);
-            this.exportIncome.TabIndex = 9;
-            this.exportIncome.Text = "Export to Excel";
-            this.exportIncome.UseVisualStyleBackColor = false;
+            this.btnExportSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnExportSavings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnExportSavings.Location = new System.Drawing.Point(1114, 31);
+            this.btnExportSavings.Name = "btnExportSavings";
+            this.btnExportSavings.Size = new System.Drawing.Size(269, 68);
+            this.btnExportSavings.TabIndex = 9;
+            this.btnExportSavings.Text = "Export to Excel";
+            this.btnExportSavings.UseVisualStyleBackColor = false;
             // 
-            // deleteIncome
+            // btnDeleteSavings
             // 
-            this.deleteIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.deleteIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.deleteIncome.Location = new System.Drawing.Point(247, 48);
-            this.deleteIncome.Name = "deleteIncome";
-            this.deleteIncome.Size = new System.Drawing.Size(142, 68);
-            this.deleteIncome.TabIndex = 8;
-            this.deleteIncome.Text = "Delete";
-            this.deleteIncome.UseVisualStyleBackColor = false;
+            this.btnDeleteSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.btnDeleteSavings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnDeleteSavings.Location = new System.Drawing.Point(247, 48);
+            this.btnDeleteSavings.Name = "btnDeleteSavings";
+            this.btnDeleteSavings.Size = new System.Drawing.Size(142, 68);
+            this.btnDeleteSavings.TabIndex = 8;
+            this.btnDeleteSavings.Text = "Delete";
+            this.btnDeleteSavings.UseVisualStyleBackColor = false;
             // 
-            // editIncome
+            // btnEditSavings
             // 
-            this.editIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.editIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.editIncome.Location = new System.Drawing.Point(77, 48);
-            this.editIncome.Name = "editIncome";
-            this.editIncome.Size = new System.Drawing.Size(142, 68);
-            this.editIncome.TabIndex = 7;
-            this.editIncome.Text = "Edit ";
-            this.editIncome.UseVisualStyleBackColor = false;
+            this.btnEditSavings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnEditSavings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.btnEditSavings.Location = new System.Drawing.Point(77, 48);
+            this.btnEditSavings.Name = "btnEditSavings";
+            this.btnEditSavings.Size = new System.Drawing.Size(142, 68);
+            this.btnEditSavings.TabIndex = 7;
+            this.btnEditSavings.Text = "Edit ";
+            this.btnEditSavings.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnAddNewSaving
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.button1.Location = new System.Drawing.Point(430, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 68);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.button2.Location = new System.Drawing.Point(1113, 33);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(269, 68);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "+ Add New Saving";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAddNewSaving.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnAddNewSaving.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnAddNewSaving.Location = new System.Drawing.Point(1113, 33);
+            this.btnAddNewSaving.Name = "btnAddNewSaving";
+            this.btnAddNewSaving.Size = new System.Drawing.Size(269, 68);
+            this.btnAddNewSaving.TabIndex = 11;
+            this.btnAddNewSaving.Text = "+ Add New Saving";
+            this.btnAddNewSaving.UseVisualStyleBackColor = false;
+            this.btnAddNewSaving.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btnAddNewSaving);
             this.panel4.Location = new System.Drawing.Point(1, 120);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1436, 144);
             this.panel4.TabIndex = 4;
+            // 
+            // leftCornerLogo
+            // 
+            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
+            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
+            this.leftCornerLogo.Location = new System.Drawing.Point(22, 18);
+            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.leftCornerLogo.Name = "leftCornerLogo";
+            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
+            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.leftCornerLogo.TabIndex = 1;
+            this.leftCornerLogo.TabStop = false;
             // 
             // SavingsManagementForm
             // 
@@ -306,11 +291,11 @@
             this.Text = "SavingsManagementForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSavings)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,11 +317,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCurrency;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProgress;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button exportIncome;
-        private System.Windows.Forms.Button deleteIncome;
-        private System.Windows.Forms.Button editIncome;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExportSavings;
+        private System.Windows.Forms.Button btnDeleteSavings;
+        private System.Windows.Forms.Button btnEditSavings;
+        private System.Windows.Forms.Button btnAddNewSaving;
         private System.Windows.Forms.Panel panel4;
     }
 }
