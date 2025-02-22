@@ -193,7 +193,6 @@
             this.textBox_AmountNewIncome.Name = "textBox_AmountNewIncome";
             this.textBox_AmountNewIncome.Size = new System.Drawing.Size(270, 31);
             this.textBox_AmountNewIncome.TabIndex = 19;
-            this.textBox_AmountNewIncome.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox_DescripNewIncome
             // 

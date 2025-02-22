@@ -34,10 +34,10 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnAddNewIncome_Click(object sender, EventArgs e)
         {
-           /* {
+           {
                 AddNewIncomeForm newIncomeForm = new AddNewIncomeForm();
                 newIncomeForm.ShowDialog(); 
-            } */
+            } 
 
         }
 

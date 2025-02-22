@@ -68,7 +68,7 @@ namespace IncomeExpensesTrackingSystem
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void header_newIncome_Paint(object sender, PaintEventArgs e)
