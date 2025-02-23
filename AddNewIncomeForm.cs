@@ -5,35 +5,44 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class AddNewIncomeForm : Form
     {
+        private string incomeId;
+
         public AddNewIncomeForm()
         {
             InitializeComponent();
         }
 
-        private void NewIncomeForm_Load(object sender, EventArgs e)
+        // Constructor for editing an existing income
+        public AddNewIncomeForm(string id)
         {
-            // Initialize dropdowns or settings if needed
+            InitializeComponent();
+            incomeId = id;
+            LoadIncomeData(); // Call function to load existing data
+        }
+
+        private void LoadIncomeData()
+        {
+            if (!string.IsNullOrEmpty(incomeId))
+            {
+                // TODO: Implement logic to fetch and load income details from database
+                MessageBox.Show($"Loading income data for ID: {incomeId}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSaveIncome_Click(object sender, EventArgs e)
         {
-            // Validate fields before saving
-            if (string.IsNullOrWhiteSpace(textBoxAmount.Text) || comboBoxCategory.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(incomeId))
             {
-                MessageBox.Show("Please fill all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("New income added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("Income saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                MessageBox.Show($"Income ID {incomeId} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             this.Close();
         }
 
         private void btnCancelIncome_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void labelCloseNewIncome_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -82,11 +82,29 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditExpenseForm.Designer.cs">
+      <DependentUpon>EditExpenseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditIncomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditIncomeForm.Designer.cs">
+      <DependentUpon>EditIncomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditSavingsGoalForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditSavingsGoalForm.Designer.cs">
       <DependentUpon>EditSavingsGoalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseManagementForm.Designer.cs">
+      <DependentUpon>ExpenseManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -144,8 +162,17 @@
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditExpenseForm.resx">
+      <DependentUpon>EditExpenseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditIncomeForm.resx">
+      <DependentUpon>EditIncomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditSavingsGoalForm.resx">
       <DependentUpon>EditSavingsGoalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseManagementForm.resx">
+      <DependentUpon>ExpenseManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
