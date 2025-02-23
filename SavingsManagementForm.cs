@@ -12,11 +12,14 @@ using IncomeExpensesTrackingSystem;
 namespace IncomeExpensesTrackingSystem
 {
     public partial class SavingsManagementForm : Form
+
     {
-        public SavingsManagementForm()
+        private string currentUser;
+        public SavingsManagementForm(string user)
         {
             InitializeComponent();
             LoadSavingsData(); // Load initial savings data into the DataGridView
+            currentUser = user;
         }
 
         private void LoadSavingsData()
@@ -87,6 +90,13 @@ namespace IncomeExpensesTrackingSystem
         private void dataGridSavings_SelectionChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm main = new MainForm(currentUser);
+            main.Show();
         }
     }
 }

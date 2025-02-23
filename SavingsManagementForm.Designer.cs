@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.close_Click = new System.Windows.Forms.Label();
+            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridSavings = new System.Windows.Forms.DataGridView();
             this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,13 +49,12 @@
             this.btnEditSavings = new System.Windows.Forms.Button();
             this.btnAddNewSaving = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSavings)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label_savingsManagement
@@ -62,10 +62,11 @@
             this.label_savingsManagement.AutoSize = true;
             this.label_savingsManagement.Font = new System.Drawing.Font("Montserrat", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_savingsManagement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.label_savingsManagement.Location = new System.Drawing.Point(92, 27);
+            this.label_savingsManagement.Location = new System.Drawing.Point(46, 14);
+            this.label_savingsManagement.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_savingsManagement.Name = "label_savingsManagement";
-            this.label_savingsManagement.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label_savingsManagement.Size = new System.Drawing.Size(718, 90);
+            this.label_savingsManagement.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label_savingsManagement.Size = new System.Drawing.Size(183, 24);
             this.label_savingsManagement.TabIndex = 2;
             this.label_savingsManagement.Text = "Savings Management";
             // 
@@ -78,8 +79,9 @@
             this.panel1.Controls.Add(this.leftCornerLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1437, 100);
+            this.panel1.Size = new System.Drawing.Size(718, 52);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -88,12 +90,13 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.label2.Location = new System.Drawing.Point(1391, 9);
+            this.label2.Location = new System.Drawing.Point(696, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 38);
+            this.label2.Size = new System.Drawing.Size(17, 18);
             this.label2.TabIndex = 11;
             this.label2.Text = "X";
-            this.label2.Click += new System.EventHandler(this.close_Click_Click);
+            this.label2.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // close_Click
             // 
@@ -101,18 +104,32 @@
             this.close_Click.AutoSize = true;
             this.close_Click.Cursor = System.Windows.Forms.Cursors.Hand;
             this.close_Click.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close_Click.Location = new System.Drawing.Point(2859, 9);
+            this.close_Click.Location = new System.Drawing.Point(1430, 5);
+            this.close_Click.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.close_Click.Name = "close_Click";
-            this.close_Click.Size = new System.Drawing.Size(34, 38);
+            this.close_Click.Size = new System.Drawing.Size(17, 18);
             this.close_Click.TabIndex = 10;
             this.close_Click.Text = "X";
+            // 
+            // leftCornerLogo
+            // 
+            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
+            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
+            this.leftCornerLogo.Location = new System.Drawing.Point(11, 9);
+            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.leftCornerLogo.Name = "leftCornerLogo";
+            this.leftCornerLogo.Size = new System.Drawing.Size(26, 26);
+            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.leftCornerLogo.TabIndex = 1;
+            this.leftCornerLogo.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridSavings);
-            this.panel2.Location = new System.Drawing.Point(64, 297);
+            this.panel2.Location = new System.Drawing.Point(32, 154);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1287, 538);
+            this.panel2.Size = new System.Drawing.Size(644, 280);
             this.panel2.TabIndex = 2;
             // 
             // dataGridSavings
@@ -130,12 +147,13 @@
             this.colProgress});
             this.dataGridSavings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridSavings.Location = new System.Drawing.Point(0, 0);
+            this.dataGridSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridSavings.Name = "dataGridSavings";
             this.dataGridSavings.RowHeadersVisible = false;
             this.dataGridSavings.RowHeadersWidth = 82;
             this.dataGridSavings.RowTemplate.Height = 33;
             this.dataGridSavings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSavings.Size = new System.Drawing.Size(1287, 538);
+            this.dataGridSavings.Size = new System.Drawing.Size(644, 280);
             this.dataGridSavings.TabIndex = 0;
             this.dataGridSavings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSavings_CellContentClick);
             this.dataGridSavings.SelectionChanged += new System.EventHandler(this.dataGridSavings_SelectionChanged);
@@ -200,9 +218,10 @@
             this.panel3.Controls.Add(this.btnExportSavings);
             this.panel3.Controls.Add(this.btnDeleteSavings);
             this.panel3.Controls.Add(this.btnEditSavings);
-            this.panel3.Location = new System.Drawing.Point(0, 861);
+            this.panel3.Location = new System.Drawing.Point(0, 448);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1437, 189);
+            this.panel3.Size = new System.Drawing.Size(718, 98);
             this.panel3.TabIndex = 3;
             // 
             // btnExportSavings
@@ -211,9 +230,10 @@
             this.btnExportSavings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnExportSavings.Location = new System.Drawing.Point(1114, 31);
+            this.btnExportSavings.Location = new System.Drawing.Point(557, 16);
+            this.btnExportSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExportSavings.Name = "btnExportSavings";
-            this.btnExportSavings.Size = new System.Drawing.Size(269, 68);
+            this.btnExportSavings.Size = new System.Drawing.Size(134, 35);
             this.btnExportSavings.TabIndex = 9;
             this.btnExportSavings.Text = "Export to Excel";
             this.btnExportSavings.UseVisualStyleBackColor = false;
@@ -225,9 +245,10 @@
             this.btnDeleteSavings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnDeleteSavings.Location = new System.Drawing.Point(247, 48);
+            this.btnDeleteSavings.Location = new System.Drawing.Point(124, 25);
+            this.btnDeleteSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteSavings.Name = "btnDeleteSavings";
-            this.btnDeleteSavings.Size = new System.Drawing.Size(142, 68);
+            this.btnDeleteSavings.Size = new System.Drawing.Size(71, 35);
             this.btnDeleteSavings.TabIndex = 8;
             this.btnDeleteSavings.Text = "Delete";
             this.btnDeleteSavings.UseVisualStyleBackColor = false;
@@ -239,9 +260,10 @@
             this.btnEditSavings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.btnEditSavings.Location = new System.Drawing.Point(77, 48);
+            this.btnEditSavings.Location = new System.Drawing.Point(38, 25);
+            this.btnEditSavings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditSavings.Name = "btnEditSavings";
-            this.btnEditSavings.Size = new System.Drawing.Size(142, 68);
+            this.btnEditSavings.Size = new System.Drawing.Size(71, 35);
             this.btnEditSavings.TabIndex = 7;
             this.btnEditSavings.Text = "Edit ";
             this.btnEditSavings.UseVisualStyleBackColor = false;
@@ -253,9 +275,10 @@
             this.btnAddNewSaving.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnAddNewSaving.Location = new System.Drawing.Point(1113, 33);
+            this.btnAddNewSaving.Location = new System.Drawing.Point(556, 17);
+            this.btnAddNewSaving.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddNewSaving.Name = "btnAddNewSaving";
-            this.btnAddNewSaving.Size = new System.Drawing.Size(269, 68);
+            this.btnAddNewSaving.Size = new System.Drawing.Size(134, 35);
             this.btnAddNewSaving.TabIndex = 11;
             this.btnAddNewSaving.Text = "+ Add New Saving";
             this.btnAddNewSaving.UseVisualStyleBackColor = false;
@@ -264,44 +287,34 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.btnAddNewSaving);
-            this.panel4.Location = new System.Drawing.Point(1, 120);
+            this.panel4.Location = new System.Drawing.Point(0, 62);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1436, 144);
+            this.panel4.Size = new System.Drawing.Size(718, 75);
             this.panel4.TabIndex = 4;
-            // 
-            // leftCornerLogo
-            // 
-            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
-            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
-            this.leftCornerLogo.Location = new System.Drawing.Point(22, 18);
-            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.leftCornerLogo.Name = "leftCornerLogo";
-            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
-            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.leftCornerLogo.TabIndex = 1;
-            this.leftCornerLogo.TabStop = false;
             // 
             // SavingsManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(1437, 1046);
+            this.ClientSize = new System.Drawing.Size(718, 544);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SavingsManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SavingsManagementForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSavings)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

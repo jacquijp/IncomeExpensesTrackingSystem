@@ -12,14 +12,23 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class CategoryListForm : Form
     {
-        public CategoryListForm()
+        private string currentUser;
+        public CategoryListForm(string currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void button_AddNewCategory_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm main = new MainForm(currentUser);
+            main.Show();
         }
     }
 }

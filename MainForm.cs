@@ -35,28 +35,28 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnExpenseManagement_Click(object sender, EventArgs e)
         {
-            ExpenseManagementForm expenseForm = new ExpenseManagementForm();
+            ExpenseManagementForm expenseForm = new ExpenseManagementForm(currentUser);
             expenseForm.Show();
             this.Hide();
         }
 
         private void btnSavingsManagement_Click(object sender, EventArgs e)
         {
-            SavingsManagementForm savingsForm = new SavingsManagementForm();
+            SavingsManagementForm savingsForm = new SavingsManagementForm(currentUser);
             savingsForm.Show();
             this.Hide();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            ReportsForm reportsForm = new ReportsForm();
+            ReportsForm reportsForm = new ReportsForm(currentUser);
             reportsForm.Show();
             this.Hide();
         }
 
         private void btnCategoryList_Click(object sender, EventArgs e)
         {
-            CategoryListForm categoryList = new CategoryListForm();
+            CategoryListForm categoryList = new CategoryListForm(currentUser);
             categoryList.Show();
             this.Hide();
         }

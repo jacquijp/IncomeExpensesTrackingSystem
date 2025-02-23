@@ -12,14 +12,19 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class ReportsForm : Form
     {
-        public ReportsForm()
+
+        private string currentUser;
+        public ReportsForm(string user)
         {
             InitializeComponent();
+            currentUser = user;
         }
 
         private void btnCloseReports(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MainForm main = new MainForm(currentUser);
+            main.Show();
         }
 
         private void labelGenerateReport_Click(object sender, EventArgs e)
