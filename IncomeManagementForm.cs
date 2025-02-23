@@ -12,9 +12,11 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class IncomeManagementForm : Form
     {
-        public IncomeManagementForm()
+        private string currentUser;
+        public IncomeManagementForm(string user)
         {
             InitializeComponent();
+            currentUser = user;
         }
 
         private void IncomeManagementForm_Load(object sender, EventArgs e)
@@ -88,6 +90,13 @@ namespace IncomeExpensesTrackingSystem
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            MainForm main = new MainForm(currentUser); 
+            main.Show();
         }
     }
 }

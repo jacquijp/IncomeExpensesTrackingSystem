@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.login_signupButton = new System.Windows.Forms.Button();
@@ -31,6 +32,7 @@
             this.login_button = new System.Windows.Forms.Button();
             this.login_showPassword = new System.Windows.Forms.CheckBox();
             this.labelCreateAccount = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -193,6 +195,11 @@
             this.labelCreateAccount.TabIndex = 3;
             this.labelCreateAccount.Text = "Create an account";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -234,5 +241,6 @@
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.CheckBox login_showPassword;
         private System.Windows.Forms.Label labelCreateAccount;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

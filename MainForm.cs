@@ -5,7 +5,7 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class MainForm : Form
     {
-        private string currentUser; // Almacena el usuario actual
+        private string currentUser; 
 
         public MainForm(string user = "")
         {
@@ -28,10 +28,10 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnIncomeManagement_Click(object sender, EventArgs e)
         {
-            IncomeManagementForm incomeForm = new IncomeManagementForm();
-            incomeForm.Show();
-            this.Hide();
+            IncomeManagementForm incomeManagement = new IncomeManagementForm(currentUser);
+            incomeManagement.Show();
         }
+
 
         private void btnExpenseManagement_Click(object sender, EventArgs e)
         {
