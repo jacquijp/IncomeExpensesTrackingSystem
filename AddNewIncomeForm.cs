@@ -1,73 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class AddNewIncomeForm : Form
     {
-        private string incomeId;
         public AddNewIncomeForm()
         {
             InitializeComponent();
         }
 
-        public AddNewIncomeForm(string id)
+        private void NewIncomeForm_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-            incomeId = id;
-        }
-
-        private void AddNewIncomeForm_Load(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(incomeId))
-            {
-                LoadIncomeData(incomeId);
-            }
-        }
-
-        private void LoadIncomeData(string id)
-        {
-            MessageBox.Show($"Loading income data for ID: {id}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Initialize dropdowns or settings if needed
         }
 
         private void btnSaveIncome_Click(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            // Validate fields before saving
+            if (string.IsNullOrWhiteSpace(textBoxAmount.Text) || comboBoxCategory.SelectedIndex == -1)
             {
-                if (string.IsNullOrEmpty(incomeId))
-                {
-                    MessageBox.Show("New income added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Income ID {incomeId} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                this.Close();
-            }
-        }
-
-        private bool ValidateFields()
-        {
-            if (string.IsNullOrWhiteSpace(textBox_AmountNewIncome.Text))
-            {
-                MessageBox.Show("Amount is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                MessageBox.Show("Please fill all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            if (comboBoxCategory.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a category.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
+            MessageBox.Show("Income saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void btnCancelIncome_Click(object sender, EventArgs e)
@@ -75,7 +33,7 @@ namespace IncomeExpensesTrackingSystem
             this.Close();
         }
 
-        private void labelClose_Click(object sender, EventArgs e)
+        private void labelCloseNewIncome_Click(object sender, EventArgs e)
         {
             this.Close();
         }

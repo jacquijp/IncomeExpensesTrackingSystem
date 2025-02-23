@@ -66,5 +66,10 @@ namespace IncomeExpensesTrackingSystem
         {
             this.Close(); // x label
         }
+
+        private void btnCancelSavings(object sender, EventArgs e)
+        {
+
+        }
     }
 }
