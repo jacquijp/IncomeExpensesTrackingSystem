@@ -1,6 +1,6 @@
 ﻿namespace IncomeExpensesTrackingSystem
 {
-    partial class AddNewIncomeForm
+    partial class AddNewExpenseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewIncomeForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewExpenseForm));
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.labelCloseNewIncome = new System.Windows.Forms.Label();
-            this.labelNewIncome = new System.Windows.Forms.Label();
+            this.labelCloseNewExpense = new System.Windows.Forms.Label();
+            this.labelNewExpense = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
@@ -41,51 +42,63 @@
             this.labelAmount = new System.Windows.Forms.Label();
             this.labelCategory = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
+            this.btnSaveExpense = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCancelIncome = new System.Windows.Forms.Button();
-            this.btnSaveIncome = new System.Windows.Forms.Button();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.btnCancelExpense = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.panelHeader.Controls.Add(this.labelCloseNewIncome);
-            this.panelHeader.Controls.Add(this.labelNewIncome);
+            this.panelHeader.Controls.Add(this.labelCloseNewExpense);
+            this.panelHeader.Controls.Add(this.labelNewExpense);
             this.panelHeader.Controls.Add(this.pictureBoxLogo);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(938, 80);
-            this.panelHeader.TabIndex = 3;
+            this.panelHeader.Size = new System.Drawing.Size(934, 76);
+            this.panelHeader.TabIndex = 4;
             // 
-            // labelCloseNewIncome
+            // labelCloseNewExpense
             // 
-            this.labelCloseNewIncome.AutoSize = true;
-            this.labelCloseNewIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelCloseNewIncome.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCloseNewIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.labelCloseNewIncome.Location = new System.Drawing.Point(888, 9);
-            this.labelCloseNewIncome.Name = "labelCloseNewIncome";
-            this.labelCloseNewIncome.Size = new System.Drawing.Size(34, 38);
-            this.labelCloseNewIncome.TabIndex = 12;
-            this.labelCloseNewIncome.Text = "X";
+            this.labelCloseNewExpense.AutoSize = true;
+            this.labelCloseNewExpense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelCloseNewExpense.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCloseNewExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.labelCloseNewExpense.Location = new System.Drawing.Point(888, 9);
+            this.labelCloseNewExpense.Name = "labelCloseNewExpense";
+            this.labelCloseNewExpense.Size = new System.Drawing.Size(34, 38);
+            this.labelCloseNewExpense.TabIndex = 12;
+            this.labelCloseNewExpense.Text = "X";
+            this.labelCloseNewExpense.Click += new System.EventHandler(this.labelCloseNewExpense_Click);
             // 
-            // labelNewIncome
+            // labelNewExpense
             // 
-            this.labelNewIncome.AutoSize = true;
-            this.labelNewIncome.Font = new System.Drawing.Font("Montserrat", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNewIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.labelNewIncome.Location = new System.Drawing.Point(76, 9);
-            this.labelNewIncome.Name = "labelNewIncome";
-            this.labelNewIncome.Padding = new System.Windows.Forms.Padding(10);
-            this.labelNewIncome.Size = new System.Drawing.Size(272, 62);
-            this.labelNewIncome.TabIndex = 1;
-            this.labelNewIncome.Text = "Add New Income";
+            this.labelNewExpense.AutoSize = true;
+            this.labelNewExpense.Font = new System.Drawing.Font("Montserrat", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.labelNewExpense.Location = new System.Drawing.Point(76, 9);
+            this.labelNewExpense.Name = "labelNewExpense";
+            this.labelNewExpense.Padding = new System.Windows.Forms.Padding(10);
+            this.labelNewExpense.Size = new System.Drawing.Size(281, 62);
+            this.labelNewExpense.TabIndex = 1;
+            this.labelNewExpense.Text = "Add New Expense";
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(9, 9);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(51, 50);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 2;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // panel1
             // 
@@ -97,10 +110,10 @@
             this.panel1.Controls.Add(this.labelAmount);
             this.panel1.Controls.Add(this.labelCategory);
             this.panel1.Controls.Add(this.labelDate);
-            this.panel1.Location = new System.Drawing.Point(9, 105);
+            this.panel1.Location = new System.Drawing.Point(12, 102);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 466);
-            this.panel1.TabIndex = 4;
+            this.panel1.Size = new System.Drawing.Size(892, 391);
+            this.panel1.TabIndex = 5;
             // 
             // textBoxDescription
             // 
@@ -178,73 +191,64 @@
             this.labelDate.TabIndex = 0;
             this.labelDate.Text = "Date";
             // 
+            // btnSaveExpense
+            // 
+            this.btnSaveExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnSaveExpense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveExpense.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnSaveExpense.Location = new System.Drawing.Point(692, 27);
+            this.btnSaveExpense.Margin = new System.Windows.Forms.Padding(10);
+            this.btnSaveExpense.Name = "btnSaveExpense";
+            this.btnSaveExpense.Size = new System.Drawing.Size(178, 68);
+            this.btnSaveExpense.TabIndex = 11;
+            this.btnSaveExpense.Text = "Save";
+            this.btnSaveExpense.UseVisualStyleBackColor = false;
+            this.btnSaveExpense.Click += new System.EventHandler(this.btnSaveExpense_Click);
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnCancelIncome);
-            this.panel2.Controls.Add(this.btnSaveIncome);
-            this.panel2.Location = new System.Drawing.Point(9, 512);
+            this.panel2.Controls.Add(this.btnCancelExpense);
+            this.panel2.Controls.Add(this.btnSaveExpense);
+            this.panel2.Location = new System.Drawing.Point(12, 517);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(913, 138);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 6;
             // 
-            // btnCancelIncome
+            // btnCancelExpense
             // 
-            this.btnCancelIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.btnCancelIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnCancelIncome.Location = new System.Drawing.Point(478, 27);
-            this.btnCancelIncome.Margin = new System.Windows.Forms.Padding(10);
-            this.btnCancelIncome.Name = "btnCancelIncome";
-            this.btnCancelIncome.Size = new System.Drawing.Size(178, 68);
-            this.btnCancelIncome.TabIndex = 12;
-            this.btnCancelIncome.Text = "Cancel";
-            this.btnCancelIncome.UseVisualStyleBackColor = false;
+            this.btnCancelExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.btnCancelExpense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelExpense.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnCancelExpense.Location = new System.Drawing.Point(467, 27);
+            this.btnCancelExpense.Margin = new System.Windows.Forms.Padding(10);
+            this.btnCancelExpense.Name = "btnCancelExpense";
+            this.btnCancelExpense.Size = new System.Drawing.Size(177, 68);
+            this.btnCancelExpense.TabIndex = 13;
+            this.btnCancelExpense.Text = "Cancel";
+            this.btnCancelExpense.UseVisualStyleBackColor = false;
+            this.btnCancelExpense.Click += new System.EventHandler(this.btnCancelExpense_Click);
             // 
-            // btnSaveIncome
-            // 
-            this.btnSaveIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.btnSaveIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnSaveIncome.Location = new System.Drawing.Point(692, 27);
-            this.btnSaveIncome.Margin = new System.Windows.Forms.Padding(10);
-            this.btnSaveIncome.Name = "btnSaveIncome";
-            this.btnSaveIncome.Size = new System.Drawing.Size(178, 68);
-            this.btnSaveIncome.TabIndex = 11;
-            this.btnSaveIncome.Text = "Save";
-            this.btnSaveIncome.UseVisualStyleBackColor = false;
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(9, 9);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(51, 50);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 2;
-            this.pictureBoxLogo.TabStop = false;
-            // 
-            // AddNewIncomeForm
+            // AddNewExpenseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 665);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.ClientSize = new System.Drawing.Size(934, 675);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AddNewIncomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddNewIncomeForm";
+            this.Name = "AddNewExpenseForm";
+            this.Text = "AddNewExpenseForm";
+            this.Load += new System.EventHandler(this.AddNewExpenseForm_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,20 +256,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Label labelCloseNewIncome;
-        private System.Windows.Forms.Label labelNewIncome;
+        private System.Windows.Forms.Label labelCloseNewExpense;
+        private System.Windows.Forms.Label labelNewExpense;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.TextBox textBoxAmount;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
+        private System.Windows.Forms.DateTimePicker dateTimePickerIncome;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.Label labelCategory;
         private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Button btnSaveExpense;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBoxAmount;
-        private System.Windows.Forms.ComboBox comboBoxCategory;
-        private System.Windows.Forms.DateTimePicker dateTimePickerIncome;
-        private System.Windows.Forms.TextBox textBoxDescription;
-        private System.Windows.Forms.Button btnCancelIncome;
-        private System.Windows.Forms.Button btnSaveIncome;
+        private System.Windows.Forms.Button btnCancelExpense;
     }
 }

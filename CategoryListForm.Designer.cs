@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryListForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.close_Click = new System.Windows.Forms.Label();
             this.label_CategoryManagement = new System.Windows.Forms.Label();
             this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel_dataCategoryList = new System.Windows.Forms.Panel();
-            this.viewCategoryList = new System.Windows.Forms.Button();
-            this.label_CType = new System.Windows.Forms.Label();
-            this.label_CName = new System.Windows.Forms.Label();
-            this.comboBox_CType = new System.Windows.Forms.ComboBox();
             this.comboBox_CName = new System.Windows.Forms.ComboBox();
+            this.comboBox_CType = new System.Windows.Forms.ComboBox();
+            this.label_CName = new System.Windows.Forms.Label();
+            this.label_CType = new System.Windows.Forms.Label();
+            this.viewCategoryList = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView_CategoryList = new System.Windows.Forms.DataGridView();
             this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,7 +103,7 @@
             this.label_CategoryManagement.Location = new System.Drawing.Point(92, 27);
             this.label_CategoryManagement.Name = "label_CategoryManagement";
             this.label_CategoryManagement.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label_CategoryManagement.Size = new System.Drawing.Size(758, 90);
+            this.label_CategoryManagement.Size = new System.Drawing.Size(379, 45);
             this.label_CategoryManagement.TabIndex = 2;
             this.label_CategoryManagement.Text = "Category Management";
             // 
@@ -131,6 +131,46 @@
             this.panel_dataCategoryList.Size = new System.Drawing.Size(1439, 160);
             this.panel_dataCategoryList.TabIndex = 2;
             // 
+            // comboBox_CName
+            // 
+            this.comboBox_CName.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_CName.FormattingEnabled = true;
+            this.comboBox_CName.Location = new System.Drawing.Point(811, 51);
+            this.comboBox_CName.Name = "comboBox_CName";
+            this.comboBox_CName.Size = new System.Drawing.Size(299, 41);
+            this.comboBox_CName.TabIndex = 11;
+            // 
+            // comboBox_CType
+            // 
+            this.comboBox_CType.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_CType.FormattingEnabled = true;
+            this.comboBox_CType.Location = new System.Drawing.Point(238, 52);
+            this.comboBox_CType.Name = "comboBox_CType";
+            this.comboBox_CType.Size = new System.Drawing.Size(299, 41);
+            this.comboBox_CType.TabIndex = 10;
+            // 
+            // label_CName
+            // 
+            this.label_CName.AutoSize = true;
+            this.label_CName.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
+            this.label_CName.Location = new System.Drawing.Point(571, 51);
+            this.label_CName.Name = "label_CName";
+            this.label_CName.Size = new System.Drawing.Size(233, 42);
+            this.label_CName.TabIndex = 9;
+            this.label_CName.Text = "Category Name";
+            // 
+            // label_CType
+            // 
+            this.label_CType.AutoSize = true;
+            this.label_CType.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
+            this.label_CType.Location = new System.Drawing.Point(15, 51);
+            this.label_CType.Name = "label_CType";
+            this.label_CType.Size = new System.Drawing.Size(218, 42);
+            this.label_CType.TabIndex = 8;
+            this.label_CType.Text = "Category Type";
+            // 
             // viewCategoryList
             // 
             this.viewCategoryList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
@@ -144,46 +184,6 @@
             this.viewCategoryList.Text = "View List";
             this.viewCategoryList.UseVisualStyleBackColor = false;
             // 
-            // label_CType
-            // 
-            this.label_CType.AutoSize = true;
-            this.label_CType.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_CType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.label_CType.Location = new System.Drawing.Point(15, 51);
-            this.label_CType.Name = "label_CType";
-            this.label_CType.Size = new System.Drawing.Size(219, 42);
-            this.label_CType.TabIndex = 8;
-            this.label_CType.Text = "Category Type";
-            // 
-            // label_CName
-            // 
-            this.label_CName.AutoSize = true;
-            this.label_CName.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_CName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.label_CName.Location = new System.Drawing.Point(571, 51);
-            this.label_CName.Name = "label_CName";
-            this.label_CName.Size = new System.Drawing.Size(234, 42);
-            this.label_CName.TabIndex = 9;
-            this.label_CName.Text = "Category Name";
-            // 
-            // comboBox_CType
-            // 
-            this.comboBox_CType.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_CType.FormattingEnabled = true;
-            this.comboBox_CType.Location = new System.Drawing.Point(238, 52);
-            this.comboBox_CType.Name = "comboBox_CType";
-            this.comboBox_CType.Size = new System.Drawing.Size(299, 41);
-            this.comboBox_CType.TabIndex = 10;
-            // 
-            // comboBox_CName
-            // 
-            this.comboBox_CName.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_CName.FormattingEnabled = true;
-            this.comboBox_CName.Location = new System.Drawing.Point(811, 51);
-            this.comboBox_CName.Name = "comboBox_CName";
-            this.comboBox_CName.Size = new System.Drawing.Size(299, 41);
-            this.comboBox_CName.TabIndex = 11;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridView_CategoryList);
@@ -196,14 +196,14 @@
             // 
             this.dataGridView_CategoryList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
             this.dataGridView_CategoryList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_CategoryList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_CategoryList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_CategoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_CategoryList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSelect,
@@ -263,6 +263,7 @@
             this.button_AddNewCategory.TabIndex = 12;
             this.button_AddNewCategory.Text = "+ Add New Category";
             this.button_AddNewCategory.UseVisualStyleBackColor = false;
+            this.button_AddNewCategory.Click += new System.EventHandler(this.button_AddNewCategory_Click);
             // 
             // button2
             // 

@@ -26,7 +26,7 @@ namespace IncomeExpensesTrackingSystem
 
         private void login_signupButton_Click(object sender, EventArgs e)
         {
-            Form1 loginForm = new Form1();
+            LoginForm loginForm = new LoginForm();
             loginForm.Show();
 
             this.Hide();
@@ -96,7 +96,7 @@ namespace IncomeExpensesTrackingSystem
 
                                     MessageBox.Show("Registered Succesfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                    Form1 login = new Form1();
+                                    LoginForm login = new LoginForm();
                                     login.Show();
 
                                     this.Hide();

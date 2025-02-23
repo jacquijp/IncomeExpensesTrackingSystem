@@ -16,5 +16,10 @@ namespace IncomeExpensesTrackingSystem
         {
             InitializeComponent();
         }
+
+        private void button_AddNewCategory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
