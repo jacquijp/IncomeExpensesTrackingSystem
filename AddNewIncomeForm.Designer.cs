@@ -226,6 +226,7 @@
             this.btnCancelIncome.TabIndex = 12;
             this.btnCancelIncome.Text = "Cancel";
             this.btnCancelIncome.UseVisualStyleBackColor = false;
+            this.btnCancelIncome.Click += new System.EventHandler(this.btnCancelIncome_Click);
             // 
             // btnSaveIncome
             // 

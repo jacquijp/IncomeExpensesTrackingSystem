@@ -8,23 +8,20 @@ namespace IncomeExpensesTrackingSystem
         private string incomeId;
         private string currentUser;
 
-        // Constructor
         public AddNewIncomeForm(string user, string id = "")
         {
             InitializeComponent();
-            this.FormClosing += AddNewIncomeForm_FormClosing;
             currentUser = user;
             incomeId = id;
 
             if (!string.IsNullOrEmpty(incomeId))
             {
-                LoadIncomeData(); // Load data if editing an existing income
+                LoadIncomeData();
             }
         }
 
         private void LoadIncomeData()
         {
-            // Simulated loading income data from a database
             MessageBox.Show($"Loading income data for ID: {incomeId}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -38,30 +35,34 @@ namespace IncomeExpensesTrackingSystem
             {
                 MessageBox.Show($"Income ID {incomeId} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            CloseAndReturnToIncomeManagement();
+            this.Close();
         }
 
         private void btnCancelIncome_Click(object sender, EventArgs e)
         {
-            CloseAndReturnToIncomeManagement();
+            this.Close();
         }
 
         private void labelCloseNewIncome_Click(object sender, EventArgs e)
         {
-            CloseAndReturnToIncomeManagement();
+            this.Close();
         }
 
         private void AddNewIncomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CloseAndReturnToIncomeManagement();
+            ShowIncomeManagementForm();
         }
 
-        // Function to ensure consistency when closing the form
-        private void CloseAndReturnToIncomeManagement()
+        private void ShowIncomeManagementForm()
         {
-            this.Hide();
-            IncomeManagementForm incomeForm = new IncomeManagementForm(currentUser);
-            incomeForm.Show();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is IncomeManagementForm)
+                {
+                    form.Show();
+                    return;
+                }
+            }
         }
     }
 }
