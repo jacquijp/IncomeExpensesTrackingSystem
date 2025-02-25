@@ -87,5 +87,10 @@ namespace IncomeExpensesTrackingSystem
         {
             MessageBox.Show("Exporting to Excel... (Functionality to be implemented)", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void label_expensesManagement_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

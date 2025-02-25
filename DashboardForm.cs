@@ -14,11 +14,11 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class DashboardForm : Form
     {
-        private string username;
+        private string currentUser;
         public DashboardForm(string user)
         {
             InitializeComponent();
-            username = user;
+            currentUser = user;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,16 +31,16 @@ namespace IncomeExpensesTrackingSystem
 
         }
 
-        private void homeIcon_backToMain_Click(object sender, EventArgs e)
-        {
-            MainForm mainForm = new MainForm(username);
-            mainForm.Show();
-            this.Close();
-        }
-
         private void topPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm main = new MainForm(currentUser);
+            main.Show();
         }
     }
 }
