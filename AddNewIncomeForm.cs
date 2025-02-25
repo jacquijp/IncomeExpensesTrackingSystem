@@ -18,6 +18,9 @@ namespace IncomeExpensesTrackingSystem
             {
                 LoadIncomeData();
             }
+
+            textBoxAmount.KeyPress += textBoxAmount_KeyPress;
+            textBoxDescription.MaxLength = 255; // Set character limit for description
         }
 
         private void LoadIncomeData()
@@ -62,6 +65,21 @@ namespace IncomeExpensesTrackingSystem
                     form.Show();
                     return;
                 }
+            }
+        }
+
+        private void textBoxAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow numbers, one decimal point, and control keys (Backspace, Delete)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Allow only one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
             }
         }
     }

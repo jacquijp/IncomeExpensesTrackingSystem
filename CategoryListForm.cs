@@ -19,16 +19,26 @@ namespace IncomeExpensesTrackingSystem
             this.currentUser = currentUser;
         }
 
-        private void button_AddNewCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Hide();
             MainForm main = new MainForm(currentUser);
             main.Show();
+        }
+
+        private void btn_ViewList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_deleteCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AddNewCategory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
