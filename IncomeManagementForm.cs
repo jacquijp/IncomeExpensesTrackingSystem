@@ -36,33 +36,30 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnAddNewIncome_Click(object sender, EventArgs e)
         {
-           {
-                AddNewIncomeForm newIncomeForm = new AddNewIncomeForm();
-                newIncomeForm.ShowDialog(); 
-            } 
-
+            AddNewIncomeForm addIncomeForm = new AddNewIncomeForm(currentUser);
+            addIncomeForm.Show();
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEditSelected_Click(object sender, EventArgs e)
+        private void btnEditSelectedIncome_Click(object sender, EventArgs e)
         {
             if (dataGridIncome.SelectedRows.Count > 0)
             {
                 string selectedID = dataGridIncome.SelectedRows[0].Cells["col_IdTransactionIncome"].Value.ToString();
-
-                // Pasamos el ID a la ventana de edición (la crearemos después)
-                AddNewIncomeForm editForm = new AddNewIncomeForm(selectedID);
-                editForm.ShowDialog();
+                AddNewIncomeForm editForm = new AddNewIncomeForm(currentUser, selectedID);
+                editForm.Show();
             }
             else
             {
                 MessageBox.Show("Please select an income record to edit.", "Edit Income", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private void btnDeleteSelected_Click(object sender, EventArgs e)
         {

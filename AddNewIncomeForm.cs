@@ -6,27 +6,26 @@ namespace IncomeExpensesTrackingSystem
     public partial class AddNewIncomeForm : Form
     {
         private string incomeId;
+        private string currentUser;
 
-        public AddNewIncomeForm()
+        // Constructor
+        public AddNewIncomeForm(string user, string id = "")
         {
             InitializeComponent();
-        }
-
-        // Constructor for editing an existing income
-        public AddNewIncomeForm(string id)
-        {
-            InitializeComponent();
+            this.FormClosing += AddNewIncomeForm_FormClosing;
+            currentUser = user;
             incomeId = id;
-            LoadIncomeData(); // Call function to load existing data
+
+            if (!string.IsNullOrEmpty(incomeId))
+            {
+                LoadIncomeData(); // Load data if editing an existing income
+            }
         }
 
         private void LoadIncomeData()
         {
-            if (!string.IsNullOrEmpty(incomeId))
-            {
-                // TODO: Implement logic to fetch and load income details from database
-                MessageBox.Show($"Loading income data for ID: {incomeId}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            // Simulated loading income data from a database
+            MessageBox.Show($"Loading income data for ID: {incomeId}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnSaveIncome_Click(object sender, EventArgs e)
@@ -39,12 +38,30 @@ namespace IncomeExpensesTrackingSystem
             {
                 MessageBox.Show($"Income ID {incomeId} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            this.Close();
+            CloseAndReturnToIncomeManagement();
         }
 
         private void btnCancelIncome_Click(object sender, EventArgs e)
         {
-            this.Close();
+            CloseAndReturnToIncomeManagement();
+        }
+
+        private void labelCloseNewIncome_Click(object sender, EventArgs e)
+        {
+            CloseAndReturnToIncomeManagement();
+        }
+
+        private void AddNewIncomeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseAndReturnToIncomeManagement();
+        }
+
+        // Function to ensure consistency when closing the form
+        private void CloseAndReturnToIncomeManagement()
+        {
+            this.Hide();
+            IncomeManagementForm incomeForm = new IncomeManagementForm(currentUser);
+            incomeForm.Show();
         }
     }
 }
