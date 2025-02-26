@@ -1,40 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class RegisterForm : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Puerquita\Documents\expense.mdf;Integrated Security=True;Connect Timeout=30");
-        public RegisterForm() //Form constructor
-        {
-            InitializeComponent(); //Load graphic interface
-        }
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
-        public bool checkConnection()
+        public RegisterForm()
         {
-            return (connect.State == ConnectionState.Closed) ? true : false;
+            InitializeComponent();
         }
 
         private void login_signupButton_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
-
             this.Hide();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void close_Click_Click(object sender, EventArgs e)
@@ -44,93 +31,99 @@ namespace IncomeExpensesTrackingSystem
 
         private void register_button_Click(object sender, EventArgs e)
         {
-            if (register_username.Text == "" || register_password.Text == "" || register_confirm_password.Text == "")
+            if (string.IsNullOrWhiteSpace(register_username.Text) ||
+                string.IsNullOrWhiteSpace(register_password.Text) ||
+                string.IsNullOrWhiteSpace(register_confirm_password.Text))
             {
                 MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (register_password.Text.Length < 8)
             {
-                if (checkConnection())
+                MessageBox.Show("Invalid password. Type at least 8 characters", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (register_password.Text != register_confirm_password.Text)
+            {
+                MessageBox.Show("Passwords do not match", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection connect = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    try
+                    connect.Open();
+
+                    // Check if username exists
+                    string selectUsername = "SELECT COUNT(*) FROM Users WHERE username = @usern";
+                    using (SqlCommand checkUser = new SqlCommand(selectUsername, connect))
                     {
-                        connect.Open();
-                        //Verify if the username you want to register exists already
-                        string selectUsername = "SELECT * FROM users WHERE username = @usern";
-                        using (SqlCommand checkUser = new SqlCommand(selectUsername, connect))
+                        checkUser.Parameters.AddWithValue("@usern", register_username.Text.Trim());
+
+                        int userExists = (int)checkUser.ExecuteScalar();
+
+                        if (userExists > 0)
                         {
-                            checkUser.Parameters.AddWithValue("@usern", register_username.Text.Trim());
-
-                            SqlDataAdapter adapter = new SqlDataAdapter(checkUser);
-                            DataTable table = new DataTable();
-
-                            adapter.Fill(table);
-
-                            if (table.Rows.Count != 0)
-                            {
-                                //Set first letter as capital letter
-                                string tempUsern = register_username.Text.Substring(0, 1).ToUpper() + register_username.Text.Substring(1);
-                                MessageBox.Show(tempUsern + " is existing already", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else if (register_password.Text.Length < 8)
-                            {
-                                MessageBox.Show("Invalid password. Type 8 characters minimum", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else if (register_password.Text != register_confirm_password.Text)
-                            {
-                                MessageBox.Show("Password doesn't match", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                string insertData = "INSERT INTO users (username, password, date_create) VALUES(@usern, @pass, @date)";
-
-                                using (SqlCommand insertUser = new SqlCommand(insertData, connect))
-                                {
-                                    insertUser.Parameters.AddWithValue("@usern", register_username.Text.Trim());
-                                    insertUser.Parameters.AddWithValue("@pass", register_password.Text.Trim());
-
-                                    DateTime today = DateTime.Today; //Date now
-                                    insertUser.Parameters.AddWithValue("@date", today);
-
-                                    insertUser.ExecuteNonQuery();
-
-                                    MessageBox.Show("Registered Succesfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    LoginForm login = new LoginForm();
-                                    login.Show();
-
-                                    this.Hide();
-                                }
-                            }
+                            string tempUsern = char.ToUpper(register_username.Text[0]) + register_username.Text.Substring(1);
+                            MessageBox.Show($"{tempUsern} already exists", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
-                    catch (Exception ex)
-                    {
 
-                        MessageBox.Show("Failed connection: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
+                    // Encrypt password
+                    string hashedPassword = HashPassword(register_password.Text.Trim());
+
+                    // Insert new user
+                    string insertData = "INSERT INTO Users (username, password, date_create) VALUES (@usern, @pass, @date)";
+                    using (SqlCommand insertUser = new SqlCommand(insertData, connect))
                     {
-                        connect.Close();
+                        insertUser.Parameters.AddWithValue("@usern", register_username.Text.Trim());
+                        insertUser.Parameters.AddWithValue("@pass", hashedPassword);
+                        insertUser.Parameters.AddWithValue("@date", DateTime.Now);
+
+                        insertUser.ExecuteNonQuery();
+
+                        MessageBox.Show("Registered successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        LoginForm login = new LoginForm();
+                        login.Show();
+                        this.Hide();
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void register_show_password_CheckedChanged(object sender, EventArgs e)
         {
-            register_password.PasswordChar = register_show_password.Checked ? '\0' : '*';
-            register_confirm_password.PasswordChar = register_show_password.Checked ? '\0' : '*';
+            bool isChecked = register_show_password.Checked;
+            register_password.PasswordChar = isChecked ? '\0' : '*';
+            register_confirm_password.PasswordChar = isChecked ? '\0' : '*';
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void register_username_TextChanged(object sender, EventArgs e)
         {
-
+            // Optionally handle text change event
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private string HashPassword(string password)
         {
-
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

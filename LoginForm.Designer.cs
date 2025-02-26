@@ -20,6 +20,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelCreateAccount = new System.Windows.Forms.Label();
             this.login_signupButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -31,7 +32,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
             this.login_showPassword = new System.Windows.Forms.CheckBox();
-            this.labelCreateAccount = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,10 +46,21 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 506);
             this.panel1.TabIndex = 8;
+            // 
+            // labelCreateAccount
+            // 
+            this.labelCreateAccount.AutoSize = true;
+            this.labelCreateAccount.Font = new System.Drawing.Font("Montserrat Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.labelCreateAccount.Location = new System.Drawing.Point(101, 424);
+            this.labelCreateAccount.Name = "labelCreateAccount";
+            this.labelCreateAccount.Size = new System.Drawing.Size(106, 17);
+            this.labelCreateAccount.TabIndex = 3;
+            this.labelCreateAccount.Text = "Create an account";
             // 
             // login_signupButton
             // 
@@ -58,7 +69,7 @@
             this.login_signupButton.Font = new System.Drawing.Font("Montserrat", 10.875F);
             this.login_signupButton.ForeColor = System.Drawing.Color.White;
             this.login_signupButton.Location = new System.Drawing.Point(22, 452);
-            this.login_signupButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_signupButton.Margin = new System.Windows.Forms.Padding(2);
             this.login_signupButton.Name = "login_signupButton";
             this.login_signupButton.Size = new System.Drawing.Size(264, 38);
             this.login_signupButton.TabIndex = 0;
@@ -82,7 +93,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(122, 180);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -130,7 +141,7 @@
             // 
             this.signin_username.Font = new System.Drawing.Font("Lucida Sans", 10.125F);
             this.signin_username.Location = new System.Drawing.Point(330, 220);
-            this.signin_username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signin_username.Margin = new System.Windows.Forms.Padding(2);
             this.signin_username.Name = "signin_username";
             this.signin_username.Size = new System.Drawing.Size(290, 23);
             this.signin_username.TabIndex = 3;
@@ -138,7 +149,7 @@
             // login_password
             // 
             this.login_password.Location = new System.Drawing.Point(330, 285);
-            this.login_password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_password.Margin = new System.Windows.Forms.Padding(2);
             this.login_password.Name = "login_password";
             this.login_password.PasswordChar = '*';
             this.login_password.Size = new System.Drawing.Size(290, 20);
@@ -163,7 +174,7 @@
             this.login_button.Font = new System.Drawing.Font("Montserrat", 10.875F);
             this.login_button.ForeColor = System.Drawing.Color.White;
             this.login_button.Location = new System.Drawing.Point(335, 347);
-            this.login_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_button.Margin = new System.Windows.Forms.Padding(2);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(86, 38);
             this.login_button.TabIndex = 1;
@@ -177,23 +188,12 @@
             this.login_showPassword.Font = new System.Drawing.Font("Montserrat", 7.875F);
             this.login_showPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.login_showPassword.Location = new System.Drawing.Point(516, 310);
-            this.login_showPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_showPassword.Margin = new System.Windows.Forms.Padding(2);
             this.login_showPassword.Name = "login_showPassword";
             this.login_showPassword.Size = new System.Drawing.Size(113, 21);
             this.login_showPassword.TabIndex = 0;
             this.login_showPassword.Text = "Show Password";
             this.login_showPassword.CheckedChanged += new System.EventHandler(this.login_showPassword_CheckedChanged);
-            // 
-            // labelCreateAccount
-            // 
-            this.labelCreateAccount.AutoSize = true;
-            this.labelCreateAccount.Font = new System.Drawing.Font("Montserrat Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.labelCreateAccount.Location = new System.Drawing.Point(101, 424);
-            this.labelCreateAccount.Name = "labelCreateAccount";
-            this.labelCreateAccount.Size = new System.Drawing.Size(106, 17);
-            this.labelCreateAccount.TabIndex = 3;
-            this.labelCreateAccount.Text = "Create an account";
             // 
             // contextMenuStrip1
             // 
@@ -215,9 +215,8 @@
             this.Controls.Add(this.close_Click);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

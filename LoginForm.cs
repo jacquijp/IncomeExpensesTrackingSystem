@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class LoginForm : Form
     {
-        private string stringConnection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Puerquita\\Documents\\expense.mdf;Integrated Security=True;Connect Timeout=30";
+        // Get connection string from App.config
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
         public LoginForm()
         {
@@ -15,19 +17,21 @@ namespace IncomeExpensesTrackingSystem
             this.AutoScaleMode = AutoScaleMode.None;
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            // TODO: Add logic if needed when form loads
-        }
-
         private void login_button_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connect = new SqlConnection(stringConnection))
+            // Ensure the fields are not empty
+            if (string.IsNullOrWhiteSpace(signin_username.Text) || string.IsNullOrWhiteSpace(login_password.Text))
+            {
+                MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection connect = new SqlConnection(connectionString))
             {
                 try
                 {
                     connect.Open();
-                    string selectData = "SELECT * FROM users WHERE username = @usern AND password = @pass";
+                    string selectData = "SELECT * FROM Users WHERE Username = @usern AND Password = @pass";
 
                     using (SqlCommand cmd = new SqlCommand(selectData, connect))
                     {
