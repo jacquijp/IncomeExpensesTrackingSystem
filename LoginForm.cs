@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class LoginForm : Form
     {
-        // Get connection string from App.config
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
         public LoginForm()
         {
             InitializeComponent();
-            this.AutoScaleMode = AutoScaleMode.None;
         }
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            // Ensure the fields are not empty
             if (string.IsNullOrWhiteSpace(signin_username.Text) || string.IsNullOrWhiteSpace(login_password.Text))
             {
-                MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter both username and password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -31,29 +30,26 @@ namespace IncomeExpensesTrackingSystem
                 try
                 {
                     connect.Open();
-                    string selectData = "SELECT * FROM Users WHERE Username = @usern AND Password = @pass";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    string query = "SELECT COUNT(*) FROM Users WHERE username = @usern AND password = @pass";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         cmd.Parameters.AddWithValue("@usern", signin_username.Text.Trim());
-                        cmd.Parameters.AddWithValue("@pass", login_password.Text.Trim());
+                        cmd.Parameters.AddWithValue("@pass", HashPassword(login_password.Text.Trim())); // Hash password before comparing
 
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        DataTable table = new DataTable();
-                        adapter.Fill(table);
+                        int userExists = (int)cmd.ExecuteScalar();
 
-                        if (table.Rows.Count > 0)
+                        if (userExists > 0)
                         {
-                            string username = signin_username.Text.Trim();
-                            MessageBox.Show("Login successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Login successful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            this.Hide(); // Hide login form
-                            MainForm mainForm = new MainForm(username); // Pass username to MainForm
+                            this.Hide();
+                            MainForm mainForm = new MainForm(signin_username.Text.Trim());
                             mainForm.Show();
                         }
                         else
                         {
-                            MessageBox.Show("Incorrect username/password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Incorrect username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -79,6 +75,20 @@ namespace IncomeExpensesTrackingSystem
         private void close_Click_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
