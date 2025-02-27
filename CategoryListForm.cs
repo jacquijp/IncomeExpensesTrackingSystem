@@ -13,11 +13,24 @@ namespace IncomeExpensesTrackingSystem
 
         public CategoryListForm(string currentUser)
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
             this.currentUser = currentUser;
             LoadCategoryTypes();
             LoadCategoryNames();
+
+           
+            if (this.button_AddNewCategory != null)
+            {
+                this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
+            }
+            else
+            {
+                MessageBox.Show("button_AddNewCategory is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         // Load distinct category types from the database
         private void LoadCategoryTypes()
@@ -49,7 +62,7 @@ namespace IncomeExpensesTrackingSystem
         }
 
         // Load distinct category names from the database
-        private void LoadCategoryNames()
+        public void LoadCategoryNames()
         {
             comboBox_CategoryName.Items.Clear();
             comboBox_CategoryName.Items.Add("All");
@@ -78,13 +91,13 @@ namespace IncomeExpensesTrackingSystem
         }
 
         // Handle View List button click to load filtered categories
-        private void btn_ViewList_Click(object sender, EventArgs e)
+        public void btn_ViewList_Click(object sender, EventArgs e)
         {
             LoadFilteredCategories();
         }
 
         // Load and filter categories based on user selection
-        private void LoadFilteredCategories()
+        public void LoadFilteredCategories()
         {
             dataGridView_CategoryList.Rows.Clear();
 

@@ -22,14 +22,14 @@ namespace IncomeExpensesTrackingSystem
             comboBox_AddNewCategory_Type.Items.Clear();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT DISTINCT Type FROM Categories";
+                string query = "SELECT DISTINCT CategoryType FROM Categories";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    comboBox_AddNewCategory_Type.Items.Add(reader["Type"].ToString());
+                    comboBox_AddNewCategory_Type.Items.Add(reader["CategoryType"].ToString());
                 }
             }
         }
@@ -47,22 +47,27 @@ namespace IncomeExpensesTrackingSystem
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Categories (Type, Name) VALUES (@Type, @Name)";
+                string query = "INSERT INTO Categories (CategoryType, CategoryName) VALUES (@CategoryType, @CategoryName)";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Type", categoryType);
-                cmd.Parameters.AddWithValue("@Name", categoryName);
+                cmd.Parameters.AddWithValue("@CategoryType", categoryType);
+                cmd.Parameters.AddWithValue("@CategoryName", categoryName);
+
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
 
             MessageBox.Show("Category added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Llamar al método del formulario principal para actualizar la tabla
+            this.Close();
             parentForm.LoadFilteredCategories();
 
-            this.Close();
         }
+
+        private void AddNewCategoryForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {

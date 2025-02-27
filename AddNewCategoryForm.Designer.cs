@@ -216,7 +216,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewCategoryForm";
-            this.Load += new System.EventHandler(this.AddNewCategoryForm);
+            this.Load += new System.EventHandler(this.AddNewCategoryForm_Load);
+
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();

@@ -45,9 +45,9 @@
             this.dataGridView_CategoryList = new System.Windows.Forms.DataGridView();
             this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_IDCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
+            this.col_CategoryType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
             this.btn_deleteCategory = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -221,8 +221,8 @@
             this.dataGridView_CategoryList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSelect,
             this.col_IDCategory,
-            this.colType,
-            this.colName});
+            this.col_CategoryType,
+            this.col_CategoryName});
             this.dataGridView_CategoryList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_CategoryList.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_CategoryList.Margin = new System.Windows.Forms.Padding(2);
@@ -249,24 +249,25 @@
             this.col_IDCategory.ReadOnly = true;
             this.col_IDCategory.Width = 200;
             // 
-            // colType
+            // col_CategoryType
             // 
-            this.colType.HeaderText = "Type";
-            this.colType.MinimumWidth = 10;
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            this.colType.Width = 200;
+            this.col_CategoryType.HeaderText = "Type";
+            this.col_CategoryType.MinimumWidth = 10;
+            this.col_CategoryType.Name = "col_CategoryType";
+            this.col_CategoryType.ReadOnly = true;
+            this.col_CategoryType.Width = 200;
             // 
-            // colName
+            // col_CategoryName
             // 
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 10;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 200;
+            this.col_CategoryName.HeaderText = "Name";
+            this.col_CategoryName.MinimumWidth = 10;
+            this.col_CategoryName.Name = "col_CategoryName";
+            this.col_CategoryName.ReadOnly = true;
+            this.col_CategoryName.Width = 200;
             // 
             // button_AddNewCategory
-            // 
+            //
+            this.button_AddNewCategory = new System.Windows.Forms.Button();
             this.button_AddNewCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
             this.button_AddNewCategory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_AddNewCategory.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -279,6 +280,7 @@
             this.button_AddNewCategory.Text = "+ Add New Category";
             this.button_AddNewCategory.UseVisualStyleBackColor = false;
             this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
+            this.Controls.Add(this.button_AddNewCategory);
             // 
             // btn_deleteCategory
             // 
@@ -350,8 +352,8 @@
         private System.Windows.Forms.DataGridView dataGridView_CategoryList;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_IDCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_CategoryType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_CategoryName;
         private System.Windows.Forms.Button button_AddNewCategory;
         private System.Windows.Forms.Button btn_deleteCategory;
         private System.Windows.Forms.Panel panel3;
