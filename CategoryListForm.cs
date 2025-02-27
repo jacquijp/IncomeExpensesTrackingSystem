@@ -29,7 +29,7 @@ namespace IncomeExpensesTrackingSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT DISTINCT Type FROM Categories";
+                    string query = "SELECT DISTINCT CategoryType FROM Categories";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -56,7 +56,7 @@ namespace IncomeExpensesTrackingSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT DISTINCT Name FROM Categories";
+                    string query = "SELECT DISTINCT CategoryName FROM Categories";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
