@@ -47,7 +47,7 @@
             this.col_IDCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_AddNewCategory = new System.Windows.Forms.Button();
+            this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
             this.btn_deleteCategory = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();

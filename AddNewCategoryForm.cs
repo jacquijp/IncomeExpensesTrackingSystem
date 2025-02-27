@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace IncomeExpensesTrackingSystem
 {
     public partial class AddNewCategoryForm : Form
     {
-        private string connectionString = "tu_cadena_de_conexion";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
         private CategoryListForm parentForm;
 
         public AddNewCategoryForm(CategoryListForm parent)

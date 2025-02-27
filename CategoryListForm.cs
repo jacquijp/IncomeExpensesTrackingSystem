@@ -19,6 +19,7 @@ namespace IncomeExpensesTrackingSystem
             LoadCategoryNames();
         }
 
+        // Load distinct category types from the database
         private void LoadCategoryTypes()
         {
             comboBox_CategoryType.Items.Clear();
@@ -30,12 +31,13 @@ namespace IncomeExpensesTrackingSystem
                 {
                     conn.Open();
                     string query = "SELECT DISTINCT CategoryType FROM Categories";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        comboBox_CategoryType.Items.Add(reader["Type"].ToString());
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            comboBox_CategoryType.Items.Add(reader["CategoryType"].ToString());
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -43,9 +45,10 @@ namespace IncomeExpensesTrackingSystem
                     MessageBox.Show("Error loading category types: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            comboBox_CategoryType.SelectedIndex = 0; // Default "All"
+            comboBox_CategoryType.SelectedIndex = 0; // Default to "All"
         }
 
+        // Load distinct category names from the database
         private void LoadCategoryNames()
         {
             comboBox_CategoryName.Items.Clear();
@@ -57,12 +60,13 @@ namespace IncomeExpensesTrackingSystem
                 {
                     conn.Open();
                     string query = "SELECT DISTINCT CategoryName FROM Categories";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        comboBox_CategoryName.Items.Add(reader["Name"].ToString());
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            comboBox_CategoryName.Items.Add(reader["CategoryName"].ToString());
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -70,15 +74,17 @@ namespace IncomeExpensesTrackingSystem
                     MessageBox.Show("Error loading category names: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            comboBox_CategoryName.SelectedIndex = 0; // Default "All"
+            comboBox_CategoryName.SelectedIndex = 0; // Default to "All"
         }
 
-        public void btn_ViewList_Click(object sender, EventArgs e)
+        // Handle View List button click to load filtered categories
+        private void btn_ViewList_Click(object sender, EventArgs e)
         {
             LoadFilteredCategories();
         }
 
-        public void LoadFilteredCategories()
+        // Load and filter categories based on user selection
+        private void LoadFilteredCategories()
         {
             dataGridView_CategoryList.Rows.Clear();
 
@@ -87,23 +93,24 @@ namespace IncomeExpensesTrackingSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT ID, Type, Name FROM Categories WHERE 1=1";
+                    string query = "SELECT CategoryID, CategoryType, CategoryName FROM Categories WHERE 1=1";
+
                     if (comboBox_CategoryType.SelectedIndex > 0)
-                        query += " AND Type = @Type";
+                        query += " AND CategoryType = @CategoryType";
                     if (comboBox_CategoryName.SelectedIndex > 0)
-                        query += " AND Name = @Name";
+                        query += " AND CategoryName = @CategoryName";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         if (comboBox_CategoryType.SelectedIndex > 0)
-                            cmd.Parameters.AddWithValue("@Type", comboBox_CategoryType.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@CategoryType", comboBox_CategoryType.SelectedItem.ToString());
                         if (comboBox_CategoryName.SelectedIndex > 0)
-                            cmd.Parameters.AddWithValue("@Name", comboBox_CategoryName.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@CategoryName", comboBox_CategoryName.SelectedItem.ToString());
 
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
                         {
-                            dataGridView_CategoryList.Rows.Add(false, reader["ID"].ToString(), reader["Type"].ToString(), reader["Name"].ToString());
+                            dataGridView_CategoryList.Rows.Add(false, reader["CategoryID"].ToString(), reader["CategoryType"].ToString(), reader["CategoryName"].ToString());
                         }
                     }
                 }
@@ -114,13 +121,15 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-        public void btn_AddNewCategory_Click(object sender, EventArgs e)
+        // Open the Add New Category Form
+        private void btn_AddNewCategory_Click(object sender, EventArgs e)
         {
             AddNewCategoryForm addCategoryForm = new AddNewCategoryForm(this);
             addCategoryForm.ShowDialog();
-            LoadFilteredCategories(); // Refresh categories after adding
+            LoadFilteredCategories(); // Refresh the list after adding a new category
         }
 
+        // Delete selected categories from the database
         private void btn_deleteCategory_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -135,10 +144,10 @@ namespace IncomeExpensesTrackingSystem
                             string categoryId = row.Cells["col_IDCategory"].Value?.ToString();
                             if (!string.IsNullOrEmpty(categoryId))
                             {
-                                string query = "DELETE FROM Categories WHERE ID = @ID";
+                                string query = "DELETE FROM Categories WHERE CategoryID = @CategoryID";
                                 using (SqlCommand cmd = new SqlCommand(query, conn))
                                 {
-                                    cmd.Parameters.AddWithValue("@ID", categoryId);
+                                    cmd.Parameters.AddWithValue("@CategoryID", categoryId);
                                     cmd.ExecuteNonQuery();
                                 }
                             }
@@ -153,11 +162,10 @@ namespace IncomeExpensesTrackingSystem
             LoadFilteredCategories();
         }
 
+        // Close the form and return to MainForm
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm main = new MainForm(currentUser);
-            main.Show();
+            this.Close();
         }
     }
 }
