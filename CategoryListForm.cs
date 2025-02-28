@@ -9,94 +9,53 @@ namespace IncomeExpensesTrackingSystem
     public partial class CategoryListForm : Form
     {
         private string currentUser;
+        private int currentUserID;
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
         public CategoryListForm(string currentUser)
         {
-            InitializeComponent(); 
+            InitializeComponent();
 
             this.currentUser = currentUser;
+            this.currentUserID = GetUserID(currentUser); // Obtener el UserID basado en el nombre
+
             LoadCategoryTypes();
             LoadCategoryNames();
-
-           
-            if (this.button_AddNewCategory != null)
-            {
-                this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
-            }
-            else
-            {
-                MessageBox.Show("button_AddNewCategory is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
-
-
-        // Load distinct category types from the database
-        private void LoadCategoryTypes()
+        // 🔹 Método para obtener el UserID basado en el Username
+        private int GetUserID(string username)
         {
-            comboBox_CategoryType.Items.Clear();
-            comboBox_CategoryType.Items.Add("All");
+            int userID = -1; // Si no encuentra nada, devuelve -1 para evitar errores
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                try
+                string query = "SELECT UserID FROM Users WHERE Username = @Username";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    conn.Open();
-                    string query = "SELECT DISTINCT CategoryType FROM Categories";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    cmd.Parameters.AddWithValue("@Username", username);
+
+                    try
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
                         {
-                            comboBox_CategoryType.Items.Add(reader["CategoryType"].ToString());
+                            userID = Convert.ToInt32(result);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading category types: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            comboBox_CategoryType.SelectedIndex = 0; // Default to "All"
-        }
-
-        // Load distinct category names from the database
-        public void LoadCategoryNames()
-        {
-            comboBox_CategoryName.Items.Clear();
-            comboBox_CategoryName.Items.Add("All");
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT DISTINCT CategoryName FROM Categories";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    catch (Exception ex)
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            comboBox_CategoryName.Items.Add(reader["CategoryName"].ToString());
-                        }
+                        MessageBox.Show("Error retrieving UserID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading category names: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
-            comboBox_CategoryName.SelectedIndex = 0; // Default to "All"
+
+            return userID;
         }
 
-        // Handle View List button click to load filtered categories
-        public void btn_ViewList_Click(object sender, EventArgs e)
-        {
-            LoadFilteredCategories();
-        }
-
-        // Load and filter categories based on user selection
+        // 🔹 Cargar solo las categorías del usuario actual
         public void LoadFilteredCategories()
         {
             dataGridView_CategoryList.Rows.Clear();
@@ -106,7 +65,7 @@ namespace IncomeExpensesTrackingSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT CategoryID, CategoryType, CategoryName FROM Categories WHERE 1=1";
+                    string query = "SELECT CategoryID, CategoryType, CategoryName FROM Categories WHERE UserID = @UserID";
 
                     if (comboBox_CategoryType.SelectedIndex > 0)
                         query += " AND CategoryType = @CategoryType";
@@ -115,6 +74,8 @@ namespace IncomeExpensesTrackingSystem
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
+                        cmd.Parameters.AddWithValue("@UserID", currentUserID);
+
                         if (comboBox_CategoryType.SelectedIndex > 0)
                             cmd.Parameters.AddWithValue("@CategoryType", comboBox_CategoryType.SelectedItem.ToString());
                         if (comboBox_CategoryName.SelectedIndex > 0)
@@ -134,15 +95,15 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-        // Open the Add New Category Form
+        // 🔹 Modificado para pasar currentUserID a AddNewCategoryForm
         private void btn_AddNewCategory_Click(object sender, EventArgs e)
         {
-            AddNewCategoryForm addCategoryForm = new AddNewCategoryForm(this);
+            AddNewCategoryForm addCategoryForm = new AddNewCategoryForm(this, currentUserID);
             addCategoryForm.ShowDialog();
-            LoadFilteredCategories(); // Refresh the list after adding a new category
+            LoadFilteredCategories(); // Refrescar después de agregar una nueva categoría
         }
 
-        // Delete selected categories from the database
+        // 🔹 Método para eliminar categorías seleccionadas
         private void btn_deleteCategory_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -175,7 +136,63 @@ namespace IncomeExpensesTrackingSystem
             LoadFilteredCategories();
         }
 
-        // Close the form and return to MainForm
+        private void LoadCategoryTypes()
+        {
+            comboBox_CategoryType.Items.Clear();
+            comboBox_CategoryType.Items.Add("All"); // Siempre incluir "All"
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT DISTINCT CategoryType FROM Categories";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            comboBox_CategoryType.Items.Add(reader["CategoryType"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading category types: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            comboBox_CategoryType.SelectedIndex = 0; // Default to "All"
+        }
+
+        private void LoadCategoryNames()
+        {
+            comboBox_CategoryName.Items.Clear();
+            comboBox_CategoryName.Items.Add("All");
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT DISTINCT CategoryName FROM Categories";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            comboBox_CategoryName.Items.Add(reader["CategoryName"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading category names: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            comboBox_CategoryName.SelectedIndex = 0; // Default to "All"
+        }
+
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

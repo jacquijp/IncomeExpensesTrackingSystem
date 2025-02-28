@@ -39,13 +39,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelCategory = new System.Windows.Forms.Label();
             this.button_Cancel = new System.Windows.Forms.Button();
-            this.btn_Save_NewCategory = new System.Windows.Forms.Button();
+            this.btn_SaveNewCategory = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.header_newIncome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
+           
+
             // 
             // header_newIncome
             // 
@@ -174,25 +176,25 @@
             this.button_Cancel.UseVisualStyleBackColor = false;
             this.button_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
-            // btn_Save_NewCategory
+            // btn_SaveNewCategory
             // 
-            this.btn_Save_NewCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.btn_Save_NewCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Save_NewCategory.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save_NewCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btn_Save_NewCategory.Location = new System.Drawing.Point(263, 12);
-            this.btn_Save_NewCategory.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_Save_NewCategory.Name = "btn_Save_NewCategory";
-            this.btn_Save_NewCategory.Size = new System.Drawing.Size(89, 35);
-            this.btn_Save_NewCategory.TabIndex = 7;
-            this.btn_Save_NewCategory.Text = "Save";
-            this.btn_Save_NewCategory.UseVisualStyleBackColor = false;
-            this.btn_Save_NewCategory.Click += new System.EventHandler(this.btn_SaveNewCategory_Click);
+            this.btn_SaveNewCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btn_SaveNewCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_SaveNewCategory.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveNewCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btn_SaveNewCategory.Location = new System.Drawing.Point(263, 12);
+            this.btn_SaveNewCategory.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_SaveNewCategory.Name = "btn_SaveNewCategory";
+            this.btn_SaveNewCategory.Size = new System.Drawing.Size(89, 35);
+            this.btn_SaveNewCategory.TabIndex = 7;
+            this.btn_SaveNewCategory.Text = "Save";
+            this.btn_SaveNewCategory.UseVisualStyleBackColor = false;
+            this.btn_SaveNewCategory.Click += new System.EventHandler(this.btn_SaveNewCategory_Clic);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button_Cancel);
-            this.panel2.Controls.Add(this.btn_Save_NewCategory);
+            this.panel2.Controls.Add(this.btn_SaveNewCategory);
             this.panel2.Location = new System.Drawing.Point(0, 307);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
@@ -216,8 +218,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewCategoryForm";
-            this.Load += new System.EventHandler(this.AddNewCategoryForm_Load);
-
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
@@ -238,7 +238,7 @@
         private System.Windows.Forms.Label labelCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_Cancel;
-        private System.Windows.Forms.Button btn_Save_NewCategory;
+        private System.Windows.Forms.Button btn_SaveNewCategory;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox_AddNewCategory_CategoryName;
         private System.Windows.Forms.ComboBox comboBox_AddNewCategory_Type;

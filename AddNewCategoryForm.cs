@@ -9,29 +9,32 @@ namespace IncomeExpensesTrackingSystem
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
         private CategoryListForm parentForm;
+        private int currentUserID; // 🔹 Guardará el UserID del usuario actual
 
-        public AddNewCategoryForm(CategoryListForm parent)
+        public AddNewCategoryForm(CategoryListForm parent, int userID)
         {
             InitializeComponent();
-            parentForm = parent;
+            this.parentForm = parent;
+            this.currentUserID = userID; // 🔹 Se asigna el UserID recibido
             LoadCategoryTypes();
         }
 
         private void LoadCategoryTypes()
         {
             comboBox_AddNewCategory_Type.Items.Clear();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT DISTINCT CategoryType FROM Categories";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+            comboBox_AddNewCategory_Type.Items.Add("Expense");
+            comboBox_AddNewCategory_Type.Items.Add("Income");
+            comboBox_AddNewCategory_Type.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
 
-                while (reader.Read())
-                {
-                    comboBox_AddNewCategory_Type.Items.Add(reader["CategoryType"].ToString());
-                }
-            }
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lbl_closeX_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btn_SaveNewCategory_Click(object sender, EventArgs e)
@@ -47,36 +50,39 @@ namespace IncomeExpensesTrackingSystem
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Categories (CategoryType, CategoryName) VALUES (@CategoryType, @CategoryName)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@CategoryType", categoryType);
-                cmd.Parameters.AddWithValue("@CategoryName", categoryName);
+                string query = "INSERT INTO Categories (UserID, CategoryType, CategoryName) VALUES (@UserID, @CategoryType, @CategoryName)";
 
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", currentUserID); 
+                    cmd.Parameters.AddWithValue("@CategoryType", categoryType);
+                    cmd.Parameters.AddWithValue("@CategoryName", categoryName);
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                    try
+                    {
+                        conn.Open();
+                        int result = cmd.ExecuteNonQuery();
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Category added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Refresca la lista en CategoryListForm
+                            parentForm.LoadFilteredCategories();
+
+                            this.Close(); // Cierra el formulario después de guardar
+                        }
+                        else
+                        {
+                            MessageBox.Show("No category was added.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error saving category: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-
-            MessageBox.Show("Category added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-            parentForm.LoadFilteredCategories();
-
-        }
-
-        private void AddNewCategoryForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void lbl_closeX_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
