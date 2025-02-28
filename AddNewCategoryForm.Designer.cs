@@ -189,7 +189,7 @@
             this.btn_SaveNewCategory.TabIndex = 7;
             this.btn_SaveNewCategory.Text = "Save";
             this.btn_SaveNewCategory.UseVisualStyleBackColor = false;
-            this.btn_SaveNewCategory.Click += new System.EventHandler(this.btn_SaveNewCategory_Clic);
+            this.btn_SaveNewCategory.Click += new System.EventHandler(this.btn_SaveNewCategory_Click);
             // 
             // panel2
             // 

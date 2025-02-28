@@ -192,6 +192,10 @@ namespace IncomeExpensesTrackingSystem
             comboBox_CategoryName.SelectedIndex = 0; // Default to "All"
         }
 
+        private void btn_ViewList_Click(object sender, EventArgs e)
+        {
+            LoadFilteredCategories();
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
