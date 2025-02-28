@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryListForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.close_Click = new System.Windows.Forms.Label();
@@ -47,9 +47,9 @@
             this.col_IDCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_CategoryType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
             this.btn_deleteCategory = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button_AddNewCategory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel_dataCategoryList.SuspendLayout();
@@ -209,14 +209,14 @@
             // 
             this.dataGridView_CategoryList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
             this.dataGridView_CategoryList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_CategoryList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat SemiBold", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_CategoryList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_CategoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_CategoryList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSelect,
@@ -265,23 +265,6 @@
             this.col_CategoryName.ReadOnly = true;
             this.col_CategoryName.Width = 200;
             // 
-            // button_AddNewCategory
-            //
-            this.button_AddNewCategory = new System.Windows.Forms.Button();
-            this.button_AddNewCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            this.button_AddNewCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_AddNewCategory.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_AddNewCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.button_AddNewCategory.Location = new System.Drawing.Point(550, 23);
-            this.button_AddNewCategory.Margin = new System.Windows.Forms.Padding(2);
-            this.button_AddNewCategory.Name = "button_AddNewCategory";
-            this.button_AddNewCategory.Size = new System.Drawing.Size(154, 35);
-            this.button_AddNewCategory.TabIndex = 12;
-            this.button_AddNewCategory.Text = "+ Add New Category";
-            this.button_AddNewCategory.UseVisualStyleBackColor = false;
-            this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
-            this.Controls.Add(this.button_AddNewCategory);
-            // 
             // btn_deleteCategory
             // 
             this.btn_deleteCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
@@ -307,6 +290,21 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(720, 96);
             this.panel3.TabIndex = 14;
+            // 
+            // button_AddNewCategory
+            // 
+            this.button_AddNewCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.button_AddNewCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_AddNewCategory.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_AddNewCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.button_AddNewCategory.Location = new System.Drawing.Point(540, 23);
+            this.button_AddNewCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.button_AddNewCategory.Name = "button_AddNewCategory";
+            this.button_AddNewCategory.Size = new System.Drawing.Size(154, 35);
+            this.button_AddNewCategory.TabIndex = 12;
+            this.button_AddNewCategory.Text = "+ Add New Category";
+            this.button_AddNewCategory.UseVisualStyleBackColor = false;
+            this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
             // 
             // CategoryListForm
             // 
