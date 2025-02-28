@@ -98,8 +98,13 @@ namespace IncomeExpensesTrackingSystem
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
                         {
-                            // Add rows with a default checkbox value of false
-                            dataGridView_CategoryList.Rows.Add(false, reader["CategoryID"].ToString(), reader["CategoryType"].ToString(), reader["CategoryName"].ToString());
+                            // Ensure values are correctly ordered: [CheckBox, ID, Type, Name]
+                            dataGridView_CategoryList.Rows.Add(
+                                false,  // This should always be a boolean
+                                reader["CategoryID"],
+                                reader["CategoryType"].ToString(),
+                                reader["CategoryName"].ToString()
+                            );
                         }
                     }
                 }
