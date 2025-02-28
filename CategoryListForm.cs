@@ -17,16 +17,17 @@ namespace IncomeExpensesTrackingSystem
             InitializeComponent();
 
             this.currentUser = currentUser;
-            this.currentUserID = GetUserID(currentUser); // Obtener el UserID basado en el nombre
+            this.currentUserID = GetUserID(currentUser); 
 
             LoadCategoryTypes();
             LoadCategoryNames();
+            InitializeDataGridView();
         }
 
-        // 🔹 Método para obtener el UserID basado en el Username
+        // Method to retrieve the UserID from the database
         private int GetUserID(string username)
         {
-            int userID = -1; // Si no encuentra nada, devuelve -1 para evitar errores
+            int userID = -1; // Default value in case of an error
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -51,11 +52,24 @@ namespace IncomeExpensesTrackingSystem
                     }
                 }
             }
-
             return userID;
         }
 
-        // 🔹 Cargar solo las categorías del usuario actual
+        // Initialize DataGridView and ensure "Select" column is a checkbox
+        private void InitializeDataGridView()
+        {
+            // If the "Select" column doesn't exist, add it
+            if (dataGridView_CategoryList.Columns["colSelect"] == null)
+            {
+                DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                chk.Name = "colSelect";
+                chk.HeaderText = "Select";
+                chk.Width = 50;
+                dataGridView_CategoryList.Columns.Insert(0, chk);
+            }
+        }
+
+        // Load categories filtered by the current user
         public void LoadFilteredCategories()
         {
             dataGridView_CategoryList.Rows.Clear();
@@ -84,6 +98,7 @@ namespace IncomeExpensesTrackingSystem
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
                         {
+                            // Add rows with a default checkbox value of false
                             dataGridView_CategoryList.Rows.Add(false, reader["CategoryID"].ToString(), reader["CategoryType"].ToString(), reader["CategoryName"].ToString());
                         }
                     }
@@ -95,15 +110,15 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-        // 🔹 Modificado para pasar currentUserID a AddNewCategoryForm
+        // Open the "Add New Category" form and pass the current user ID
         private void btn_AddNewCategory_Click(object sender, EventArgs e)
         {
             AddNewCategoryForm addCategoryForm = new AddNewCategoryForm(this, currentUserID);
             addCategoryForm.ShowDialog();
-            LoadFilteredCategories(); // Refrescar después de agregar una nueva categoría
+            LoadFilteredCategories(); // Refresh after adding a new category
         }
 
-        // 🔹 Método para eliminar categorías seleccionadas
+        // Delete selected categories
         private void btn_deleteCategory_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -113,6 +128,7 @@ namespace IncomeExpensesTrackingSystem
                     conn.Open();
                     foreach (DataGridViewRow row in dataGridView_CategoryList.Rows)
                     {
+                        // Ensure the checkbox is checked before deleting
                         if (row.Cells["colSelect"].Value != null && Convert.ToBoolean(row.Cells["colSelect"].Value))
                         {
                             string categoryId = row.Cells["col_IDCategory"].Value?.ToString();
@@ -133,13 +149,14 @@ namespace IncomeExpensesTrackingSystem
                     MessageBox.Show("Error deleting category: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            LoadFilteredCategories();
+            LoadFilteredCategories(); // Refresh after deletion
         }
 
+        // Load unique category types into the dropdown
         private void LoadCategoryTypes()
         {
             comboBox_CategoryType.Items.Clear();
-            comboBox_CategoryType.Items.Add("All"); // Siempre incluir "All"
+            comboBox_CategoryType.Items.Add("All");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -161,9 +178,10 @@ namespace IncomeExpensesTrackingSystem
                     MessageBox.Show("Error loading category types: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            comboBox_CategoryType.SelectedIndex = 0; // Default to "All"
+            comboBox_CategoryType.SelectedIndex = 0; // Default selection to "All"
         }
 
+        // Load unique category names into the dropdown
         private void LoadCategoryNames()
         {
             comboBox_CategoryName.Items.Clear();
@@ -189,14 +207,16 @@ namespace IncomeExpensesTrackingSystem
                     MessageBox.Show("Error loading category names: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            comboBox_CategoryName.SelectedIndex = 0; // Default to "All"
+            comboBox_CategoryName.SelectedIndex = 0; // Default selection to "All"
         }
 
+        // Refresh the category list when clicking "View List"
         private void btn_ViewList_Click(object sender, EventArgs e)
         {
             LoadFilteredCategories();
         }
 
+        // Close the form
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
