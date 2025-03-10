@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace IncomeExpensesTrackingSystem
@@ -7,12 +9,15 @@ namespace IncomeExpensesTrackingSystem
     {
         private string incomeId;
         private string currentUser;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
         public AddNewIncomeForm(string user, string id = "")
         {
             InitializeComponent();
             currentUser = user;
             incomeId = id;
+
+            LoadIncomeCategories(); // Load income categories in ComboBox
 
             if (!string.IsNullOrEmpty(incomeId))
             {
@@ -23,10 +28,46 @@ namespace IncomeExpensesTrackingSystem
             textBoxDescription.MaxLength = 255; // Set character limit for description
         }
 
+
         private void LoadIncomeData()
         {
             MessageBox.Show($"Loading income data for ID: {incomeId}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void LoadIncomeCategories()
+        {
+            comboBoxCategory.Items.Clear(); // Clear previous items
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT CategoryName FROM Categories WHERE UserID = (SELECT UserID FROM Users WHERE Username = @Username) AND CategoryType = 'Income'";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", currentUser);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            comboBoxCategory.Items.Add(reader["CategoryName"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading income categories: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxCategory.Items.Count > 0)
+            {
+                comboBoxCategory.SelectedIndex = 0; // Select first item by default
+            }
+        }
+
 
         private void btnSaveIncome_Click(object sender, EventArgs e)
         {

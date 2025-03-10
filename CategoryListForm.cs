@@ -224,7 +224,9 @@ namespace IncomeExpensesTrackingSystem
         // Close the form
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            MainForm main = new MainForm(currentUser);
+            main.Show();
         }
     }
 }
