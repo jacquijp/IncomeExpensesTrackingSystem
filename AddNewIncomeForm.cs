@@ -68,20 +68,6 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-
-        private void btnSaveIncome_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(incomeId))
-            {
-                MessageBox.Show("New income added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show($"Income ID {incomeId} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            this.Close();
-        }
-
         private void btnCancelIncome_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -121,6 +107,67 @@ namespace IncomeExpensesTrackingSystem
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnSaveIncome_Click_1(object sender, EventArgs e)
+        {
+            {
+                // Get values added by user
+                string selectedCategory = comboBoxCategory.SelectedItem?.ToString();
+                string amountText = textBoxAmount.Text.Trim();
+                string description = textBoxDescription.Text.Trim();
+                DateTime incomeDate = dateTimePickerIncome.Value;
+
+                // Validating filling of data
+                if (string.IsNullOrEmpty(selectedCategory) || string.IsNullOrEmpty(amountText))
+                {
+                    MessageBox.Show("Please fill in all required fields (Category and Amount).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Validating number format
+                if (!decimal.TryParse(amountText, out decimal amount) || amount <= 0)
+                {
+                    MessageBox.Show("Please enter a valid amount greater than 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Database connection
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "INSERT INTO Incomes (UserID, CategoryName, Amount, Description, IncomeDate) " +
+                                       "VALUES ((SELECT UserID FROM Users WHERE Username = @Username), @Category, @Amount, @Description, @Date)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Username", currentUser);
+                            cmd.Parameters.AddWithValue("@Category", selectedCategory);
+                            cmd.Parameters.AddWithValue("@Amount", amount);
+                            cmd.Parameters.AddWithValue("@Description", string.IsNullOrEmpty(description) ? DBNull.Value : (object)description);
+                            cmd.Parameters.AddWithValue("@Date", incomeDate);
+
+                            int result = cmd.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Income added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close(); // Close the form after successful insert
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to add income.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error saving income: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

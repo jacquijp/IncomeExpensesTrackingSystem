@@ -36,8 +36,9 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnAddNewIncome_Click(object sender, EventArgs e)
         {
-            AddNewIncomeForm addIncomeForm = new AddNewIncomeForm(currentUser);
-            addIncomeForm.Show();
+            AddNewIncomeForm incomeForm = new AddNewIncomeForm(currentUser);
+            incomeForm.ShowDialog();
+
         }
 
 
