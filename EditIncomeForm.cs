@@ -1,42 +1,90 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class EditIncomeForm : Form
     {
-        private DataGridViewRow selectedRow; // Store the selected income row
+        private string currentUser;
+        private string incomeID;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
-        // Constructor receiving the selected row from Income Management
-        public EditIncomeForm(DataGridViewRow row)
+        public EditIncomeForm(string user, string incomeID)
         {
             InitializeComponent();
-            selectedRow = row;
-            LoadSelectedData(); // Load data from the selected row
+            this.currentUser = user;
+            this.incomeID = incomeID;
+            LoadIncomeDetails(); // Load the selected income details
         }
 
         // Load the selected income details into the input fields
-        private void LoadSelectedData()
+        private void LoadIncomeDetails()
         {
-            if (selectedRow != null)
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                datePickerIncome.Value = Convert.ToDateTime(selectedRow.Cells["colDate"].Value);
-                textBoxAmountIncome.Text = selectedRow.Cells["colAmount"].Value.ToString();
-                textBoxDescriptionIncome.Text = selectedRow.Cells["colDescription"].Value.ToString();
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT IncomeDate, Amount, Description FROM Incomes WHERE IncomeID = @IncomeID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@IncomeID", incomeID);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            datePickerIncome.Value = Convert.ToDateTime(reader["IncomeDate"]);
+                            textBoxAmountIncome.Text = reader["Amount"].ToString();
+                            textBoxDescriptionIncome.Text = reader["Description"].ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading income details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        // Save Edited Income
+        // Save the edited income to the database
         private void btnSaveEditIncome_Click(object sender, EventArgs e)
         {
             if (ValidateFields())
             {
-                selectedRow.Cells["colDate"].Value = datePickerIncome.Value.ToShortDateString();
-                selectedRow.Cells["colAmount"].Value = textBoxAmountIncome.Text;
-                selectedRow.Cells["colDescription"].Value = textBoxDescriptionIncome.Text;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE Incomes SET IncomeDate = @IncomeDate, Amount = @Amount, Description = @Description WHERE IncomeID = @IncomeID";
 
-                MessageBox.Show("Income updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@IncomeDate", datePickerIncome.Value);
+                            cmd.Parameters.AddWithValue("@Amount", textBoxAmountIncome.Text);
+                            cmd.Parameters.AddWithValue("@Description", textBoxDescriptionIncome.Text);
+                            cmd.Parameters.AddWithValue("@IncomeID", incomeID);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Income updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No changes were made.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating income: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -51,7 +99,11 @@ namespace IncomeExpensesTrackingSystem
             return true;
         }
 
-        // Close the form without saving
+        private void EditIncomeForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
         private void btnCancelEditIncome_Click(object sender, EventArgs e)
         {
             this.Close();

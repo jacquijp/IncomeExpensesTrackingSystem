@@ -84,14 +84,17 @@ namespace IncomeExpensesTrackingSystem
             {
                 string selectedID = dataGridIncome.SelectedRows[0].Cells["col_IdTransactionIncome"].Value.ToString();
 
-                AddNewIncomeForm editForm = new AddNewIncomeForm(currentUser, selectedID);
-                editForm.Show();
+                EditIncomeForm editForm = new EditIncomeForm(currentUser, selectedID);
+                editForm.ShowDialog();
+
+                LoadIncomeData();
             }
             else
             {
                 MessageBox.Show("Please select an income record to edit.", "Edit Income", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private void btnDeleteSelected_Click(object sender, EventArgs e)
         {
@@ -152,5 +155,19 @@ namespace IncomeExpensesTrackingSystem
         {
 
         }
+
+        private void dataGridIncome_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Ensure the click is inside a valid row (avoid header clicks)
+            if (e.RowIndex >= 0 && dataGridIncome.Columns[e.ColumnIndex].Name != "colSelect")
+            {
+                // Get the checkbox cell in the selected row
+                DataGridViewCheckBoxCell checkbox = (DataGridViewCheckBoxCell)dataGridIncome.Rows[e.RowIndex].Cells["colSelect"];
+
+                // Toggle the checkbox value (if it's true, set false; if false, set true)
+                checkbox.Value = !(checkbox.Value is bool && (bool)checkbox.Value);
+            }
+        }
+
     }
 }

@@ -55,8 +55,9 @@
             this.header_editIncome.Controls.Add(this.leftCornerLogo);
             this.header_editIncome.Dock = System.Windows.Forms.DockStyle.Top;
             this.header_editIncome.Location = new System.Drawing.Point(0, 0);
+            this.header_editIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.header_editIncome.Name = "header_editIncome";
-            this.header_editIncome.Size = new System.Drawing.Size(897, 76);
+            this.header_editIncome.Size = new System.Drawing.Size(448, 40);
             this.header_editIncome.TabIndex = 4;
             // 
             // btnClose
@@ -65,9 +66,10 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnClose.Location = new System.Drawing.Point(851, 9);
+            this.btnClose.Location = new System.Drawing.Point(426, 5);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(34, 38);
+            this.btnClose.Size = new System.Drawing.Size(17, 18);
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "X";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -77,10 +79,11 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Montserrat", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.labelTitle.Location = new System.Drawing.Point(76, 9);
+            this.labelTitle.Location = new System.Drawing.Point(38, 5);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Padding = new System.Windows.Forms.Padding(10);
-            this.labelTitle.Size = new System.Drawing.Size(402, 124);
+            this.labelTitle.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelTitle.Size = new System.Drawing.Size(105, 32);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Edit Income";
             // 
@@ -88,10 +91,10 @@
             // 
             this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
             this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
-            this.leftCornerLogo.Location = new System.Drawing.Point(9, 9);
+            this.leftCornerLogo.Location = new System.Drawing.Point(4, 5);
             this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
             this.leftCornerLogo.Name = "leftCornerLogo";
-            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
+            this.leftCornerLogo.Size = new System.Drawing.Size(26, 26);
             this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.leftCornerLogo.TabIndex = 2;
             this.leftCornerLogo.TabStop = false;
@@ -104,33 +107,37 @@
             this.panel1.Controls.Add(this.labelDescription);
             this.panel1.Controls.Add(this.labelAmount);
             this.panel1.Controls.Add(this.labelDate);
-            this.panel1.Location = new System.Drawing.Point(66, 163);
+            this.panel1.Location = new System.Drawing.Point(33, 85);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(765, 373);
+            this.panel1.Size = new System.Drawing.Size(382, 194);
             this.panel1.TabIndex = 5;
             // 
             // textBoxDescriptionIncome
             // 
             this.textBoxDescriptionIncome.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescriptionIncome.Location = new System.Drawing.Point(254, 268);
+            this.textBoxDescriptionIncome.Location = new System.Drawing.Point(127, 139);
+            this.textBoxDescriptionIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxDescriptionIncome.Name = "textBoxDescriptionIncome";
-            this.textBoxDescriptionIncome.Size = new System.Drawing.Size(256, 33);
+            this.textBoxDescriptionIncome.Size = new System.Drawing.Size(130, 20);
             this.textBoxDescriptionIncome.TabIndex = 27;
             // 
             // textBoxAmountIncome
             // 
             this.textBoxAmountIncome.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAmountIncome.Location = new System.Drawing.Point(254, 170);
+            this.textBoxAmountIncome.Location = new System.Drawing.Point(127, 88);
+            this.textBoxAmountIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxAmountIncome.Name = "textBoxAmountIncome";
-            this.textBoxAmountIncome.Size = new System.Drawing.Size(256, 33);
+            this.textBoxAmountIncome.Size = new System.Drawing.Size(130, 20);
             this.textBoxAmountIncome.TabIndex = 26;
             // 
             // datePickerIncome
             // 
             this.datePickerIncome.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickerIncome.Location = new System.Drawing.Point(254, 67);
+            this.datePickerIncome.Location = new System.Drawing.Point(127, 35);
+            this.datePickerIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.datePickerIncome.Name = "datePickerIncome";
-            this.datePickerIncome.Size = new System.Drawing.Size(196, 31);
+            this.datePickerIncome.Size = new System.Drawing.Size(100, 20);
             this.datePickerIncome.TabIndex = 25;
             // 
             // labelDescription
@@ -139,10 +146,11 @@
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
             this.labelDescription.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.labelDescription.Location = new System.Drawing.Point(50, 268);
+            this.labelDescription.Location = new System.Drawing.Point(25, 139);
+            this.labelDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Padding = new System.Windows.Forms.Padding(10);
-            this.labelDescription.Size = new System.Drawing.Size(176, 58);
+            this.labelDescription.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelDescription.Size = new System.Drawing.Size(88, 28);
             this.labelDescription.TabIndex = 24;
             this.labelDescription.Text = "Description";
             // 
@@ -152,10 +160,11 @@
             this.labelAmount.BackColor = System.Drawing.Color.Transparent;
             this.labelAmount.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.labelAmount.Location = new System.Drawing.Point(50, 161);
+            this.labelAmount.Location = new System.Drawing.Point(25, 84);
+            this.labelAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Padding = new System.Windows.Forms.Padding(10);
-            this.labelAmount.Size = new System.Drawing.Size(136, 58);
+            this.labelAmount.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelAmount.Size = new System.Drawing.Size(69, 28);
             this.labelAmount.TabIndex = 23;
             this.labelAmount.Text = "Amount";
             // 
@@ -165,10 +174,11 @@
             this.labelDate.BackColor = System.Drawing.Color.Transparent;
             this.labelDate.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.labelDate.Location = new System.Drawing.Point(50, 50);
+            this.labelDate.Location = new System.Drawing.Point(25, 26);
+            this.labelDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Padding = new System.Windows.Forms.Padding(10);
-            this.labelDate.Size = new System.Drawing.Size(95, 58);
+            this.labelDate.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelDate.Size = new System.Drawing.Size(47, 28);
             this.labelDate.TabIndex = 22;
             this.labelDate.Text = "Date";
             // 
@@ -178,10 +188,10 @@
             this.btnCancelEditIncome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelEditIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelEditIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnCancelEditIncome.Location = new System.Drawing.Point(442, 575);
-            this.btnCancelEditIncome.Margin = new System.Windows.Forms.Padding(10);
+            this.btnCancelEditIncome.Location = new System.Drawing.Point(221, 299);
+            this.btnCancelEditIncome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCancelEditIncome.Name = "btnCancelEditIncome";
-            this.btnCancelEditIncome.Size = new System.Drawing.Size(178, 68);
+            this.btnCancelEditIncome.Size = new System.Drawing.Size(89, 35);
             this.btnCancelEditIncome.TabIndex = 14;
             this.btnCancelEditIncome.Text = "Cancel";
             this.btnCancelEditIncome.UseVisualStyleBackColor = false;
@@ -193,10 +203,10 @@
             this.btnSaveEditIncome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveEditIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveEditIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnSaveEditIncome.Location = new System.Drawing.Point(653, 573);
-            this.btnSaveEditIncome.Margin = new System.Windows.Forms.Padding(10);
+            this.btnSaveEditIncome.Location = new System.Drawing.Point(326, 298);
+            this.btnSaveEditIncome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSaveEditIncome.Name = "btnSaveEditIncome";
-            this.btnSaveEditIncome.Size = new System.Drawing.Size(178, 68);
+            this.btnSaveEditIncome.Size = new System.Drawing.Size(89, 35);
             this.btnSaveEditIncome.TabIndex = 13;
             this.btnSaveEditIncome.Text = "Save";
             this.btnSaveEditIncome.UseVisualStyleBackColor = false;
@@ -204,18 +214,20 @@
             // 
             // EditIncomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(897, 698);
+            this.ClientSize = new System.Drawing.Size(448, 363);
             this.Controls.Add(this.btnCancelEditIncome);
             this.Controls.Add(this.btnSaveEditIncome);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.header_editIncome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditIncomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditIncomeForm";
+            this.Load += new System.EventHandler(this.EditIncomeForm_Load);
             this.header_editIncome.ResumeLayout(false);
             this.header_editIncome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
