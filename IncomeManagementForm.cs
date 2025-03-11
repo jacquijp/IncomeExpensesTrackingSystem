@@ -16,6 +16,19 @@ namespace IncomeExpensesTrackingSystem
             InitializeComponent();
             currentUser = user;
             LoadIncomeData(); // Load income data when the form is opened
+
+            // Set DataGridView default text and background colors
+            dataGridIncome.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81); // Gray text
+            dataGridIncome.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(243, 244, 246); // Light gray background
+            dataGridIncome.GridColor = System.Drawing.Color.FromArgb(10, 61, 98); // Blue grid lines
+
+            // Set selection colors
+            dataGridIncome.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White; // White text when selected
+            dataGridIncome.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(59, 130, 246); // Blue background when selected
+
+            // Optional: Alternate row style (for better readability)
+            dataGridIncome.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(229, 231, 235); // Slightly darker gray for alternating rows
+
         }
 
         private void LoadIncomeData()
@@ -133,6 +146,11 @@ namespace IncomeExpensesTrackingSystem
             this.Hide();
             MainForm main = new MainForm(currentUser);
             main.Show();
+        }
+
+        private void dataGridIncome_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

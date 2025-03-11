@@ -169,6 +169,7 @@
             this.dataGridIncome.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridIncome.Size = new System.Drawing.Size(658, 287);
             this.dataGridIncome.TabIndex = 2;
+            this.dataGridIncome.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridIncome_CellContentClick);
             // 
             // panel3
             // 
