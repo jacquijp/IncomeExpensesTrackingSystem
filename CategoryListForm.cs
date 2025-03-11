@@ -228,5 +228,10 @@ namespace IncomeExpensesTrackingSystem
             MainForm main = new MainForm(currentUser);
             main.Show();
         }
+
+        private void dataGridView_CategoryList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -51,6 +51,15 @@ namespace IncomeExpensesTrackingSystem
                 return;
             }
 
+            // Validate that a currency is selected
+            if (listBox_Currency.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a currency.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string selectedCurrency = listBox_Currency.SelectedItem.ToString();
+
             using (SqlConnection connect = new SqlConnection(connectionString))
             {
                 try
@@ -76,13 +85,14 @@ namespace IncomeExpensesTrackingSystem
                     // Encrypt password
                     string hashedPassword = HashPassword(register_password.Text.Trim());
 
-                    // Insert new user
-                    string insertData = "INSERT INTO Users (username, password, date_create) VALUES (@usern, @pass, @date)";
+                    // Insert new user including the currency column
+                    string insertData = "INSERT INTO Users (username, password, date_create, Currency) VALUES (@usern, @pass, @date, @currency)";
                     using (SqlCommand insertUser = new SqlCommand(insertData, connect))
                     {
                         insertUser.Parameters.AddWithValue("@usern", register_username.Text.Trim());
                         insertUser.Parameters.AddWithValue("@pass", hashedPassword);
                         insertUser.Parameters.AddWithValue("@date", DateTime.Now);
+                        insertUser.Parameters.AddWithValue("@currency", selectedCurrency);
 
                         insertUser.ExecuteNonQuery();
 
@@ -99,6 +109,8 @@ namespace IncomeExpensesTrackingSystem
                 }
             }
         }
+
+
 
         private void register_show_password_CheckedChanged(object sender, EventArgs e)
         {
@@ -124,6 +136,11 @@ namespace IncomeExpensesTrackingSystem
                 }
                 return builder.ToString();
             }
+        }
+
+        private void listBox_Currency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

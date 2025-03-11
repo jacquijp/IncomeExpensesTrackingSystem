@@ -43,13 +43,13 @@
             this.btn_ViewList = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView_CategoryList = new System.Windows.Forms.DataGridView();
-            this.btn_deleteCategory = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button_AddNewCategory = new System.Windows.Forms.Button();
             this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_IDCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_CategoryType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_deleteCategory = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button_AddNewCategory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel_dataCategoryList.SuspendLayout();
@@ -234,6 +234,34 @@
             this.dataGridView_CategoryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_CategoryList.Size = new System.Drawing.Size(470, 253);
             this.dataGridView_CategoryList.TabIndex = 0;
+            this.dataGridView_CategoryList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CategoryList_CellContentClick);
+            // 
+            // colSelect
+            // 
+            this.colSelect.HeaderText = "Select";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.Width = 70;
+            // 
+            // col_IDCategory
+            // 
+            this.col_IDCategory.HeaderText = "ID";
+            this.col_IDCategory.MinimumWidth = 10;
+            this.col_IDCategory.Name = "col_IDCategory";
+            this.col_IDCategory.Width = 60;
+            // 
+            // col_CategoryType
+            // 
+            this.col_CategoryType.HeaderText = "Type";
+            this.col_CategoryType.MinimumWidth = 10;
+            this.col_CategoryType.Name = "col_CategoryType";
+            this.col_CategoryType.Width = 150;
+            // 
+            // col_CategoryName
+            // 
+            this.col_CategoryName.HeaderText = "Name";
+            this.col_CategoryName.MinimumWidth = 10;
+            this.col_CategoryName.Name = "col_CategoryName";
+            this.col_CategoryName.Width = 200;
             // 
             // btn_deleteCategory
             // 
@@ -275,33 +303,6 @@
             this.button_AddNewCategory.Text = "+ Add New Category";
             this.button_AddNewCategory.UseVisualStyleBackColor = false;
             this.button_AddNewCategory.Click += new System.EventHandler(this.btn_AddNewCategory_Click);
-            // 
-            // colSelect
-            // 
-            this.colSelect.HeaderText = "Select";
-            this.colSelect.Name = "colSelect";
-            this.colSelect.Width = 70;
-            // 
-            // col_IDCategory
-            // 
-            this.col_IDCategory.HeaderText = "ID";
-            this.col_IDCategory.MinimumWidth = 10;
-            this.col_IDCategory.Name = "col_IDCategory";
-            this.col_IDCategory.Width = 60;
-            // 
-            // col_CategoryType
-            // 
-            this.col_CategoryType.HeaderText = "Type";
-            this.col_CategoryType.MinimumWidth = 10;
-            this.col_CategoryType.Name = "col_CategoryType";
-            this.col_CategoryType.Width = 150;
-            // 
-            // col_CategoryName
-            // 
-            this.col_CategoryName.HeaderText = "Name";
-            this.col_CategoryName.MinimumWidth = 10;
-            this.col_CategoryName.Name = "col_CategoryName";
-            this.col_CategoryName.Width = 200;
             // 
             // CategoryListForm
             // 

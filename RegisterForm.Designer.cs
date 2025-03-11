@@ -44,6 +44,9 @@
             this.register_confirm_password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.register_show_password = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBox_Currency = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -90,7 +93,7 @@
             // register_username
             // 
             this.register_username.Font = new System.Drawing.Font("Lucida Sans", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register_username.Location = new System.Drawing.Point(326, 191);
+            this.register_username.Location = new System.Drawing.Point(326, 129);
             this.register_username.Margin = new System.Windows.Forms.Padding(2);
             this.register_username.Name = "register_username";
             this.register_username.Size = new System.Drawing.Size(290, 23);
@@ -102,7 +105,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.label4.Location = new System.Drawing.Point(323, 157);
+            this.label4.Location = new System.Drawing.Point(323, 102);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 25);
@@ -114,7 +117,7 @@
             this.signin_label.AutoSize = true;
             this.signin_label.Font = new System.Drawing.Font("Montserrat SemiBold", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signin_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.signin_label.Location = new System.Drawing.Point(322, 101);
+            this.signin_label.Location = new System.Drawing.Point(322, 57);
             this.signin_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.signin_label.Name = "signin_label";
             this.signin_label.Size = new System.Drawing.Size(128, 34);
@@ -235,12 +238,58 @@
             this.register_show_password.UseVisualStyleBackColor = true;
             this.register_show_password.CheckedChanged += new System.EventHandler(this.register_show_password_CheckedChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.label3.Location = new System.Drawing.Point(323, 167);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 25);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Choose a currency";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.label6.Location = new System.Drawing.Point(423, 200);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(204, 17);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "This is permanent and won\'t change";
+            // 
+            // listBox_Currency
+            // 
+            this.listBox_Currency.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox_Currency.FormattingEnabled = true;
+            this.listBox_Currency.ItemHeight = 18;
+            this.listBox_Currency.Items.AddRange(new object[] {
+            "EUR",
+            "SEK",
+            "USD",
+            "MXN",
+            "GBP",
+            "COP",
+            "ARS"});
+            this.listBox_Currency.Location = new System.Drawing.Point(331, 198);
+            this.listBox_Currency.Name = "listBox_Currency";
+            this.listBox_Currency.Size = new System.Drawing.Size(87, 22);
+            this.listBox_Currency.TabIndex = 24;
+            this.listBox_Currency.SelectedIndexChanged += new System.EventHandler(this.listBox_Currency_SelectedIndexChanged);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(626, 490);
+            this.Controls.Add(this.listBox_Currency);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.register_show_password);
             this.Controls.Add(this.register_confirm_password);
             this.Controls.Add(this.label1);
@@ -281,5 +330,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox register_show_password;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox listBox_Currency;
     }
 }

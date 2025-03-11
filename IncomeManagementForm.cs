@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace IncomeExpensesTrackingSystem
@@ -13,38 +9,60 @@ namespace IncomeExpensesTrackingSystem
     public partial class IncomeManagementForm : Form
     {
         private string currentUser;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
+
         public IncomeManagementForm(string user)
         {
             InitializeComponent();
             currentUser = user;
+            LoadIncomeData(); // Load income data when the form is opened
+        }
+
+        private void LoadIncomeData()
+        {
+            dataGridIncome.Rows.Clear(); // Clear existing rows before adding new data
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT IncomeID, IncomeDate, CategoryName, Amount, Description FROM Incomes WHERE UserID = (SELECT UserID FROM Users WHERE Username = @Username)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", currentUser);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            dataGridIncome.Rows.Add(false,
+                                                    reader["IncomeID"].ToString(),
+                                                    Convert.ToDateTime(reader["IncomeDate"]).ToString("yyyy-MM-dd"),
+                                                    reader["CategoryName"].ToString(),
+                                                    reader["Amount"].ToString(),
+                                                    "USD", // 🔹 Currency column (update later if needed)
+                                                    reader["Description"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading income data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void IncomeManagementForm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void close_Click_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dataGridIncome_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            LoadIncomeData(); // Ensure the data is loaded when the form opens
         }
 
         private void btnAddNewIncome_Click(object sender, EventArgs e)
         {
             AddNewIncomeForm incomeForm = new AddNewIncomeForm(currentUser);
             incomeForm.ShowDialog();
-
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            LoadIncomeData(); // Refresh the table after adding an income
         }
 
         private void btnEditSelected_Click(object sender, EventArgs e)
@@ -55,15 +73,12 @@ namespace IncomeExpensesTrackingSystem
 
                 AddNewIncomeForm editForm = new AddNewIncomeForm(currentUser, selectedID);
                 editForm.Show();
-                this.Hide(); 
             }
             else
             {
                 MessageBox.Show("Please select an income record to edit.", "Edit Income", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
 
         private void btnDeleteSelected_Click(object sender, EventArgs e)
         {
@@ -73,8 +88,28 @@ namespace IncomeExpensesTrackingSystem
                                                              "Delete Income", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirmDelete == DialogResult.Yes)
                 {
-                    // Aquí va la lógica para eliminar el registro de la base de datos
-                    MessageBox.Show("Income record deleted successfully.", "Delete Income", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM Incomes WHERE IncomeID = @IncomeID";
+
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                string selectedID = dataGridIncome.SelectedRows[0].Cells["col_IdTransactionIncome"].Value.ToString();
+                                cmd.Parameters.AddWithValue("@IncomeID", selectedID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            MessageBox.Show("Income record deleted successfully.", "Delete Income", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadIncomeData(); // Refresh data after deletion
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error deleting income record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
             else
@@ -85,18 +120,18 @@ namespace IncomeExpensesTrackingSystem
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Export to Excel functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void close_Click_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
-            MainForm main = new MainForm(currentUser); 
+            this.Hide();
+            MainForm main = new MainForm(currentUser);
             main.Show();
         }
     }
