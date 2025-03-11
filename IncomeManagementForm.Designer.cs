@@ -30,7 +30,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomeManagementForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Label();
             this.close_Click = new System.Windows.Forms.Label();
@@ -38,18 +38,18 @@
             this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridIncome = new System.Windows.Forms.DataGridView();
-            this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.exportIncome = new System.Windows.Forms.Button();
+            this.deleteIncome = new System.Windows.Forms.Button();
+            this.editIncome = new System.Windows.Forms.Button();
+            this.AddNewIncome = new System.Windows.Forms.Button();
+            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_IdTransactionIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.exportIncome = new System.Windows.Forms.Button();
-            this.deleteIncome = new System.Windows.Forms.Button();
-            this.editIncome = new System.Windows.Forms.Button();
-            this.AddNewIncome = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.leftCornerLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(734, 52);
             this.panel1.TabIndex = 0;
@@ -127,7 +127,7 @@
             // 
             this.panel2.Controls.Add(this.dataGridIncome);
             this.panel2.Location = new System.Drawing.Point(34, 133);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(658, 287);
             this.panel2.TabIndex = 2;
@@ -138,14 +138,14 @@
             this.dataGridIncome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridIncome.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
             this.dataGridIncome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridIncome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridIncome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridIncome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridIncome.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSelect,
@@ -159,7 +159,7 @@
             this.dataGridIncome.EnableHeadersVisualStyles = false;
             this.dataGridIncome.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.dataGridIncome.Location = new System.Drawing.Point(0, 0);
-            this.dataGridIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridIncome.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridIncome.MultiSelect = false;
             this.dataGridIncome.Name = "dataGridIncome";
             this.dataGridIncome.ReadOnly = true;
@@ -170,63 +170,13 @@
             this.dataGridIncome.Size = new System.Drawing.Size(658, 287);
             this.dataGridIncome.TabIndex = 2;
             // 
-            // colSelect
-            // 
-            this.colSelect.HeaderText = "Select";
-            this.colSelect.MinimumWidth = 10;
-            this.colSelect.Name = "colSelect";
-            this.colSelect.ReadOnly = true;
-            // 
-            // col_IdTransactionIncome
-            // 
-            this.col_IdTransactionIncome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.col_IdTransactionIncome.HeaderText = "Transaction ID";
-            this.col_IdTransactionIncome.MinimumWidth = 10;
-            this.col_IdTransactionIncome.Name = "col_IdTransactionIncome";
-            this.col_IdTransactionIncome.ReadOnly = true;
-            // 
-            // colDate
-            // 
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 10;
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            // 
-            // colCategory
-            // 
-            this.colCategory.HeaderText = "Category";
-            this.colCategory.MinimumWidth = 10;
-            this.colCategory.Name = "colCategory";
-            this.colCategory.ReadOnly = true;
-            // 
-            // ColAmount
-            // 
-            this.ColAmount.HeaderText = "Amount";
-            this.ColAmount.MinimumWidth = 10;
-            this.ColAmount.Name = "ColAmount";
-            this.ColAmount.ReadOnly = true;
-            // 
-            // colCurrency
-            // 
-            this.colCurrency.HeaderText = "Currency";
-            this.colCurrency.MinimumWidth = 10;
-            this.colCurrency.Name = "colCurrency";
-            this.colCurrency.ReadOnly = true;
-            // 
-            // colDescription
-            // 
-            this.colDescription.HeaderText = "Description";
-            this.colDescription.MinimumWidth = 10;
-            this.colDescription.Name = "colDescription";
-            this.colDescription.ReadOnly = true;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.exportIncome);
             this.panel3.Controls.Add(this.deleteIncome);
             this.panel3.Controls.Add(this.editIncome);
             this.panel3.Location = new System.Drawing.Point(0, 423);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(734, 81);
             this.panel3.TabIndex = 3;
@@ -237,7 +187,7 @@
             this.exportIncome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exportIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportIncome.Location = new System.Drawing.Point(558, 9);
-            this.exportIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exportIncome.Margin = new System.Windows.Forms.Padding(2);
             this.exportIncome.Name = "exportIncome";
             this.exportIncome.Size = new System.Drawing.Size(134, 35);
             this.exportIncome.TabIndex = 6;
@@ -251,7 +201,7 @@
             this.deleteIncome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteIncome.Location = new System.Drawing.Point(124, 18);
-            this.deleteIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteIncome.Margin = new System.Windows.Forms.Padding(2);
             this.deleteIncome.Name = "deleteIncome";
             this.deleteIncome.Size = new System.Drawing.Size(71, 35);
             this.deleteIncome.TabIndex = 5;
@@ -265,7 +215,7 @@
             this.editIncome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editIncome.Location = new System.Drawing.Point(40, 18);
-            this.editIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editIncome.Margin = new System.Windows.Forms.Padding(2);
             this.editIncome.Name = "editIncome";
             this.editIncome.Size = new System.Drawing.Size(71, 35);
             this.editIncome.TabIndex = 4;
@@ -279,13 +229,69 @@
             this.AddNewIncome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewIncome.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewIncome.Location = new System.Drawing.Point(550, 79);
-            this.AddNewIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddNewIncome.Margin = new System.Windows.Forms.Padding(2);
             this.AddNewIncome.Name = "AddNewIncome";
             this.AddNewIncome.Size = new System.Drawing.Size(134, 35);
             this.AddNewIncome.TabIndex = 3;
             this.AddNewIncome.Text = "+ Add New Income";
             this.AddNewIncome.UseVisualStyleBackColor = false;
             this.AddNewIncome.Click += new System.EventHandler(this.btnAddNewIncome_Click);
+            // 
+            // colSelect
+            // 
+            this.colSelect.FillWeight = 71.06598F;
+            this.colSelect.HeaderText = "Select";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.ReadOnly = true;
+            // 
+            // col_IdTransactionIncome
+            // 
+            this.col_IdTransactionIncome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_IdTransactionIncome.FillWeight = 104.8223F;
+            this.col_IdTransactionIncome.HeaderText = "Transaction ID";
+            this.col_IdTransactionIncome.MinimumWidth = 10;
+            this.col_IdTransactionIncome.Name = "col_IdTransactionIncome";
+            this.col_IdTransactionIncome.ReadOnly = true;
+            // 
+            // colDate
+            // 
+            this.colDate.FillWeight = 104.8223F;
+            this.colDate.HeaderText = "Date";
+            this.colDate.MinimumWidth = 10;
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            // 
+            // colCategory
+            // 
+            this.colCategory.FillWeight = 104.8223F;
+            this.colCategory.HeaderText = "Category";
+            this.colCategory.MinimumWidth = 10;
+            this.colCategory.Name = "colCategory";
+            this.colCategory.ReadOnly = true;
+            // 
+            // ColAmount
+            // 
+            this.ColAmount.FillWeight = 104.8223F;
+            this.ColAmount.HeaderText = "Amount";
+            this.ColAmount.MinimumWidth = 10;
+            this.ColAmount.Name = "ColAmount";
+            this.ColAmount.ReadOnly = true;
+            // 
+            // colCurrency
+            // 
+            this.colCurrency.FillWeight = 104.8223F;
+            this.colCurrency.HeaderText = "Currency";
+            this.colCurrency.MinimumWidth = 10;
+            this.colCurrency.Name = "colCurrency";
+            this.colCurrency.ReadOnly = true;
+            // 
+            // colDescription
+            // 
+            this.colDescription.FillWeight = 104.8223F;
+            this.colDescription.HeaderText = "Description";
+            this.colDescription.MinimumWidth = 10;
+            this.colDescription.Name = "colDescription";
+            this.colDescription.ReadOnly = true;
             // 
             // IncomeManagementForm
             // 
@@ -299,7 +305,7 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "IncomeManagementForm";
             this.Text = "Income Management";
             this.Load += new System.EventHandler(this.IncomeManagementForm_Load);
@@ -321,18 +327,18 @@
         private System.Windows.Forms.Label close_Click;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridIncome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSelect;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_IdTransactionIncome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCurrency;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button AddNewIncome;
         private System.Windows.Forms.Button exportIncome;
         private System.Windows.Forms.Button deleteIncome;
         private System.Windows.Forms.Button editIncome;
         private System.Windows.Forms.Label btnClose;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_IdTransactionIncome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCurrency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
     }
 }
