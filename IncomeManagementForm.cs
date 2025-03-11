@@ -3,6 +3,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows.Forms;
+using ClosedXML.Excel; 
+using System.IO;
 
 namespace IncomeExpensesTrackingSystem
 {
@@ -54,7 +56,7 @@ namespace IncomeExpensesTrackingSystem
                                                     Convert.ToDateTime(reader["IncomeDate"]).ToString("yyyy-MM-dd"),
                                                     reader["CategoryName"].ToString(),
                                                     reader["Amount"].ToString(),
-                                                    "USD", // 🔹 Currency column (update later if needed)
+                                                    "USD", //  Currency column (update later if needed)
                                                     reader["Description"].ToString());
                         }
                     }
@@ -134,12 +136,65 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-        private void btnExportToExcel_Click(object sender, EventArgs e)
+  
+
+            private void btnExportToExcel_Click(object sender, EventArgs e)
+    {
+        if (dataGridIncome.Rows.Count == 0)
         {
-            MessageBox.Show("Export to Excel functionality is not implemented yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("No data available to export.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
         }
 
-        private void close_Click_Click(object sender, EventArgs e)
+        try
+        {
+            // Create a new Excel workbook
+            using (XLWorkbook workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Income Report");
+
+                // Write the headers
+                for (int col = 0; col < dataGridIncome.Columns.Count; col++)
+                {
+                    worksheet.Cell(1, col + 1).Value = dataGridIncome.Columns[col].HeaderText;
+                    worksheet.Cell(1, col + 1).Style.Font.Bold = true;
+                }
+
+                //  Write the data from DataGridView
+                for (int row = 0; row < dataGridIncome.Rows.Count; row++)
+                {
+                    for (int col = 0; col < dataGridIncome.Columns.Count; col++)
+                    {
+                        worksheet.Cell(row + 2, col + 1).Value = dataGridIncome.Rows[row].Cells[col].Value?.ToString();
+                    }
+                }
+
+                //  Auto-fit columns for better readability
+                worksheet.Columns().AdjustToContents();
+
+                //  Generate file path
+                string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string fileName = $"Income_Report_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                string filePath = Path.Combine(folderPath, fileName);
+
+                //  Save the Excel file
+                workbook.SaveAs(filePath);
+
+                //  Confirmation message
+                MessageBox.Show($"Export successful!\nFile saved at:\n{filePath}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //  Open the Excel file automatically
+                System.Diagnostics.Process.Start(filePath);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error exporting to Excel: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+
+    private void close_Click_Click(object sender, EventArgs e)
         {
             this.Close();
         }
