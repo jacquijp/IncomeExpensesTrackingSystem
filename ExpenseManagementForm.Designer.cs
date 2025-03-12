@@ -38,17 +38,17 @@
             this.btnAddExpense = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridExpenses = new System.Windows.Forms.DataGridView();
-            this.colSelect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnExportExpenses = new System.Windows.Forms.Button();
+            this.btnDeleteExpense = new System.Windows.Forms.Button();
+            this.btnEditExpense = new System.Windows.Forms.Button();
+            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colExpenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnExportExpenses = new System.Windows.Forms.Button();
-            this.btnDeleteExpense = new System.Windows.Forms.Button();
-            this.btnEditExpense = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.leftCornerLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(720, 52);
             this.panel1.TabIndex = 1;
@@ -110,7 +110,6 @@
             this.label_expensesManagement.Size = new System.Drawing.Size(186, 24);
             this.label_expensesManagement.TabIndex = 2;
             this.label_expensesManagement.Text = "Expenses Managment";
-            this.label_expensesManagement.Click += new System.EventHandler(this.label_expensesManagement_Click);
             // 
             // leftCornerLogo
             // 
@@ -128,7 +127,7 @@
             // 
             this.panel2.Controls.Add(this.btnAddExpense);
             this.panel2.Location = new System.Drawing.Point(496, 55);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(218, 68);
             this.panel2.TabIndex = 2;
@@ -140,7 +139,7 @@
             this.btnAddExpense.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnAddExpense.Location = new System.Drawing.Point(42, 27);
-            this.btnAddExpense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddExpense.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddExpense.Name = "btnAddExpense";
             this.btnAddExpense.Size = new System.Drawing.Size(153, 35);
             this.btnAddExpense.TabIndex = 4;
@@ -152,7 +151,7 @@
             // 
             this.panel3.Controls.Add(this.dataGridExpenses);
             this.panel3.Location = new System.Drawing.Point(42, 149);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(650, 241);
             this.panel3.TabIndex = 3;
@@ -172,7 +171,7 @@
             this.colDescription});
             this.dataGridExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridExpenses.Location = new System.Drawing.Point(0, 0);
-            this.dataGridExpenses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridExpenses.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridExpenses.Name = "dataGridExpenses";
             this.dataGridExpenses.RowHeadersVisible = false;
             this.dataGridExpenses.RowHeadersWidth = 82;
@@ -181,68 +180,13 @@
             this.dataGridExpenses.Size = new System.Drawing.Size(650, 241);
             this.dataGridExpenses.TabIndex = 0;
             // 
-            // colSelect
-            // 
-            this.colSelect.HeaderText = "Select";
-            this.colSelect.MinimumWidth = 10;
-            this.colSelect.Name = "colSelect";
-            this.colSelect.Width = 200;
-            // 
-            // colExpenseID
-            // 
-            this.colExpenseID.HeaderText = "ID";
-            this.colExpenseID.MinimumWidth = 10;
-            this.colExpenseID.Name = "colExpenseID";
-            this.colExpenseID.ReadOnly = true;
-            this.colExpenseID.Width = 200;
-            // 
-            // colDate
-            // 
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 10;
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            this.colDate.Width = 200;
-            // 
-            // colCategory
-            // 
-            this.colCategory.HeaderText = "Category";
-            this.colCategory.MinimumWidth = 10;
-            this.colCategory.Name = "colCategory";
-            this.colCategory.ReadOnly = true;
-            this.colCategory.Width = 200;
-            // 
-            // colAmount
-            // 
-            this.colAmount.HeaderText = "Amount";
-            this.colAmount.MinimumWidth = 10;
-            this.colAmount.Name = "colAmount";
-            this.colAmount.ReadOnly = true;
-            this.colAmount.Width = 200;
-            // 
-            // colCurrency
-            // 
-            this.colCurrency.HeaderText = "Currency";
-            this.colCurrency.MinimumWidth = 10;
-            this.colCurrency.Name = "colCurrency";
-            this.colCurrency.ReadOnly = true;
-            this.colCurrency.Width = 200;
-            // 
-            // colDescription
-            // 
-            this.colDescription.HeaderText = "Description";
-            this.colDescription.MinimumWidth = 10;
-            this.colDescription.Name = "colDescription";
-            this.colDescription.ReadOnly = true;
-            this.colDescription.Width = 200;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.btnExportExpenses);
             this.panel4.Controls.Add(this.btnDeleteExpense);
             this.panel4.Controls.Add(this.btnEditExpense);
             this.panel4.Location = new System.Drawing.Point(38, 402);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(668, 81);
             this.panel4.TabIndex = 3;
@@ -254,7 +198,7 @@
             this.btnExportExpenses.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportExpenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnExportExpenses.Location = new System.Drawing.Point(517, 18);
-            this.btnExportExpenses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportExpenses.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportExpenses.Name = "btnExportExpenses";
             this.btnExportExpenses.Size = new System.Drawing.Size(134, 35);
             this.btnExportExpenses.TabIndex = 9;
@@ -269,7 +213,7 @@
             this.btnDeleteExpense.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnDeleteExpense.Location = new System.Drawing.Point(88, 27);
-            this.btnDeleteExpense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteExpense.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteExpense.Name = "btnDeleteExpense";
             this.btnDeleteExpense.Size = new System.Drawing.Size(71, 35);
             this.btnDeleteExpense.TabIndex = 8;
@@ -284,13 +228,70 @@
             this.btnEditExpense.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnEditExpense.Location = new System.Drawing.Point(4, 27);
-            this.btnEditExpense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditExpense.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditExpense.Name = "btnEditExpense";
             this.btnEditExpense.Size = new System.Drawing.Size(71, 35);
             this.btnEditExpense.TabIndex = 7;
             this.btnEditExpense.Text = "Edit ";
             this.btnEditExpense.UseVisualStyleBackColor = false;
             this.btnEditExpense.Click += new System.EventHandler(this.btnEditExpense_Click);
+            // 
+            // colSelect
+            // 
+            this.colSelect.HeaderText = "Select";
+            this.colSelect.MinimumWidth = 10;
+            this.colSelect.Name = "colSelect";
+            this.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSelect.Width = 60;
+            // 
+            // colExpenseID
+            // 
+            this.colExpenseID.HeaderText = "ID";
+            this.colExpenseID.MinimumWidth = 10;
+            this.colExpenseID.Name = "colExpenseID";
+            this.colExpenseID.ReadOnly = true;
+            this.colExpenseID.Width = 60;
+            // 
+            // colDate
+            // 
+            this.colDate.HeaderText = "Date";
+            this.colDate.MinimumWidth = 10;
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            this.colDate.Width = 80;
+            // 
+            // colCategory
+            // 
+            this.colCategory.HeaderText = "Category";
+            this.colCategory.MinimumWidth = 10;
+            this.colCategory.Name = "colCategory";
+            this.colCategory.ReadOnly = true;
+            this.colCategory.Width = 120;
+            // 
+            // colAmount
+            // 
+            this.colAmount.HeaderText = "Amount";
+            this.colAmount.MinimumWidth = 10;
+            this.colAmount.Name = "colAmount";
+            this.colAmount.ReadOnly = true;
+            this.colAmount.Width = 90;
+            // 
+            // colCurrency
+            // 
+            this.colCurrency.HeaderText = "Currency";
+            this.colCurrency.MinimumWidth = 10;
+            this.colCurrency.Name = "colCurrency";
+            this.colCurrency.ReadOnly = true;
+            this.colCurrency.Width = 70;
+            // 
+            // colDescription
+            // 
+            this.colDescription.HeaderText = "Description";
+            this.colDescription.MinimumWidth = 10;
+            this.colDescription.Name = "colDescription";
+            this.colDescription.ReadOnly = true;
+            this.colDescription.Width = 120;
             // 
             // ExpenseManagementForm
             // 
@@ -303,7 +304,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ExpenseManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExpenseManagementForm";
@@ -334,7 +335,7 @@
         private System.Windows.Forms.Button btnDeleteExpense;
         private System.Windows.Forms.Button btnEditExpense;
         private System.Windows.Forms.DataGridView dataGridExpenses;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSelect;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn colExpenseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;

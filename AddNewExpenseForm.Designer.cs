@@ -242,14 +242,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddNewExpenseForm";
             this.Text = "AddNewExpenseForm";
-            this.Load += new System.EventHandler(this.AddNewExpenseForm_Load);
+            //this.Load += new System.EventHandler(this.AddNewExpenseForm_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.ResumeLayout(false);
+            this.ResumeLayout(false); 
 
         }
 

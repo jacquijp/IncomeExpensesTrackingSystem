@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class EditExpenseForm : Form
     {
-        private DataGridViewRow selectedRow; // Store the selected expense
+        private DataGridViewRow selectedRow; // Stores the selected expense row
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
 
-        // Constructor that receives the selected row from the Expense Management table
         public EditExpenseForm(DataGridViewRow row)
         {
             InitializeComponent();
@@ -26,17 +28,37 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-        // Save Edited Expense
+        // Save Edited Expense to the Database
         private void btnSaveEditExpense_Click(object sender, EventArgs e)
         {
-            if (ValidateFields())
-            {
-                selectedRow.Cells["colDate"].Value = datePickerExpense.Value.ToShortDateString();
-                selectedRow.Cells["colAmount"].Value = textBoxAmount.Text;
-                selectedRow.Cells["colDescription"].Value = textBoxDescription.Text;
+            if (!ValidateFields()) return;
 
-                MessageBox.Show("Expense updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+            string expenseId = selectedRow.Cells["colExpenseID"].Value.ToString();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE Expenses SET ExpenseDate = @Date, Amount = @Amount, Description = @Description WHERE ExpenseID = @ExpenseID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Date", datePickerExpense.Value);
+                        cmd.Parameters.AddWithValue("@Amount", Convert.ToDecimal(textBoxAmount.Text));
+                        cmd.Parameters.AddWithValue("@Description", textBoxDescription.Text);
+                        cmd.Parameters.AddWithValue("@ExpenseID", expenseId);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Expense updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating expense: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -48,6 +70,13 @@ namespace IncomeExpensesTrackingSystem
                 MessageBox.Show("Please enter an amount.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
+            if (!decimal.TryParse(textBoxAmount.Text, out _))
+            {
+                MessageBox.Show("Invalid amount format. Please enter a valid number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             return true;
         }
 
