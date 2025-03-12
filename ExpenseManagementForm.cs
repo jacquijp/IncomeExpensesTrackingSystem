@@ -5,8 +5,6 @@ using System.Configuration;
 using System.Windows.Forms;
 using ClosedXML.Excel;
 using System.IO;
-using OfficeOpenXml;
-
 
 namespace IncomeExpensesTrackingSystem
 {
@@ -22,9 +20,9 @@ namespace IncomeExpensesTrackingSystem
             LoadExpenses();
 
             // Set DataGridView default styles
-            dataGridExpenses.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81); // Dark gray text
-            dataGridExpenses.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(243, 244, 246); // Light gray background
-            dataGridExpenses.GridColor = System.Drawing.Color.FromArgb(10, 61, 98); // Blue grid lines
+            dataGridExpenses.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            dataGridExpenses.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(243, 244, 246);
+            dataGridExpenses.GridColor = System.Drawing.Color.FromArgb(10, 61, 98);
 
             // Set selection colors
             dataGridExpenses.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
@@ -81,28 +79,26 @@ namespace IncomeExpensesTrackingSystem
         {
             AddNewExpenseForm addExpenseForm = new AddNewExpenseForm(currentUser);
             addExpenseForm.ShowDialog();
-            LoadExpenses(); // Refresh data after adding a new expense
+            LoadExpenses();
         }
-
 
         // Open Edit Expense form
         private void btnEditExpense_Click(object sender, EventArgs e)
         {
-            if (dataGridExpenses.SelectedRows.Count > 0) // Ensure a row is selected
+            if (dataGridExpenses.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridExpenses.SelectedRows[0]; // Define selectedRow here
+                DataGridViewRow selectedRow = dataGridExpenses.SelectedRows[0];
 
                 EditExpenseForm editForm = new EditExpenseForm(selectedRow);
                 editForm.ShowDialog();
 
-                LoadExpenses(); // Refresh data after editing
+                LoadExpenses();
             }
             else
             {
                 MessageBox.Show("Please select an expense to edit.", "Edit Expense", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
 
         // Delete selected expense record
         private void btnDeleteExpense_Click(object sender, EventArgs e)
@@ -143,58 +139,61 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
-        // Export expense data to Excel
+        // Export expense data to Excel 
         private void btnExportExpenses_Click(object sender, EventArgs e)
         {
             if (dataGridExpenses.Rows.Count == 0)
             {
-                MessageBox.Show("No expense data to export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No data available to export.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                SaveFileDialog saveFileDialog = new SaveFileDialog
+                // Create a new Excel workbook
+                using (XLWorkbook workbook = new XLWorkbook())
                 {
-                    Filter = "Excel Files|*.xlsx",
-                    Title = "Save Expense Data"
-                };
+                    var worksheet = workbook.Worksheets.Add("Expense Report");
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    using (var package = new ExcelPackage())
+                    // Write the headers
+                    for (int col = 0; col < dataGridExpenses.Columns.Count; col++)
                     {
-                        ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Required for EPPlus
-
-                        var worksheet = package.Workbook.Worksheets.Add("Expenses");
-
-                        // Add headers
-                        for (int col = 0; col < dataGridExpenses.Columns.Count; col++)
-                        {
-                            worksheet.Cells[1, col + 1].Value = dataGridExpenses.Columns[col].HeaderText;
-                        }
-
-                        // Add data
-                        for (int row = 0; row < dataGridExpenses.Rows.Count; row++)
-                        {
-                            for (int col = 0; col < dataGridExpenses.Columns.Count; col++)
-                            {
-                                worksheet.Cells[row + 2, col + 1].Value = dataGridExpenses.Rows[row].Cells[col].Value?.ToString();
-                            }
-                        }
-
-                        package.SaveAs(new System.IO.FileInfo(saveFileDialog.FileName));
+                        worksheet.Cell(1, col + 1).Value = dataGridExpenses.Columns[col].HeaderText;
+                        worksheet.Cell(1, col + 1).Style.Font.Bold = true;
                     }
 
-                    MessageBox.Show("Expense data exported successfully.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Write the data from DataGridView
+                    for (int row = 0; row < dataGridExpenses.Rows.Count; row++)
+                    {
+                        for (int col = 0; col < dataGridExpenses.Columns.Count; col++)
+                        {
+                            worksheet.Cell(row + 2, col + 1).Value = dataGridExpenses.Rows[row].Cells[col].Value?.ToString();
+                        }
+                    }
+
+                    // Auto-fit columns for better readability
+                    worksheet.Columns().AdjustToContents();
+
+                    // Generate file path
+                    string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    string fileName = $"Expense_Report_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                    string filePath = Path.Combine(folderPath, fileName);
+
+                    // Save the Excel file
+                    workbook.SaveAs(filePath);
+
+                    // Confirmation message
+                    MessageBox.Show($"Export successful!\nFile saved at:\n{filePath}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Open the Excel file automatically
+                    System.Diagnostics.Process.Start(filePath);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error exporting to Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error exporting to Excel: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
