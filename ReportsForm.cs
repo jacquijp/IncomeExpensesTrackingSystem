@@ -42,7 +42,7 @@ namespace IncomeExpensesTrackingSystem
         }
 
         // Generate the report in Excel
-        private void btnGenerateReport_Click(object sender, EventArgs e)
+        private void btnGenerateReport_Click_1(object sender, EventArgs e)
         {
             // Validate date range
             if (dateTimePickerFrom.Value > dateTimePickerTo.Value)
@@ -169,5 +169,11 @@ namespace IncomeExpensesTrackingSystem
         {
             // Not used
         }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
