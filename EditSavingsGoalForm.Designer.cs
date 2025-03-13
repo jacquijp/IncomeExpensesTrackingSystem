@@ -85,7 +85,7 @@
             this.label_editSavings.Size = new System.Drawing.Size(270, 62);
             this.label_editSavings.TabIndex = 1;
             this.label_editSavings.Text = "Edit Savings Goal";
-            this.label_editSavings.Click += new System.EventHandler(this.label_editSavings_Click);
+            //this.label_editSavings.Click += new System.EventHandler(this.label_editSavings_Click);
             // 
             // panel1
             // 
@@ -185,7 +185,7 @@
             this.btnCancelEditSaving.TabIndex = 10;
             this.btnCancelEditSaving.Text = "Cancel";
             this.btnCancelEditSaving.UseVisualStyleBackColor = false;
-            this.btnCancelEditSaving.Click += new System.EventHandler(this.btnCancelSavings);
+            //this.btnCancelEditSaving.Click += new System.EventHandler(this.btnCancelSavings);
             // 
             // btnSaveEditSaving
             // 
@@ -227,7 +227,7 @@
             this.Name = "EditSavingsGoalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditSavingsGoalForm";
-            this.Load += new System.EventHandler(this.EditSavingsGoalForm_Load);
+            //this.Load += new System.EventHandler(this.EditSavingsGoalForm_Load);
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
             this.panel1.ResumeLayout(false);
