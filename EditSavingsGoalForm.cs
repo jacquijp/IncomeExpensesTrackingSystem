@@ -64,12 +64,12 @@ namespace IncomeExpensesTrackingSystem
        
         private void close_Click_Click(object sender, EventArgs e)
         {
-            this.Close(); // x label
+            this.Close(); 
         }
 
         private void btnCancelSavings(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

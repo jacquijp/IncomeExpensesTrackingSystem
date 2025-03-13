@@ -257,7 +257,7 @@
             this.colSavingID.MinimumWidth = 10;
             this.colSavingID.Name = "colSavingID";
             this.colSavingID.ReadOnly = true;
-            this.colSavingID.Width = 90;
+            this.colSavingID.Width = 80;
             // 
             // colConcept
             // 
@@ -265,6 +265,7 @@
             this.colConcept.MinimumWidth = 10;
             this.colConcept.Name = "colConcept";
             this.colConcept.ReadOnly = true;
+            this.colConcept.Width = 110;
             // 
             // colStartDate
             // 
@@ -280,6 +281,7 @@
             this.colGoal.MinimumWidth = 10;
             this.colGoal.Name = "colGoal";
             this.colGoal.ReadOnly = true;
+            this.colGoal.Width = 140;
             // 
             // colDeposit
             // 
@@ -287,6 +289,7 @@
             this.colDeposit.MinimumWidth = 10;
             this.colDeposit.Name = "colDeposit";
             this.colDeposit.ReadOnly = true;
+            this.colDeposit.Width = 200;
             // 
             // colCurrency
             // 
@@ -302,6 +305,7 @@
             this.colProgress.MinimumWidth = 10;
             this.colProgress.Name = "colProgress";
             this.colProgress.ReadOnly = true;
+            this.colProgress.Width = 200;
             // 
             // SavingsManagementForm
             // 

@@ -133,19 +133,21 @@
             // 
             // txtNewSavingGoal
             // 
+            this.txtNewSavingGoal.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewSavingGoal.Location = new System.Drawing.Point(230, 179);
             this.txtNewSavingGoal.MaxLength = 10;
             this.txtNewSavingGoal.Name = "txtNewSavingGoal";
-            this.txtNewSavingGoal.Size = new System.Drawing.Size(270, 31);
+            this.txtNewSavingGoal.Size = new System.Drawing.Size(540, 66);
             this.txtNewSavingGoal.TabIndex = 27;
             // 
             // dateNewSaving
             // 
             this.dateNewSaving.CalendarFont = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNewSaving.Font = new System.Drawing.Font("Montserrat", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNewSaving.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateNewSaving.Location = new System.Drawing.Point(230, 23);
             this.dateNewSaving.Name = "dateNewSaving";
-            this.dateNewSaving.Size = new System.Drawing.Size(196, 31);
+            this.dateNewSaving.Size = new System.Drawing.Size(392, 66);
             this.dateNewSaving.TabIndex = 25;
             // 
             // labelInitialDeposit
