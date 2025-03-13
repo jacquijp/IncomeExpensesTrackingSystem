@@ -32,8 +32,9 @@
             this.header_newIncome = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label_newSavings = new System.Windows.Forms.Label();
+            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtNewSavingConcept = new System.Windows.Forms.TextBox();
             this.txtInitialDeposit = new System.Windows.Forms.TextBox();
             this.txtNewSavingGoal = new System.Windows.Forms.TextBox();
             this.dateNewSaving = new System.Windows.Forms.DateTimePicker();
@@ -41,14 +42,13 @@
             this.labelGoal = new System.Windows.Forms.Label();
             this.labelConcept = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
-            this.txtNewSavingConcept = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelNewSaving = new System.Windows.Forms.Button();
             this.btnSaveNewSaving = new System.Windows.Forms.Button();
-            this.leftCornerLogo = new System.Windows.Forms.PictureBox();
             this.header_newIncome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // header_newIncome
@@ -74,6 +74,7 @@
             this.label2.Size = new System.Drawing.Size(34, 38);
             this.label2.TabIndex = 12;
             this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label_newSavings
             // 
@@ -86,6 +87,18 @@
             this.label_newSavings.Size = new System.Drawing.Size(279, 62);
             this.label_newSavings.TabIndex = 1;
             this.label_newSavings.Text = "New Savings Goal";
+            // 
+            // leftCornerLogo
+            // 
+            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
+            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
+            this.leftCornerLogo.Location = new System.Drawing.Point(9, 9);
+            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.leftCornerLogo.Name = "leftCornerLogo";
+            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
+            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.leftCornerLogo.TabIndex = 2;
+            this.leftCornerLogo.TabStop = false;
             // 
             // panel1
             // 
@@ -102,14 +115,13 @@
             this.panel1.Size = new System.Drawing.Size(1009, 360);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // txtNewSavingConcept
             // 
-            this.panel2.Controls.Add(this.btnCancelNewSaving);
-            this.panel2.Controls.Add(this.btnSaveNewSaving);
-            this.panel2.Location = new System.Drawing.Point(0, 502);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1033, 136);
-            this.panel2.TabIndex = 3;
+            this.txtNewSavingConcept.Location = new System.Drawing.Point(230, 104);
+            this.txtNewSavingConcept.MaxLength = 10;
+            this.txtNewSavingConcept.Name = "txtNewSavingConcept";
+            this.txtNewSavingConcept.Size = new System.Drawing.Size(377, 31);
+            this.txtNewSavingConcept.TabIndex = 29;
             // 
             // txtInitialDeposit
             // 
@@ -188,13 +200,14 @@
             this.labelDate.TabIndex = 21;
             this.labelDate.Text = "Date";
             // 
-            // txtNewSavingConcept
+            // panel2
             // 
-            this.txtNewSavingConcept.Location = new System.Drawing.Point(230, 104);
-            this.txtNewSavingConcept.MaxLength = 10;
-            this.txtNewSavingConcept.Name = "txtNewSavingConcept";
-            this.txtNewSavingConcept.Size = new System.Drawing.Size(377, 31);
-            this.txtNewSavingConcept.TabIndex = 29;
+            this.panel2.Controls.Add(this.btnCancelNewSaving);
+            this.panel2.Controls.Add(this.btnSaveNewSaving);
+            this.panel2.Location = new System.Drawing.Point(0, 502);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1033, 136);
+            this.panel2.TabIndex = 3;
             // 
             // btnCancelNewSaving
             // 
@@ -209,6 +222,7 @@
             this.btnCancelNewSaving.TabIndex = 10;
             this.btnCancelNewSaving.Text = "Cancel";
             this.btnCancelNewSaving.UseVisualStyleBackColor = false;
+            this.btnCancelNewSaving.Click += new System.EventHandler(this.btnCancelNewSaving_Click);
             // 
             // btnSaveNewSaving
             // 
@@ -223,18 +237,7 @@
             this.btnSaveNewSaving.TabIndex = 9;
             this.btnSaveNewSaving.Text = "Save";
             this.btnSaveNewSaving.UseVisualStyleBackColor = false;
-            // 
-            // leftCornerLogo
-            // 
-            this.leftCornerLogo.BackColor = System.Drawing.Color.Transparent;
-            this.leftCornerLogo.Image = ((System.Drawing.Image)(resources.GetObject("leftCornerLogo.Image")));
-            this.leftCornerLogo.Location = new System.Drawing.Point(9, 9);
-            this.leftCornerLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.leftCornerLogo.Name = "leftCornerLogo";
-            this.leftCornerLogo.Size = new System.Drawing.Size(51, 50);
-            this.leftCornerLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.leftCornerLogo.TabIndex = 2;
-            this.leftCornerLogo.TabStop = false;
+            this.btnSaveNewSaving.Click += new System.EventHandler(this.btnSaveNewSaving_Click);
             // 
             // AddNewSavingsGoalForm
             // 
@@ -249,13 +252,12 @@
             this.Name = "AddNewSavingsGoalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewSavingsGoalForm";
-            //this.Load += new System.EventHandler(this.AddNewSavingsGoalForm_Load);
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.leftCornerLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
