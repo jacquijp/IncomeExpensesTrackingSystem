@@ -43,6 +43,7 @@
             this.btnAddNewSaving = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colSavingID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colConcept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGoal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,7 +80,7 @@
             this.panel1.Controls.Add(this.leftCornerLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1436, 100);
             this.panel1.TabIndex = 1;
@@ -127,7 +128,7 @@
             // 
             this.panel2.Controls.Add(this.dataGridSavings);
             this.panel2.Location = new System.Drawing.Point(64, 296);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1288, 538);
             this.panel2.TabIndex = 2;
@@ -140,6 +141,7 @@
             this.dataGridSavings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSavings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSelect,
+            this.colSavingID,
             this.colConcept,
             this.colStartDate,
             this.colGoal,
@@ -148,7 +150,7 @@
             this.colProgress});
             this.dataGridSavings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridSavings.Location = new System.Drawing.Point(0, 0);
-            this.dataGridSavings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridSavings.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridSavings.Name = "dataGridSavings";
             this.dataGridSavings.ReadOnly = true;
             this.dataGridSavings.RowHeadersVisible = false;
@@ -166,7 +168,7 @@
             this.panel3.Controls.Add(this.btnDeleteSavings);
             this.panel3.Controls.Add(this.btnEditSavings);
             this.panel3.Location = new System.Drawing.Point(0, 862);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1436, 188);
             this.panel3.TabIndex = 3;
@@ -178,7 +180,7 @@
             this.btnExportSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnExportSavings.Location = new System.Drawing.Point(1114, 31);
-            this.btnExportSavings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportSavings.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportSavings.Name = "btnExportSavings";
             this.btnExportSavings.Size = new System.Drawing.Size(268, 67);
             this.btnExportSavings.TabIndex = 9;
@@ -193,7 +195,7 @@
             this.btnDeleteSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnDeleteSavings.Location = new System.Drawing.Point(248, 48);
-            this.btnDeleteSavings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteSavings.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSavings.Name = "btnDeleteSavings";
             this.btnDeleteSavings.Size = new System.Drawing.Size(142, 67);
             this.btnDeleteSavings.TabIndex = 8;
@@ -208,7 +210,7 @@
             this.btnEditSavings.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditSavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.btnEditSavings.Location = new System.Drawing.Point(76, 48);
-            this.btnEditSavings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditSavings.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditSavings.Name = "btnEditSavings";
             this.btnEditSavings.Size = new System.Drawing.Size(142, 67);
             this.btnEditSavings.TabIndex = 7;
@@ -223,7 +225,7 @@
             this.btnAddNewSaving.Font = new System.Drawing.Font("Montserrat SemiBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.btnAddNewSaving.Location = new System.Drawing.Point(1112, 33);
-            this.btnAddNewSaving.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddNewSaving.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNewSaving.Name = "btnAddNewSaving";
             this.btnAddNewSaving.Size = new System.Drawing.Size(268, 67);
             this.btnAddNewSaving.TabIndex = 11;
@@ -235,7 +237,7 @@
             // 
             this.panel4.Controls.Add(this.btnAddNewSaving);
             this.panel4.Location = new System.Drawing.Point(0, 119);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1436, 144);
             this.panel4.TabIndex = 4;
@@ -248,6 +250,14 @@
             this.colSelect.Name = "colSelect";
             this.colSelect.ReadOnly = true;
             this.colSelect.Width = 60;
+            // 
+            // colSavingID
+            // 
+            this.colSavingID.HeaderText = "Saving ID";
+            this.colSavingID.MinimumWidth = 10;
+            this.colSavingID.Name = "colSavingID";
+            this.colSavingID.ReadOnly = true;
+            this.colSavingID.Width = 90;
             // 
             // colConcept
             // 
@@ -292,7 +302,6 @@
             this.colProgress.MinimumWidth = 10;
             this.colProgress.Name = "colProgress";
             this.colProgress.ReadOnly = true;
-            this.colProgress.Width = 140;
             // 
             // SavingsManagementForm
             // 
@@ -305,7 +314,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SavingsManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SavingsManagementForm";
@@ -336,6 +345,7 @@
         private System.Windows.Forms.Button btnAddNewSaving;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSavingID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colConcept;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGoal;

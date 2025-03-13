@@ -14,6 +14,9 @@ namespace IncomeExpensesTrackingSystem
         {
             InitializeComponent();
             currentUser = user;
+
+            // Ensure max length for concept
+            txtNewSavingConcept.MaxLength = 255;
         }
 
         private void btnCancelNewSaving_Click(object sender, EventArgs e)
@@ -54,10 +57,12 @@ namespace IncomeExpensesTrackingSystem
             }
 
             // Ensure the concept does not exceed the max database limit
-            string savingConcept = txtNewSavingConcept.Text.Substring(0, Math.Min(txtNewSavingConcept.Text.Length, 255));
+            string savingConcept = txtNewSavingConcept.Text.Length > 255
+                ? txtNewSavingConcept.Text.Substring(0, 255)
+                : txtNewSavingConcept.Text;
 
-            // Calculate progress percentage
-            decimal progress = savingGoal > 0 ? (initialDeposit / savingGoal) * 100 : 0;
+            // Calculate progress percentage as decimal
+            decimal progressValue = savingGoal > 0 ? (initialDeposit / savingGoal) * 100 : 0;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -74,7 +79,7 @@ namespace IncomeExpensesTrackingSystem
                         cmd.Parameters.AddWithValue("@StartDate", dateNewSaving.Value);
                         cmd.Parameters.AddWithValue("@Goal", savingGoal);
                         cmd.Parameters.AddWithValue("@Deposit", initialDeposit);
-                        cmd.Parameters.AddWithValue("@Progress", progress);
+                        cmd.Parameters.AddWithValue("@Progress", progressValue); // Store as decimal
 
                         cmd.ExecuteNonQuery();
                     }

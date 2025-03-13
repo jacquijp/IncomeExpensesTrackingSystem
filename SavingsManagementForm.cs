@@ -30,8 +30,7 @@ namespace IncomeExpensesTrackingSystem
                 try
                 {
                     conn.Open();
-                    string query = "SELECT SavingID, Concept, StartDate, Goal, Deposit, Currency, Progress " +
-                                   "FROM Savings WHERE UserID = (SELECT UserID FROM Users WHERE Username = @Username)";
+                    string query = "SELECT SavingID, Concept, StartDate, Goal, Deposit, Currency, Progress FROM Savings WHERE UserID = (SELECT UserID FROM Users WHERE Username = @Username)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -40,14 +39,19 @@ namespace IncomeExpensesTrackingSystem
 
                         while (reader.Read())
                         {
-                            dataGridSavings.Rows.Add(false, // Checkbox column
-                                                     reader["SavingID"].ToString(),
-                                                     reader["Concept"].ToString(),
-                                                     Convert.ToDateTime(reader["StartDate"]).ToString("yyyy-MM-dd"),
-                                                     reader["Goal"].ToString(),
-                                                     reader["Deposit"].ToString(),
-                                                     reader["Currency"].ToString(),
-                                                     reader["Progress"].ToString());
+                            // Format progress with %
+                            string progressFormatted = $"{Convert.ToDecimal(reader["Progress"]):0.00}%";
+
+                            dataGridSavings.Rows.Add(
+                                false,  // Checkbox column
+                                reader["SavingID"].ToString(),
+                                reader["Concept"].ToString(),
+                                Convert.ToDateTime(reader["StartDate"]).ToString("yyyy-MM-dd"),
+                                reader["Goal"].ToString(),
+                                reader["Deposit"].ToString(),
+                                reader["Currency"].ToString(),
+                                progressFormatted  // Show progress with %
+                            );
                         }
                     }
                 }
@@ -57,6 +61,7 @@ namespace IncomeExpensesTrackingSystem
                 }
             }
         }
+
 
         // Open the Add New Savings form
         private void btnAddNewSaving_Click(object sender, EventArgs e)
