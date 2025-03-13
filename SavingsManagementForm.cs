@@ -1,51 +1,80 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Windows.Forms;
-using IncomeExpensesTrackingSystem;
+using ClosedXML.Excel;
+using System.IO;
 
 namespace IncomeExpensesTrackingSystem
 {
     public partial class SavingsManagementForm : Form
-
     {
         private string currentUser;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IncomeExpensesDB"].ConnectionString;
+
         public SavingsManagementForm(string user)
         {
             InitializeComponent();
-            LoadSavingsData(); // Load initial savings data into the DataGridView
             currentUser = user;
+            LoadSavingsData();
         }
 
+        // Load savings data into the DataGridView
         private void LoadSavingsData()
         {
-            // Testing: Load sample savings data
-            dataGridSavings.Rows.Add("1", "Vacation", "2024-01-01", "5000", "1000", "USD", "20%");
-            dataGridSavings.Rows.Add("2", "New Car", "2024-02-15", "15000", "3000", "USD", "20%");
-            dataGridSavings.Rows.Add("3", "Emergency Fund", "2023-10-10", "10000", "2500", "USD", "25%");
+            dataGridSavings.Rows.Clear();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT SavingID, Concept, StartDate, Goal, Deposit, Currency, Progress " +
+                                   "FROM Savings WHERE UserID = (SELECT UserID FROM Users WHERE Username = @Username)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", currentUser);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            dataGridSavings.Rows.Add(false, // Checkbox column
+                                                     reader["SavingID"].ToString(),
+                                                     reader["Concept"].ToString(),
+                                                     Convert.ToDateTime(reader["StartDate"]).ToString("yyyy-MM-dd"),
+                                                     reader["Goal"].ToString(),
+                                                     reader["Deposit"].ToString(),
+                                                     reader["Currency"].ToString(),
+                                                     reader["Progress"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading savings data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
+        // Open the Add New Savings form
         private void btnAddNewSaving_Click(object sender, EventArgs e)
         {
-            AddNewSavingsGoalForm newSavingForm = new AddNewSavingsGoalForm();
+            AddNewSavingsGoalForm newSavingForm = new AddNewSavingsGoalForm(currentUser);
             newSavingForm.ShowDialog();
+            LoadSavingsData();
         }
 
+        // Open the Edit Savings form
         private void btnEditSavings_Click(object sender, EventArgs e)
         {
             if (dataGridSavings.SelectedRows.Count > 0)
             {
-                // Get the selected row
                 DataGridViewRow selectedRow = dataGridSavings.SelectedRows[0];
-
-                // Open the EditSavingsGoalForm and pass the selected row
                 EditSavingsGoalForm editForm = new EditSavingsGoalForm(selectedRow);
                 editForm.ShowDialog();
+                LoadSavingsData();
             }
             else
             {
@@ -53,6 +82,7 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
+        // Delete selected savings goal
         private void btnDeleteSavings_Click(object sender, EventArgs e)
         {
             if (dataGridSavings.SelectedRows.Count > 0)
@@ -62,8 +92,28 @@ namespace IncomeExpensesTrackingSystem
 
                 if (confirm == DialogResult.Yes)
                 {
-                    dataGridSavings.Rows.RemoveAt(dataGridSavings.SelectedRows[0].Index);
-                    MessageBox.Show("Savings goal deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM Savings WHERE SavingID = @SavingID";
+
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                string selectedID = dataGridSavings.SelectedRows[0].Cells["colConcept"].Value.ToString();
+                                cmd.Parameters.AddWithValue("@SavingID", selectedID);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            MessageBox.Show("Savings goal deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadSavingsData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error deleting savings goal: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
             else
@@ -72,24 +122,50 @@ namespace IncomeExpensesTrackingSystem
             }
         }
 
+        // Export savings data to Excel
         private void btnExportSavings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Exporting to Excel... (Functionality to be implemented)", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+            if (dataGridSavings.Rows.Count == 0)
+            {
+                MessageBox.Show("No data available to export.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        private void close_Click_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+            try
+            {
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    var worksheet = workbook.Worksheets.Add("Savings Report");
 
-        private void dataGridSavings_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+                    // Write headers
+                    for (int col = 0; col < dataGridSavings.Columns.Count; col++)
+                    {
+                        worksheet.Cell(1, col + 1).Value = dataGridSavings.Columns[col].HeaderText;
+                        worksheet.Cell(1, col + 1).Style.Font.Bold = true;
+                    }
 
-        private void dataGridSavings_SelectionChanged(object sender, EventArgs e)
-        {
-            
+                    // Write data from DataGridView
+                    for (int row = 0; row < dataGridSavings.Rows.Count; row++)
+                    {
+                        for (int col = 0; col < dataGridSavings.Columns.Count; col++)
+                        {
+                            worksheet.Cell(row + 2, col + 1).Value = dataGridSavings.Rows[row].Cells[col].Value?.ToString();
+                        }
+                    }
+
+                    worksheet.Columns().AdjustToContents();
+                    string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    string fileName = $"Savings_Report_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                    string filePath = Path.Combine(folderPath, fileName);
+                    workbook.SaveAs(filePath);
+                    MessageBox.Show($"Export successful!\nFile saved at:\n{filePath}", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.Diagnostics.Process.Start(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting to Excel: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -98,5 +174,21 @@ namespace IncomeExpensesTrackingSystem
             MainForm main = new MainForm(currentUser);
             main.Show();
         }
+
+        private void dataGridSavings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+       
+        }
+
+        private void dataGridSavings_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel4_Paint(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

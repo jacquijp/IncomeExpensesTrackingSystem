@@ -249,7 +249,7 @@
             this.Name = "AddNewSavingsGoalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewSavingsGoalForm";
-            this.Load += new System.EventHandler(this.AddNewSavingsGoalForm_Load);
+            //this.Load += new System.EventHandler(this.AddNewSavingsGoalForm_Load);
             this.header_newIncome.ResumeLayout(false);
             this.header_newIncome.PerformLayout();
             this.panel1.ResumeLayout(false);
